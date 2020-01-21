@@ -1,7 +1,63 @@
 \usepackage{uwthesis}
-\usepackage{siunitx}
 
-\include{units}
+\usepackage[caption=false]{subfig}
+%\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{placeins}
+% defines table rules for professional looking tables
+\usepackage{booktabs}
+\usepackage{gensymb}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\usepackage{microtype}
+\usepackage{multirow, makecell}
+\usepackage[capitalise]{cleveref}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{siunitx}
+%\sisetup{detect-weight=true, detect-family=true}
+\sisetup{detect-all = true}
+\usepackage{xspace}
+\usepackage{comment}
+\usepackage{ragged2e}
+\usepackage{lineno}
+
+\newcommand{\Python}{\texttt{Python}}
+\newcommand{\MCEq}{\texttt{MCE{\scriptsize Q}}}
+\newcommand{\MMC}{\texttt{MMC}}
+\newcommand{\PROPOSAL}{\texttt{PROPOSAL}}
+\newcommand{\CORSIKA}{\texttt{CORSIKA}}
+\newcommand{\MUONGUN}{\texttt{MUONGUN}}
+\newcommand{\PHOTOSPLINE}{\texttt{PHOTOSPLINE}}
+\newcommand{\like}{\mathcal{L}}
+\newcommand{\likeSAY}{\mathcal{L}_{\rm Eff}}
+\newcommand{\pdfSxi}{S(\vec{x}_i)}
+\newcommand{\TS}{\mathrm{TS}}
+\newcommand{\Fermi}{\textit{Fermi}}
+\newcommand{\nuveto}{{\LARGE $\nu$}\texttt{eto}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\refeq}[1]{Eq.~(\ref{#1})}
+\newcommand{\refeqs}[2]{Eqs.~(\ref{#1})~and~(\ref{#2})}
+\newcommand{\refeqss}[3]{Eqs.~(\ref{#1}), (\ref{#2})~and~(\ref{#3})}
+\newcommand{\reffig}[1]{Fig.~\ref{#1}}
+\newcommand{\reffigs}[2]{Figs.~\ref{#1}~and~\ref{#2}}
+\newcommand{\refsec}[1]{Section~\ref{#1}}
+\newcommand{\refsecs}[5]{Sections~\ref{#1},~\ref{#2},~\ref{#3},~\ref{#4},~and~\ref{#5}}
+\newcommand{\refappsec}[1]{Appendix Section~\ref{#1}}
+\newcommand{\refapp}[1]{Appendix~\ref{#1}}
+\newcommand{\reftab}[1]{Table~\ref{#1}}
+\newcommand{\refref}[1]{Ref.~\cite{#1}}
+\newcommand{\refrefs}[2]{Refs.~\cite{#1}~and~\cite{#2}}
+
+\input{units}
+\input{tikz/mc_diagram/mc_diagram_preamble}
 
 \settitle{Precision measurements of the astrophysical neutrino flux}
 \setauthor{Austin Schneider}

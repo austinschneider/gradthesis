@@ -1,0 +1,78 @@
+\usepackage{tikz}
+\usepackage{environ}
+
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+    decorations.pathreplacing,decorations.pathmorphing,shapes,%
+    matrix,shapes.symbols,backgrounds,fit} % required in the preamble
+\usepackage{varwidth}
+
+\makeatletter
+\newsavebox{\measure@tikzpicture}
+\NewEnviron{scaletikzpicturetowidth}[1]{%
+  \def\tikz@width{#1}%
+  \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}%
+  \BODY
+  \end{lrbox}%
+  \pgfmathparse{#1/\wd\measure@tikzpicture}%
+  \edef\tikzscale{\pgfmathresult}%
+  \BODY
+}
+\makeatother
+
+\tikzset{
+	%Define standard arrow tip
+	>=stealth',
+	%Define style for boxes
+	box/.style={
+		rectangle,
+		rounded corners,
+		dashed,
+		draw=black, very thick,
+		minimum height=2em,
+		text centered,
+		execute at begin node={\begin{varwidth}{28em}},
+		execute at end node={\end{varwidth}}},
+	solidbox/.style={
+		rectangle,
+		rounded corners,
+		draw=black, very thick,
+		minimum height=2em,
+		text centered,
+		execute at begin node={\begin{varwidth}{28em}},
+			execute at end node={\end{varwidth}}},
+    bigsolidbox/.style={
+		rectangle,
+		rounded corners,
+		draw=black, very thick,
+		minimum height=6cm,
+		text centered,
+		execute at begin node={\begin{varwidth}{28em}},
+			execute at end node={\end{varwidth}}},
+	% Define arrow style
+	fw_arrow/.style={
+		->,
+		thick,
+		shorten <=2pt,
+		shorten >=2pt,},
+	bw_arrow/.style={
+		<-,
+		thick,
+		shorten <=2pt,
+		shorten >=2pt,}
+%	bigbox/.style={blue!50, thick, fill=blue!10, rounded corners, rectangle}
+}
+
+\definecolor{mc_gen_color}{RGB}{250,138,31}
+
+\definecolor{det_sim_color}{RGB}{227,66,55}
+
+\definecolor{llh_color}{RGB}{128,0,128}
+
+\tikzstyle{bigboxGeneration} = [draw=mc_gen_color!50, thick, fill=mc_gen_color!20, rounded corners, rectangle]
+
+\tikzstyle{bigboxDetector} = [draw=det_sim_color!50, thick, fill=det_sim_color!20, rounded corners, rectangle]
+
+\tikzstyle{bigboxAnalysis} = [draw=llh_color!50, thick, fill=llh_color!20, rounded corners, rectangle]
+   
+\newcommand{\cmark}{\text{\ding{51}}}
+\newcommand{\xmark}{\text{\ding{55}}}

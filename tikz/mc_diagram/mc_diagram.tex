@@ -1,0 +1,76 @@
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[node distance=1cm, auto,]
+
+%nodes
+\node[solidbox] (mc_generation) {\centering {\textbf MC generation} \\
+	\begin{center}
+		Signal $\sim$ PowerLaw($\gamma_g$) \\
+		Background  $\sim$ PowerLaw($\gamma_g^b$)
+	\end{center}
+};
+
+\node[solidbox, right=of mc_generation] (detector_simulation) {\centering {\textbf Detector simulation} \\
+    \begin{center}
+	Smearing to mimic\\ detector response.
+	\end{center}
+};
+
+\node[solidbox,right=of detector_simulation] (reweighting) {\centering {\textbf Reweighting} \\
+	Reweight MC to a physical\\  hypothesis $\vec\theta = (\Phi^{b},\gamma^b,\Phi,\Omega,\sigma)$
+	\begin{center}
+		Signal $\sim$ Gaussian($\Omega,\sigma$) \\
+		Background $\sim$ PowerLaw($\gamma^b$)
+	\end{center}
+};
+
+\node[solidbox,below=of reweighting] (mc_histogram) {\centering {\textbf Histogram MC} \\
+	Binned MC expectation.
+};
+
+\node[solidbox, below=of mc_generation] (data_generation) {\centering {\textbf Synthetic data generation} \\
+	Produce data according to\\ $\vec\theta_{\mathrm{true}} = (\Phi_t^{b},\gamma_t^b,\Phi_t,\Omega_t,\sigma_t)$
+	\begin{center}
+		Signal $\sim$ Gaussian($\Omega_t,\sigma_t$) \\
+		Background $\sim$ PowerLaw($\gamma_t^b$)
+	\end{center}
+};
+
+\node[solidbox, right=of data_generation] (data_detector_simulation) {\centering {\textbf Detector simulation} \\
+    \begin{center}
+	Smearing to mimic\\ detector response.
+	\end{center}
+};
+
+\node[solidbox,below=of mc_histogram] (data_histogram) {\centering {\textbf Histogram Data} \\
+	Binned synthetic data.
+};
+
+\node[circle, minimum size=1cm, color=black, draw=black, very thick, right=of data_histogram] (likelihood) {\centering {\textbf $\mathcal{L}(\vec\theta)$}
+};
+
+% arrows
+
+\draw [->,line width=1.5pt] (mc_generation) -- (detector_simulation);
+\draw [->,line width=1.5pt] (detector_simulation) -- (reweighting);
+\draw [->,line width=1.5pt] (reweighting) -- (mc_histogram);
+\draw [->,line width=1.5pt] (mc_histogram) -| (likelihood);
+
+\draw [->,line width=1.5pt] (data_generation) -- (data_detector_simulation);
+\draw [->,line width=1.5pt] (data_detector_simulation.east) |- ($(data_detector_simulation.east) + (1.2,0.0)$) |- (data_histogram.west);
+\draw [->,line width=1.5pt] (data_histogram) -- (likelihood);
+
+% boxes
+
+\begin{pgfonlayer}{background}
+  \node[bigboxGeneration] [fit = (mc_generation) (data_generation)] {};
+\end{pgfonlayer}
+
+\begin{pgfonlayer}{background}
+  \node[bigboxDetector] [fit = (detector_simulation) (data_detector_simulation)] {};
+\end{pgfonlayer}
+
+\begin{pgfonlayer}{background}
+  \node[bigboxAnalysis] [fit = (reweighting) (mc_histogram) (data_histogram) (likelihood)] {};
+\end{pgfonlayer}
+\end{tikzpicture}
+}% end resize box

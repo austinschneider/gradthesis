@@ -1,7 +1,10 @@
 \documentclass[oneside, letterpaper, 12pt]{memoir}
 \input{thesis-preamble}
 
+\linenumbers{}
+
 \begin{document}
+
 
 \frontmatter
 
@@ -13,6 +16,19 @@
 \uwabstract
 \cleardoublepage
 
+\section{Acknowledgements}
+
+
+\clearpage
+
+\maxtocdepth{subsection}
+\tableofcontents\clearpage
+\listoffigures\clearpage
+\listoftables\clearpage
+
+\mainmatter
+%\linenumbers
+
 \include{chapters/introduction}
 \include{chapters/icecube}
 \include{chapters/selection}
@@ -21,5 +37,8 @@
 \include{chapters/golem}
 \include{chapters/statistics}
 \include{chapters/results}
+
+\bibliographystyle{utcaps}
+\bibliography{thesis-citations}
 
 \end{document}
