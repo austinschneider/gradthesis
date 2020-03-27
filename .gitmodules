@@ -1,3 +1,9 @@
 [submodule "uwthesis"]
 	path = uwthesis
 	url = git@github.com:austinschneider/uwthesis.git
+[submodule "results/HESE_Final_Paper"]
+	path = results/HESE_Final_Paper
+	url = git@github.com:austinschneider/HESE_Final_Paper.git
+[submodule "results/mcllh_paper"]
+	path = results/mcllh_paper
+	url = git@github.com:austinschneider/mcllh_paper.git
