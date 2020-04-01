@@ -1,6 +1,6 @@
 \usepackage{uwthesis}
 
-\usepackage[caption=false]{subfig}
+%\usepackage[caption=false]{subfig}
 %\usepackage{subfigure}
 \usepackage{graphicx}
 \usepackage{bm}
@@ -25,6 +25,10 @@
 \usepackage{comment}
 \usepackage{ragged2e}
 \usepackage{lineno}
+\usepackage{subfiles}
+\usepackage{textcomp}
+\usepackage{rotating}
+\usepackage{subcaption}
 
 \newcommand{\Python}{\texttt{Python}}
 \newcommand{\MCEq}{\texttt{MCE{\scriptsize Q}}}
@@ -56,9 +60,31 @@
 \newcommand{\refref}[1]{Ref.~\cite{#1}}
 \newcommand{\refrefs}[2]{Refs.~\cite{#1}~and~\cite{#2}}
 
+\newcommand{\vectheta}{\vec{\theta}}
+\newcommand{\vecw}{\vec{w}}
+\newcommand{\prob}{\mathcal{P}}
+\newcommand{\gprob}{\mathcal{G}}
+\newcommand{\meanl}{\mathcal{L}_{\textmd{Mean}}}
+\newcommand{\mcl}{\like_\textmd{Eff}}
+\newcommand{\gl}{\like_\textmd{G}}
+\newcommand{\adhoc}{\mathcal{L}_{\textmd{AdHoc}}}
+\newcommand{\lpoisson}{l_{\textmd{Poisson}}}
+\newcommand{\lmc}{l_\textmd{Eff}}
+\newcommand{\lbarlow}{\like_{\textmd{BB}}}
+\newcommand{\hatmu}{\hat{\mu}}
+\newcommand{\hatpoisson}{\hatmu_\textmd{Poisson}}
+\newcommand{\hatmc}{\hatmu_\textmd{Eff}}
+\newcommand{\au}{arb. unit}
+\newcommand{\agpar}{\alpha}
+\newcommand{\bgpar}{\beta}
+\newcommand{\emcee}{\texttt{emcee}}
+\newcommand{\meff}{m_\mathrm{Eff}}
+\newcommand{\weff}{w_\mathrm{Eff}}
+
+
 \input{units}
-\input{results/hese_paper/results}
-\input{tikz/mc_diagram/mc_diagram_preamble}
+\input{results/HESE_Final_Paper/tex/results}
+\input{results/mcllh_paper/tex/mc_diagram_preamble}
 
 \settitle{Precision measurements of the astrophysical neutrino flux}
 \setauthor{Austin Schneider}
