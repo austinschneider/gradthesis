@@ -16,6 +16,64 @@ The details of the lepton side of the interaction depend heavily on the species 
 We can divide these DIS interactions into two categories based on the weak boson exchanged.
 Interactions involving the exchange of a $Z$ are referred to as ``neutral current'' (NC), and those exchanging a $W$ are referred to as ``charged current'' (CC).
 
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a);
+	\vertex [below=of a] (b);
+	\vertex [above left=of a] (c) {\(\nu_{l} / \overline \nu_{l}\)};
+	\vertex [above right=of a] (d) {\(\nu_{l} / \overline \nu_{l}\)};
+	\vertex [below left=of b] (e) {\(u/d\)};
+	\vertex [below right=of b] (f) {\(u/d\)};
+	\diagram* {
+		(c) -- [fermion] (a),
+		(a) -- [fermion] (d),
+		(e) -- [fermion] (b),
+		(b) -- [fermion] (f),
+		(a) -- [boson, edge label=\(Z^0\)] (b),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a);
+	\vertex [below=of a] (b);
+	\vertex [above left=of a] (c) {\(\nu_{l} / \overline \nu_{l}\)};
+	\vertex [above right=of a] (d) {\(l^\pm\)};
+	\vertex [below left=of b] (e) {\(u/d\)};
+	\vertex [below right=of b] (f) {\(d/u\)};
+	\diagram* {
+		(c) -- [fermion] (a),
+		(a) -- [fermion] (d),
+		(e) -- [fermion] (b),
+		(b) -- [fermion] (f),
+		(a) -- [boson, edge label=\(W^\pm\)] (b),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\caption{The neutrino deep inelastic scattering processes NC (left) and CC (right) in matter is shown in the figure above for interactions with nucleon component quarks.
+	In both cases, significant momentum can be imparted to the outgoing quark which will result in the production of a hadronic particle cascade.
+	In NC interactions, only the hadronic cascade may be detectable as the interaction product is a neutrino which is unlikely to undergo another interaction within the detection medium.
+	Interactions of the CC variety on the other hand, produce a charged lepton in addition to the hadronic cascade.
+	This charged lepton can also be detected if it receives enough energy.}
+	\label{fig:DIS}
+\end{figure}
+
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a);
+\vertex [right=of a] (b);
+\vertex [above left=of a] (c) {\(\overline \nu_{e}\)};
+\vertex [below left=of a] (d) {\(e^-\)};
+\diagram* {
+	(c) -- [fermion] (a),
+	(a) -- [fermion] (d),
+	(a) -- [boson, edge label=\(W^+\)] (b),
+};
+\end{feynman}
+\end{tikzpicture}
+
 
 \textbf{What are the products from neutrino interactions that allow us to detect neutrinos?}
 
