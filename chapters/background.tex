@@ -1,4 +1,4 @@
-\chapter{The IceCube Neutrino Observatory}
+\chapter{Background Information}
 
 \section{Neutrino interactions and detection}
 
@@ -65,33 +65,58 @@ These two interactions are shown in \reffig{fig:DIS}.
 \end{figure}
 
 The third interaction relevant above $\si\TeV$ neutrino energies is the resonant production of a $W$ boson, otherwise known as the Glashow resonance (GR)~\cite{Glashow:1960zz}.
-In matter on Earth this process occurs when an anti-electron neutrino combines with an atomic electron to produce an on-shell $W^+$.
+In matter on Earth this process occurs when an anti-electron neutrino combines with an atomic electron to produce an on-shell $W^+$ as shown in~\reffig{fig:glashow}
 If we consider the rest frame of the electron, then this resonance occurs at a neutrino energy of $\SI{6.3}\PeV$.
 For atomic electrons we should consider the rest frame of the atom, and in this case there is a Doppler broadening of the resonance of $\sim\SI{20}\percent$ due to the orbital motion of the electrons~\cite{Loewy:2014zva}.
 In practice this broadening is small in comparison to the energy resolution of modern neutrino detectors that have access to this energy scale.
 The production of a $W^+$ and it's subsequent decay can result in either a hadronic shower similar to a NC interaction, or a leptonic final state similar to a CC interaction.
 These two possibilities correspond to the hadronic and leptonic decay modes of the $W$ respectively.
 
-
-
-
 \begin{figure}
-\begin{tikzpicture}
-\begin{feynman}
-\vertex (a);
-\vertex [right=of a] (b);
-\vertex [above left=of a] (c) {\(\overline \nu_{e}\)};
-\vertex [below left=of a] (d) {\(e^-\)};
-\diagram* {
-	(c) -- [fermion] (a),
-	(a) -- [fermion] (d),
-	(a) -- [boson, edge label=\(W^+\)] (b),
-};
-\end{feynman}
-\end{tikzpicture}
-\caption{}
-\label{}
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a);
+	\vertex [right=of a] (b);
+	\vertex [above left=of a] (c) {\(\overline \nu_{e}\)};
+	\vertex [below left=of a] (d) {\(e^-\)};
+	\diagram* {
+		(c) -- [fermion] (a),
+		(a) -- [fermion] (d),
+		(a) -- [boson, edge label=\(W^+\)] (b),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\caption{The production of an on-shell $W^+$ boson through the combination of an anti-electron neutrino and electron.
+	This resonant process occurs at neutrino energies around $\SI{6.3}\PeV$.}
+	\label{fig:glashow}
 \end{figure}
+
+Through either a NC interaction or the hadronic decay of a $W$ boson, neutrinos can induce a hadronic shower.
+In a hadronic shower, both charged hadrons and leptons are produced which can be detected through well established methods.
+Charged current interactions produce a hadronic shower by imparting momentum to a quark which is then hadronized, although the charged lepton produced in the interaction is also detectable and can significantly alter the detection signature of the event.
+
+Through either a CC interaction or the leptonic decay of a $W$ boson, neutrinos can produce a detectable charged lepton, although the detection signature differs depending on the flavor of charged lepton produced.
+Focusing on dense detection media like ice or water, the detection signatures of the three flavor of charged lepton are as follows.
+High energy electrons and positrons immediately interact with the detection media to initiate an electromagnetic cascade where charge leptons and high energy photons are alternatively produced by one another.
+This electromagnetic cascade develops in a roughly spherical fashion within the dense detection medium, but has a directional bias because of the momentum of the first charged lepton.
+
+Muons from high energy neutrino interactions do not interact as readily as electrons an positrons due to their larger mass.
+Instead, muons are able to travel several kilometers in dense media before eventually losing enough energy that they quickly decay.
+Along their entire path length, muons lose energy by interacting with the detection medium.
+These ``energy loss'' interactions include ionization, electron-positron pair production, bremsstrahlung, and photo-nuclear interactions.
+Although these processes are highly stochastic, the average energy loss of muons approximately follows $-dE/dx=a+bE$ where $a$ is determined by the ionization energy losses and $b$ is defined by the other processes.
+In general $a$ and $b$ and both functions of the muon energy $E$, but this linear approximation where $a$ and $b$ are constant holds locally as both are slowly varying as a function of $E$.
+For muon energies above $\SI{1}\TeV$, the so called ``radiative'' term $bE$ dominates the average energy losses.
+Thus, the energy loss rate in a detection medium can be used to infer the muon energy.
+In practice the muon energy can be determined to within a factor of $2$, however improved techniques may achieve a resolution as small as $\SI{10}\percent$ in the future.
+
+Taus produced in a similar fashion are also detectable.
+The short decay length of a tau, $\SI{50}\meter / \si\PeV$, means it is likely to decay very close to the neutrino interaction vertex.
+Taus decay hadronically with a branching ratio of $\SI{64.79}\percent$, which results in a hadronic shower.
+Leptonic decay modes of the tau are decay to a charged lepton and corresponding neutrino of either electron or muon flavor.
+In the electron case, an electromagnetic shower results; whereas in the muon case a far travelling muon is produced.
+For taus produced via the decay of a $W$ boson, the event is indistinguishable from CC and NC interactions other than by resonance energy at which this process occurs, as tau energy losses are negligible in the short decay length.
 
 
 \textbf{What are the products from neutrino interactions that allow us to detect neutrinos?}
@@ -99,9 +124,3 @@ These two possibilities correspond to the hadronic and leptonic decay modes of t
 \textbf{What is the process by which we detect these products in existing detectors?}
 
 
-\section{The IceCube detector}
-
-\begingroup
-\graphicspath{{results/HESE_Final_Paper/}}
-\subfile{results/HESE_Final_Paper/sections/detectorselection/detector}
-\endgroup
