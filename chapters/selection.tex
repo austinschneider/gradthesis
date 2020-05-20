@@ -56,16 +56,12 @@ The conventional normalization Gaussian prior width is motivated by studies of t
 The width of the cosmic-ray slope parameter has been chosen to be $0.05$ in order to accommodate values measured at intermediate~\cite{Karelin:2011zz} and high~\cite{Bartoli:2015fhw,Yoon:2017qjx,Alfaro:2017cwx} energies.
 The corrections to the ratios of neutrinos-to-anti-neutrinos and kaon-pion yields uncertainty was estimated by comparing the expectation of different atmospheric neutrino calculations and picking a width that encompasses their prediction.
 Details regarding these corrections and the different atmospheric neutrino flux calculations can be found in~\cite{CollinFluxes,Jones:2015bya}.
+Finally, the parameters $E_0^c=\SI{2020}\GeV$ and $E_0^p=\SI{7887}\GeV$ are points of fixed differential flux for the conventional and prompt components.
 
 This simple parameterzation of the atmospheric neutrino flux and its uncertainties is chosen because it models the primary systematic effects of physical uncertainties that are observable with this sample.
 Of course this neglects other physical uncertainties, such as those regarding the hadronic interactions in cosmic ray air showers and the composition of the cosmic ray particles.
 But, these effects do not produce modifications to the observations that can be statistically discerned with the amount of data available.
 Later it will be shown that even the modeled systematic uncertainties have a small effect on astrophysical measurements compared to the statistical uncertainties.
-
-The prior on the atmospheric muon rate is chosen to be Gaussian with a $\SI{50}\percent$ standard deviation, this encompasses the statistical uncertainty of our muon background measurement.
-The detector efficiency parameters uncertainties have been found by studying dedicated calibration source data and low-energy muons~\cite{Aartsen:2016nxy}.
-These systematic parameters are described in more detail in \refsec{sec:detector_systematics}.
-Finally, the parameters $E_0^c=\SI{2020}\GeV$ and $E_0^p=\SI{7887}\GeV$ are points of fixed differential flux for the conventional and prompt components.
 
 % Table of all systematics and their priors if applicable
 \begin{table*}[thb]
@@ -108,19 +104,38 @@ Finally, the parameters $E_0^c=\SI{2020}\GeV$ and $E_0^p=\SI{7887}\GeV$ are poin
 		Where applicable, the mean, standard deviation, and bounds are given.}\label{tbl:priors}
 \end{table*}
 
+
+\subsection{Atmospheric neutrino passing fractions}
+
 As noted in~\cite{Schonert:2008is}, muons produced in the same air-shower may trigger the detector veto in coincidence with the neutrino interaction.
-To account for this when weighting our neutrino only simulation we multiply each atmospheric neutrino flux component, $i$, by the veto passing fraction, $\mathcal{P}^{i,\alpha}_{passing}$, for each neutrino flavor $\alpha$.
-The passing fraction depends on the neutrino energy, cosine of the zenith angle, and the incident depth in the detector.
-% TODO finish this
-In previous analyses, the passing fractions were calculated using an extension of the method described in~\cite{Schonert:2008is} and bounded at $\SI{10}\percent$; details of the method are provided in~\cite{Aartsen:2013jdh}.
-% The text below describes the passing fraction calculation used in the six year analysis
-%In previous analyses, the passing fractions calculated in~\cite{Gaisser:2014bja} were used.
-%These assumed a muon veto trigger efficiency of $\SI{100}\percent$ above one $\si\TeV$, a single power-law cosmic-ray spectrum, and used an ansatz functional form for the shower muon multiplicity.
-%This functional form was fit to dedicated \CORSIKA simulation~\cite{Heck:1998vt,Heck:2018,Jero:2016abf,Gaisser:2014bja} generated with the SIBYLL 2.1~\cite{Ahn:2009wx} hadronic model and weighted to the Hillas-Gaisser H4a~\cite{Gaisser:2013bla} cosmic-ray flux.
-Cosmic ray simulations remain a computationally prohibitive way of accounting for the effects of accompanying muons, so we still rely on calculations of the average passing rate.
-In this analysis, we use a new calculation given in~\cite{Arguelles:2018awr} that allows for different cosmic-ray and hadronic models to be used; more importantly for this analysis any parameterization of the detector veto response to muons can be used in the calculation, as opposed to just an energy threshold.
-This capability allows us to more accurately model the detector response to atmospheric neutrinos.
-In \reffig{fig:P_light} we show the probability that a muon will pass the veto as a function of the true muon incident energy for different detector depths.
+Dedicated simulations of cosmic ray air showers where neutrino interactions are forced can provide observational predictions for the distribution of these combines muon+neutrino events.
+However, available simulation techniques to create these estimates remain prohibitively expensive for the desired accuracy.
+Instead, we look to model this effect by computing an average efficiency with respect to the case where no muons reach the detector.
+To account for this when weighting the neutrino-only simulation each atmospheric neutrino flux component, $i$, is multiplied by an efficiency.
+This efficiency is referred to as the ``veto passing fraction'', and denoted by $\mathcal{P}^{i,\alpha}_{passing}$, for each neutrino flavor $\alpha$.
+
+
+% TODO move this text to the section where we discuss analysis specifics
+%In this approach the neutrino properties are known from simulation, and it is sought to average over all the potential properties of the cosmic ray air showers from which the neutrino could have been produced in.
+%Ideally this average over air shower properties should be computed for each neutrino position, direction, and energy because the detector response can vary with all six of these parameters.
+%However, not all of these properties are used directly in the analysis nor does the detector response depend equally strongly on all of these parameters.
+%For this reason when performing the calculation of the efficiency, only the neutrino energy, zenith angle, and depth upon intersection with the detector are considered.
+%Other properties of the neutrino are averaged over.
+%Additionally, in the characterization of the detector response to muons, only dependence on the muon energy and depth are considered.
+%Thus, the computed passing fraction depends on the neutrino energy, the zenith angle, and the incident depth in the detector.
+%However, the detector response and neutrino properties can be factorized so that the problem can be discussed more generally.
+%In previous analyses, the passing fractions were calculated using an extension of the method described in~\cite{Schonert:2008is} and bounded at $\SI{10}\percent$; details of the method are provided in~\cite{Aartsen:2013jdh}.
+%Cosmic ray simulations remain a computationally prohibitive way of accounting for the effects of accompanying muons, so we still rely on calculations of the average passing rate.
+%In this analysis, we use a new calculation given in~\cite{Arguelles:2018awr} that allows for different cosmic-ray and hadronic models to be used; more importantly for this analysis any parameterization of the detector veto response to muons can be used in the calculation, as opposed to just an energy threshold.
+%This capability allows us to more accurately model the detector response to atmospheric neutrinos.
+%In \reffig{fig:P_light} we show the probability that a muon will pass the veto as a function of the true muon incident energy for different detector depths.
+
+\subsubsection{Passing fraction calculation}
+
+\subsubsection{$\nu_e$ passing fraction}
+\subsubsection{$\nu_\mu$ passing fraction}
+\subsubsection{Calculation improvements}
+\subsubsection{Calculation systematics}
 
 % Plot of p_light
 \begin{figure}
@@ -144,7 +159,7 @@ In \reffig{fig:passingfraction} we show the passing fractions for the convention
 In these figures the left, center, and right panels correspond to $\cos\theta_z$ values of 0.1, 0.3, and 0.9 respectively; the solid lines correspond to muon neutrinos and the dashed lines to electron neutrinos.
 From the progression of the panels from left to right, one can see the passing fractions become smaller as one approaches vertical directions.
 Vertical muons have the highest probability of reaching the detector, as the overburden they pass through is the smallest.
-Though not shown in this figure, the conventional passing fractions differ from neutrinos to anti-neutrinos, see~\cite{Arguelles:2018awr} for details; the appropriate passing fractions are used in this analysis. %TODO put these figures in the data release webpage
+Though not shown in this figure, the conventional passing fractions differ from neutrinos to anti-neutrinos, see~\cite{Arguelles:2018awr} for details; the appropriate passing fractions are used in this analysis.
 \reffigs{fig:conventional_distribution}{fig:prompt_distribution} show the distributions of conventional and prompt neutrinos respectively after this correction is applied.
 This reduction in atmospheric background accounts for much of the sensitivity of this analysis to the astrophysical neutrino flux, as the observed down-going atmospheric fluxes in IceCube would otherwise be comparable in magnitude and remain similar in their angular distribution.
 This is best seen when comparing the atmospheric fluxes before and after the veto to the measured astrophysical flux as shown in \reffig{fig:neutrino_spectrum}.
@@ -199,6 +214,7 @@ This is best seen when comparing the atmospheric fluxes before and after the vet
 	\label{fig:neutrino_spectrum}
 \end{figure}
 
+\subsection{Muon background estimation}
 Finally, there is also the possibility of single muons that trigger the event selection without a neutrino interaction in the detector and still pass the veto.
 The shape of the atmospheric muon and neutrino fluxes are closely related to each other, and bounded by the cosmic-ray flux so that they must be steeply falling.
 The interaction of muons in the atmosphere and ice further softens the muon spectrum from that of cosmic rays.
@@ -226,10 +242,14 @@ Thus, the baseline expected muon flux is given by
 where $\Phi_\texttt{GaisserH4a}$ is the aforementioned parameterization; and $E_\mu$, $\theta_{z,\mu}$, and $d_\mu$ are the muon energy, zenith, and depth at injection respectively.
 In \reftab{tbl:tag_muons} we list the number of tagged muons observed per year; in total 17 muons were observed.
 The expected distribution of passing atmospheric muon events is shown in \reffig{fig:muons} as a function of the deposited energy and reconstructed cosine of the zenith angle.
+The prior on the atmospheric muon rate is chosen to be Gaussian with a $\SI{50}\percent$ standard deviation, this encompasses the statistical uncertainty of our muon background measurement.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{results/HESE_Final_Paper/figures/diffuse_hist_all_muons}
+	\includegraphics[width=\linewidth]{results/HESE_Final_P% The text below describes the passing fraction calculation used in the six year analysis
+		%In previous analyses, the passing fractions calculated in~\cite{Gaisser:2014bja} were used.
+		%These assumed a muon veto trigger efficiency of $\SI{100}\percent$ above one $\si\TeV$, a single power-law cosmic-ray spectrum, and used an ansatz functional form for the shower muon multiplicity.
+		%This functional form was fit to dedicated \CORSIKA simulation~\cite{Heck:1998vt,Heck:2018,Jero:2016abf,Gaisser:2014bja} generated with the SIBYLL 2.1~\cite{Ahn:2009wx} hadronic model and weighted to the Hillas-Gaisser H4a~\cite{Gaisser:2013bla} cosmic-ray flux.aper/figures/diffuse_hist_all_muons}
 	\internallinenumbers
 	\caption{\textbf{\textit{Expected distribution of atmospheric muons in the sample.}} Distribution of muons that pass the veto as calculated with \MUONGUN~as a function of the deposited energy and the cosine of the zenith angle.
 		The normalization is set to match the data driven sub-detector study.
@@ -262,23 +282,3 @@ The expected distribution of passing atmospheric muon events is shown in \reffig
 		The larger number of tagged muons in the 2015 season is believed to be a statistical fluctuation.
 		The last season, 2017, represents only a partial year of data taking in this paper as the 2017 data processing was not yet completed at the time of this analysis.}\label{tbl:tag_muons}
 \end{table}
-
-\subsection{Muon background estimation}
-
-\subsection{Atmospheric neutrino passing fractions}
-\subsubsection{Passing fraction calculation}
-\subsubsection{$\nu_e$ passing fraction}
-\subsubsection{$\nu_\mu$ passing fraction}
-\subsubsection{Calculation improvements}
-\subsubsection{Calculation systematics}
-
-
-
-%\section{Determination of atmospheric neutrino and muon backgrounds\label{sec:backgrounds}}
-%\begingroup
-%\graphicspath{{results/HESE_Final_Paper/}}
-%\input{results/HESE_Final_Paper/sections/backgrounds}
-%\endgroup
-
-\section{Accounting for veto effects}
-\textbf{Add details about the passing fraction calculation here.}
