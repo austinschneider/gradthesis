@@ -30,10 +30,12 @@ The prompt flux is also constant with respect to the cosine of the zenith angle,
 To model the prompt neutrino flux at Earth's surface, we use the flux computed in~\cite{Bhattacharya:2015jpa}.
 
 The angular and energy distribution of the initial atmospheric neutrino flux is modified with respect to the flux at Earth's surface because of absorption of high-energy neutrinos in the Earth.
-We account for this using a dedicated Monte Carlo, similar to the one described in~\cite{Gazizov:2004va}.
+We account for this using a dedicated Monte Carlo, similar to the one described in~\cite{Gazizov:2004va}, that simulates the propagation of neutrinos in the Earth.
 In this Monte Carlo we use the isoscalar neutrino cross sections given in~\cite{CooperSarkar:2011pa} for the neutrino-nucleon interactions, and the Earth density model described in~\cite{Dziewonski:1981xy}.
 Neutrino-electron scattering can be safely neglected except for resonant-W production~\cite{Glashow:1960zz} which we include.
 We ignore the uncertainties on the Earth opacity as they are known to be sub-leading in this energy range~\cite{Gandhi:1995tf,CooperSarkar:2011pa,Vincent:2017svp}.
+
+Modeling the atmospheric neutrino flux with these two components does not account for the contribution of $K_s$~\cite{Gaisser:2014pda}, which is $\sim \SI{10}\percent$ at $\SI{100}\TeV$ and well-within our uncertainties.
 In order to account for uncertainties in the cosmic-ray flux~\cite{Dembinski:2017zsh} and hadronic interactions~\cite{Fedynitch:2012fs} we parameterize the atmospheric neutrino flux as
 \noindent
 \begin{linenomath*}
@@ -46,14 +48,20 @@ In order to account for uncertainties in the cosmic-ray flux~\cite{Dembinski:201
 \end{linenomath*}
 where $\phi^\pi_\nu$, $\phi^K_\nu$, and $\phi^p_\nu$ are the conventional pion, kaon, and prompt atmospheric neutrino fluxes at a neutrino energy $E_\nu$ respectively.
 
-This does not account for the contribution of $K_s$~\cite{Gaisser:2014pda}, which is $\sim \SI{10}\percent$ at $\SI{100}\TeV$ and well-within our uncertainties.};
-the parameters $\convnorm$ and $\promptnorm$ are normalizations for the conventional and prompt normalizations respectively; $\pik$ allows us to modify the relative kaon to pion contributions; and the $\crdeltagamma$ parameter allows for hardening or softening of the atmospheric neutrino component to account for uncertainties in the cosmic-ray flux slope.
+The parameters $\convnorm$ and $\promptnorm$ are normalizations for the conventional and prompt normalizations respectively; $\pik$ allows us to modify the relative kaon to pion contributions; and the $\crdeltagamma$ parameter allows for hardening or softening of the atmospheric neutrino component to account for uncertainties in the cosmic-ray flux slope.
 These parameters are incorporated into the analysis as nuisance parameters with priors as summarized in \reftab{tbl:priors}.
 Priors are selected either to be Gaussian or uniform if otherwise unspecified.
-This analysis refrains from using prior information from other IceCube neutrino studies in order to provide independent results.
+This analysis refrains from directly using prior information from other IceCube neutrino studies in order to provide results independent from other samples.
 The conventional normalization Gaussian prior width is motivated by studies of the total uncertainty due to cosmic-ray and high-energy hadronic processes~\cite{Fedynitch:2012fs}.
 The width of the cosmic-ray slope parameter has been chosen to be $0.05$ in order to accommodate values measured at intermediate~\cite{Karelin:2011zz} and high~\cite{Bartoli:2015fhw,Yoon:2017qjx,Alfaro:2017cwx} energies.
-The corrections to the ratios of neutrinos-to-anti-neutrinos and kaon-pion yields uncertainty was estimated by comparing the expectation of different atmospheric neutrino calculations and picking a width that encompasses their prediction; see~\cite{CollinFluxes,Jones:2015bya} for details.
+The corrections to the ratios of neutrinos-to-anti-neutrinos and kaon-pion yields uncertainty was estimated by comparing the expectation of different atmospheric neutrino calculations and picking a width that encompasses their prediction.
+Details regarding these corrections and the different atmospheric neutrino flux calculations can be found in~\cite{CollinFluxes,Jones:2015bya}.
+
+This simple parameterzation of the atmospheric neutrino flux and its uncertainties is chosen because it models the primary systematic effects of physical uncertainties that are observable with this sample.
+Of course this neglects other physical uncertainties, such as those regarding the hadronic interactions in cosmic ray air showers and the composition of the cosmic ray particles.
+But, these effects do not produce modifications to the observations that can be statistically discerned with the amount of data available.
+Later it will be shown that even the modeled systematic uncertainties have a small effect on astrophysical measurements compared to the statistical uncertainties.
+
 The prior on the atmospheric muon rate is chosen to be Gaussian with a $\SI{50}\percent$ standard deviation, this encompasses the statistical uncertainty of our muon background measurement.
 The detector efficiency parameters uncertainties have been found by studying dedicated calibration source data and low-energy muons~\cite{Aartsen:2016nxy}.
 These systematic parameters are described in more detail in \refsec{sec:detector_systematics}.
