@@ -20,12 +20,16 @@ This means the up-going observation region is free from atmospheric muons.
 Atmospheric neutrinos are predominantly produced by the decay of pions and kaons, which we shall call the ``conventional'' component.
 At energies above $\SI{1}\TeV$ the spectrum of the conventional component is softer than the incident cosmic-ray spectrum by one unit in the spectral index, due to the interactions of these mesons in the atmosphere.
 The conventional neutrino flux is largest at the horizon, $\cos\theta_z=0$~\cite{Gaisser:2002jj,Barr:2004br,Honda:2006qj,Petrova:2012qf} because the larger path length in the thin atmosphere increases the proportion of pions that can decay before interacting.
+To model the conventional neutrino flux, we use a parameterization of the Honda {\it{}et al.} 2006 flux calculation~\cite{Honda:2006qj} given in~\cite{Montaruli:2011as} which at the highest energies uses the analytic parameterization of the neutrino flux in~\cite{Gaisser:2002jj}.
+This calculation is tuned to match observations of atmospheric muons, which remain difficult to predict from first principles.
+
 A sub-leading -- yet unobserved -- contribution due to charmed hadron decays is expected to be important above $\sim\SI{100}\TeV$~\cite{Bhattacharya:2015jpa}.
 Since the charmed hadrons decay promptly and do not interact in the atmosphere at the energies relevant for this analysis, we call this the ``prompt'' component.
 Thus, at these energies, the prompt component has a spectral index close to the incident cosmic-ray spectrum.
 The prompt flux is also constant with respect to the cosine of the zenith angle, as the short decay time of the charmed hadrons removes the effect of different path lengths through the atmosphere.
+To model the prompt neutrino flux at Earth's surface, we use the flux computed in~\cite{Bhattacharya:2015jpa}.
 
-The angular and energy distribution of the initial atmospheric neutrino flux is modified since the Earth is not transparent to neutrinos at these energies.
+The angular and energy distribution of the initial atmospheric neutrino flux is modified with respect to the flux at Earth's surface because of absorption of high-energy neutrinos in the Earth.
 We account for this using a dedicated Monte Carlo, similar to the one described in~\cite{Gazizov:2004va}.
 In this Monte Carlo we use the isoscalar neutrino cross sections given in~\cite{CooperSarkar:2011pa} for the neutrino-nucleon interactions, and the Earth density model described in~\cite{Dziewonski:1981xy}.
 Neutrino-electron scattering can be safely neglected except for resonant-W production~\cite{Glashow:1960zz} which we include.
@@ -40,8 +44,8 @@ In order to account for uncertainties in the cosmic-ray flux~\cite{Dembinski:201
 	\label{eq:atm_flux_equation}
 	\end{equation}
 \end{linenomath*}
-where $\phi^\pi_\nu$, $\phi^K_\nu$, and $\phi^p_\nu$ are the conventional pion, kaon, and prompt atmospheric neutrino fluxes at a neutrino energy $E_\nu$ respectively as given in the Honda {\it{}et al.} and BERSS flux calculations~\cite{Honda:2006qj,Bhattacharya:2015jpa}
-\footnote{For our conventional component we use the parameterization of the Honda {\it{}et al.} 2006 flux~\cite{Honda:2006qj} given in~\cite{Montaruli:2011as}, which at the highest energies uses the analytic parameterization of the neutrino flux in~\cite{Gaisser:2002jj}.
+where $\phi^\pi_\nu$, $\phi^K_\nu$, and $\phi^p_\nu$ are the conventional pion, kaon, and prompt atmospheric neutrino fluxes at a neutrino energy $E_\nu$ respectively.
+
 This does not account for the contribution of $K_s$~\cite{Gaisser:2014pda}, which is $\sim \SI{10}\percent$ at $\SI{100}\TeV$ and well-within our uncertainties.};
 the parameters $\convnorm$ and $\promptnorm$ are normalizations for the conventional and prompt normalizations respectively; $\pik$ allows us to modify the relative kaon to pion contributions; and the $\crdeltagamma$ parameter allows for hardening or softening of the atmospheric neutrino component to account for uncertainties in the cosmic-ray flux slope.
 These parameters are incorporated into the analysis as nuisance parameters with priors as summarized in \reftab{tbl:priors}.
