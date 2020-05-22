@@ -112,8 +112,16 @@ Dedicated simulations of cosmic ray air showers where neutrino interactions are 
 However, available simulation techniques to create these estimates remain prohibitively expensive for the desired accuracy.
 Instead, we look to model this effect by computing an average efficiency with respect to the case where no muons reach the detector.
 To account for this when weighting the neutrino-only simulation each atmospheric neutrino flux component, $i$, is multiplied by an efficiency.
-This efficiency is referred to as the ``veto passing fraction'', and denoted by $\mathcal{P}^{i,\alpha}_{passing}$, for each neutrino flavor $\alpha$.
+This efficiency is referred to as the ``atmospheric neutrino passing fraction'', and denoted by $\mathcal{P}^{i,\alpha}_{passing}$, for each neutrino flavor $\alpha$.
 
+The passing fraction depends on the details of air shower development, which includes modeling of the hadronic interaction, and the energy losses of muons in the material between the shower and the detector. 
+Air-shower properties are averaged over in this calculation, but the passing fraction is still a probability that is conditional on the neutrino properties.
+Of particular interest are the potential systematic dependencies of the passing fraction, which include the cosmic ray spectrum and composition, the hadronic interaction model, muon energy losses, and the atmospheric density model.
+The calculation of the passing fraction is designed so that these systematic dependencies may be changed between different alternatives.
+Additionally, the detector response enters in only one place in the formalism as a probability of muon rejection.
+This allows for simple variation of the detector response modeling in a generic way.
+To perform this calculation a framework was developed that leverages the Matrix Cascade Equation (MCEq) package in key portions of the calculation.
+Validation of the computed passing fractions is performed against detailed air shower simulations with COsmic Ray SImulations for KAscade (CORSIKA), and excellent agreement is found as a result.
 
 % TODO move this text to the section where we discuss analysis specifics
 %In this approach the neutrino properties are known from simulation, and it is sought to average over all the potential properties of the cosmic ray air showers from which the neutrino could have been produced in.
@@ -131,6 +139,8 @@ This efficiency is referred to as the ``veto passing fraction'', and denoted by 
 %In \reffig{fig:P_light} we show the probability that a muon will pass the veto as a function of the true muon incident energy for different detector depths.
 
 \subsubsection{Passing fraction calculation}
+
+
 
 \subsubsection{$\nu_e$ passing fraction}
 \subsubsection{$\nu_\mu$ passing fraction}
@@ -246,10 +256,7 @@ The prior on the atmospheric muon rate is chosen to be Gaussian with a $\SI{50}\
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{results/HESE_Final_P% The text below describes the passing fraction calculation used in the six year analysis
-		%In previous analyses, the passing fractions calculated in~\cite{Gaisser:2014bja} were used.
-		%These assumed a muon veto trigger efficiency of $\SI{100}\percent$ above one $\si\TeV$, a single power-law cosmic-ray spectrum, and used an ansatz functional form for the shower muon multiplicity.
-		%This functional form was fit to dedicated \CORSIKA simulation~\cite{Heck:1998vt,Heck:2018,Jero:2016abf,Gaisser:2014bja} generated with the SIBYLL 2.1~\cite{Ahn:2009wx} hadronic model and weighted to the Hillas-Gaisser H4a~\cite{Gaisser:2013bla} cosmic-ray flux.aper/figures/diffuse_hist_all_muons}
+	\includegraphics[width=\linewidth]{results/HESE_Final_Paper/figures/diffuse_hist_all_muons}
 	\internallinenumbers
 	\caption{\textbf{\textit{Expected distribution of atmospheric muons in the sample.}} Distribution of muons that pass the veto as calculated with \MUONGUN~as a function of the deposited energy and the cosine of the zenith angle.
 		The normalization is set to match the data driven sub-detector study.
