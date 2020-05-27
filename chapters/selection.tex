@@ -215,8 +215,37 @@ A complete modeling of the connection between the three relevant particles (cosm
 However, a simple approximation can be made that at least accounts for the energy necessary to produce the electron neutrino.
 The electron neutrino must be produced by a parent particle $p$ that has a kinematically allowed energy $E_p$, so the remaining energy is $\ECR-E_p$.
 The muon yield is then modeled using the average behavior of a shower that begins with energy $\ECR-E_p$.
-Because we are now concerned with the parent particle of the electron neutrino, the slant depth through which this parent particle travels must be considered as this will affect the probability that it decays to a neutrino instead of interacting.
+Because we are now concerned with the parent particle of the electron neutrino, the slant depth through which this parent particle travels must be considered, as this will affect the probability that it decays to a neutrino instead of interacting.
+Now considering the parent particle energy and slant depth, the yield of neutrinos from the air shower can be expanded as
+\begin{equation}
+\frac{dN_{A, \nu}}{dE_\nu}(\ECR, E_\nu, \theta_z) = \int dE_p \, \int \frac{dX}{\lambda_p(E_p, X)} \, \frac{dN_{p, \nu}}{dE_\nu}(E_p, E_\nu) \, \frac{dN_{A, p}}{dE_p}(\ECR, E_p, X) ~,
+\end{equation}
+where $dN_{p, \nu}/dE_\nu(E_p,E_\nu)$ is the spectrum of neutrinos from a parent particle $p$ with energy $E_p$, $dN_{A, p}/dE_p(\ECR,E_p,X)$ is the spectrum of parent particles from the air shower at slant depth $X$, and $dX/{\lambda_p(E_p, X)}$ is the probability of the parent to decay between the slant depth $X$ and $X+dX$.
+$\lambda_p(E_p, X)$ is the product of the local density and the parent decay length such that $\lambda_p(E_p, X)=\rho(X) \tau_p E_p/m_p$, where $\rho(X)$ is the local density, $\tau_p$ is the lifetime of the parent, $E_p$ is its energy, and $m_p$ is its mass.
+Now Eq.~\ref{eq:PuncorGJKvS} can be rewritten with the above expansion and the simple approximation that accounts for the available energy,
+\begin{align}
+\label{eq:PuncorGUE}
+\Ppuncor (E_\nu, \theta_z) & = \frac{1}{\phi_\nu(E_\nu, \theta_z)} \, \sum_A \sum_{p} \int dE_p \int \frac{dX}{\lambda_p(E_p, X)} \int d\ECR \nonumber \\
+& \frac{dN_{p, \nu}}{dE_\nu}(E_p, E_\nu) \, \frac{dN_{A, p}}{dE_p}(\ECR, E_p, X) \, \phi_A(\ECR) \, \Pzmproto \left(N_\mu = 0  ; \bar N_{A, \mu}(\ECR - E_p, \theta_z)\right) ~.
+\end{align}
+This treatment remains consistent with the calculation of the neutrino flux mentioned earlier, as if the Poisson probability of muon non-detection is removed (i.e. $\Pzmproto=1$) then the passing fraction is $1$ by construction.
 
+The na\"ive approximation of the muon yield using $\ECR$ without the subtraction of $E_p$ tends to underestimate the passing fraction as can bee seen in Fig.~\ref{fig:nue_passing-double-counting}.
+This is because the muon yield is larger for showers of greater energy.
+Below $\SI{100}\TeV$ the absolute difference between the two methods is below $0.05$, however at higher energies and especially more vertical directions the relative difference becomes more important.
+
+\begin{figure}
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig3_b_nue_conventional_unified_versus_factorized_with_corsika_sibyll_23}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig3_a_nue_prompt_unified_versus_factorized_with_corsika_sibyll_23}
+	}
+	\caption{\textbf{\textit{Passing fractions: effect of approximations on the energy of the shower giving rise to uncorrelated muons.}} Results are shown for three values of $\cos\theta_z$ (from top to bottom): 0.25 (blue), 0.45 (green), and 0.85 (orange); with the approach of this work (solid), Eq.~(\ref{eq:PuncorGUE}), where the energy carried by the neutrino parent is subtracted from the rest of the shower which produces the muons to be triggered (i.e., $\ECR - E_p$), and without this subtraction (dashed), Eq.~(\ref{eq:PuncorGJKvS}), considering the cumulative muon yield from a shower with energy $\ECR$. Results from the \CORSIKA{} simulation are shown as crosses, with statistical error bars only. \textit{Left panel:} Conventional $\nu_e$ passing fraction. \textit{Right panel:} Prompt $\nu_e$ passing fraction.
+	}
+	\label{fig:nue_passing-double-counting}
+\end{figure}
 
 \subsubsection{$\nu_\mu$ passing fraction}
 \subsubsection{Calculation improvements}
