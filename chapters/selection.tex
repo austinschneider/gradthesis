@@ -138,8 +138,6 @@ Validation of the computed passing fractions is performed against detailed air s
 %This capability allows us to more accurately model the detector response to atmospheric neutrinos.
 %In \reffig{fig:P_light} we show the probability that a muon will pass the veto as a function of the true muon incident energy for different detector depths.
 
-\subsubsection{Passing fraction calculation}
-
 Departure from the lone-neutrino case is based on the coincidence of a muon and neutrino from the same air-shower that occurs in both time and direction.
 Thus, $\Prob_{\rm reach}\left(\Emf \, | \, \Emi , \, X_\mu, \right)$ is naturally a key component of the calculation, which describes the probability of a muon with initial energy $\Emi$ and slant depth $X_\mu$ to reach the detector with energy $\Emf$.
 As the IceCube detector is deep underground, the contribution to slant depth from the atmosphere is very small compared to that of the Earth, and so can be neglected.
@@ -154,11 +152,72 @@ With both $\Prob_{\rm light}$ and $\Prob_{\rm reach}$ in hand, the probability o
 
 \begin{equation}
 \label{eq:PrPl}
-\Prob_{\rm det}\left(\Emi , \, X_\mu(\theta_z, d), d\right) \equiv \int d\Emf \, \Prob_{\rm reach}\left(\Emf \, | \, \Emi , \, X_\mu(\theta_z)\right) \, \Prob_{\rm light} (\Emf, d) ~.
+\Prob_{\rm det}\left(\Emi , \, X_\mu(\theta_z, d), d\right) \equiv \int d\Emf \, \Prob_{\rm reach}\left(\Emf \, | \, \Emi , \, X_\mu(\theta_z, d)\right) \, \Prob_{\rm light} (\Emf, d) ~.
 \end{equation}
 
+Note that losses also depend on the medium and not only on the slant depth, whose dependence on $\theta_z$ we write explicitly. If the medium surrounding the detector is homogeneous, the dependence on $X_\mu$ can be exchanged for distance without loss of generality.
+From here on to simplify the notation, the dependence on $X_\mu$ will be replaced by a dependence on $\theta_z$ and the dependence on $d$ will be neglected.
+These dependencies can be added back in at the end of the calculation without any change to the result.
+
+% TODO
+\textbf{TODO: Add a plot of $\Prob_{\rm reach}$, $\Prob_{\rm light}$, and $\Prob_{\rm det}$}
+
+The atmospheric neutrino passing fraction is defined as the probability for an atmospheric neutrino to not be accompanied by a muon which is detected from the same air shower. This probability is denoted $\Prob_{\rm pass}$~\cite{Schonert:2008is, Gaisser:2014bja} and can be written as the ratio
+\begin{equation}
+\Prob_{\rm pass} (E_\nu, \theta_z) = \frac{\phi_\nu^{\rm pass}(E_\nu, \theta_z)}{\phi_\nu(E_\nu, \theta_z)} ~,
+\end{equation}
+where $E_\nu$ is the neutrino energy, $\theta_z$ is the zenith angle, $\phi_\nu^{\rm pass}$ is the differential flux of atmospheric neutrinos accompanied by muons that are detected, and $\phi_\nu$ is the total differential atmospheric neutrino flux.
 
 \subsubsection{$\nu_e$ passing fraction}
+Electron neutrinos (or antineutrinos) are produced alongside a positron (or electron) in the decay of their parent particle, for example $K^+ \rightarrow \pi^0 + e^+ + \nu_e$.
+Rarely does an electron neutrino have a sibling muon, as this would involve a lepton flavor violating process.
+Instead, muons that accompany electron neutrinos are produced in other branches of the air shower.
+Because the different branches of the shower are uncorrelated, to first order the average properties of muons in a prototypical air shower can be used for the passing fraction calculation.
+Consider a shower from a single cosmic-ray primary particle of type $A$ with energy $\ECR$.
+The average neutrino yield $\frac{dN_{A, \nu}}{dE_\nu}(\ECR, E_\nu, \theta_z)$ from such a shower can be computed with $\MCEq$.
+So the atmospheric neutrino flux can be written as 
+\begin{equation}
+\label{eq:nuphi}
+\phi_\nu(E_\nu, \theta_z)  = \sum_A \int d\ECR \, \frac{dN_{A, \nu}}{dE_\nu}(\ECR, E_\nu, \theta_z) \, \phi_A(\ECR)~,
+\end{equation}
+where $\phi_A(\ECR)$ is the flux of primary cosmic rays of type A.
+the passing fraction can be obtained by modifying the integrand of Eq.~\ref{eq:nuphi} so that it is weighted by the Poisson probability $Pzmproto$ of detecting an accompanying muon.
+In this way the uncorrelated passing fraction can be written as
+\begin{equation}
+\label{eq:PuncorGJKvS}
+\Prob_{\rm pass}^{\rm uncor, GJKvS}(E_\nu, \theta_z)  =  \frac{1}{\phi_\nu(E_\nu, \theta_z)} \sum_A \int d\ECR \, \frac{dN_{A, \nu}}{dE_\nu}(\ECR, E_\nu, \theta_z) \, \phi_A(\ECR) \, \Pzmproto \left(N_\mu = 0  ; \bar N_{A, \mu}^{\rm GJKvS}(\ECR, \theta_z)\right)~,
+\end{equation}
+where $\Pzmproto \left(N_\mu = 0  ; \bar N_{A, \mu}^{\rm GJKvS}(\ECR, \theta_z)\right) = \exp{-\bar N_{A, \mu}^{\rm GJKvS}(\ECR, \theta_z)}$,
+and  $\bar N_{A, \mu}^{\rm GJKvS}(\ECR, \theta_z)$ is the average number of muons that are detected from an air shower.
+This average number of muons is computed using the yield of muons from the air shower $dN_{A, \mu}/d\Emi(\ECR, \Emi)$ and the probability of detecting those muons, such that
+\begin{equation}
+\label{eq:Nmu}
+\bar N_{A, \mu}^{\rm GJKvS}(\ECR,\theta_z) = \int d\Emi \, \frac{dN_{A, \mu}}{d\Emi}(\ECR, \Emi,  \theta_z) \, \Prob_{\rm det}\left(\Emi , \theta_z\right) ~,
+\end{equation}
+Some terms in the above equations are labeled with ${\rm GJKvS}$ because these quantities are calculated in the same manner as was done in~\cite{Gaisser:2014bja} under certain choices for $\Prob_{\rm det}$.
+Namely, when $\Prob_{\rm light}$ is defined as a Heaviside function with a boundary at $\Emf = \SI{1}\TeV$, and $\Prob_{\rm reach}$ is defined as a delta function that matches the initial muon energy to the median final muon energy.
+
+\begin{figure}
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig4_nue_conv_murange_vs_avg}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig4_nue_prompt_murange_vs_avg}
+	}    
+	\caption{\textbf{\textit{Passing fractions: effect of the treatment of muon losses in ice.}} Results are shown for three values of $\cos\theta_z$ (from top to bottom): 0.25 (blue), 0.45 (green), and 0.85 (orange); using the full muon range distribution (solid) or the median muon range (dashed). Results from the \CORSIKA{} simulation are shown as crosses, with statistical error bars only. In all cases, the H3a primary cosmic-ray spectrum~\cite{Gaisser:2011cc}, the SIBYLL~2.3 hadronic-interaction model~\cite{Engel:2015dxa, Riehn:2015oba} and the MSIS-90-E atmosphere-density model at the South Pole on July 1, 1997~\cite{Labitzke:1985, Hedin:1991} are used. A depth in ice of $d_{\rm det} = \SI{1.95}\km$ (like the center of IceCube) and a Heaviside $\Prob_{\rm light}(\Emf) = \Theta(\Emf - 1\,{\rm TeV})$ are assumed. \textit{Left panel:} Conventional $\nu_e$ passing fraction. \textit{Right panel:} Prompt $\nu_e$ passing fraction.
+	}
+	\label{fig:nue_passing-preach-effect}
+\end{figure}
+
+In Eq.~\ref{eq:Nmu} the energy available to other branches of the shower to produce uncorrelated muons is over estimated as some energy must be reserved for producing the electron neutrino or rather the branch of the shower that produces the electron neutrino.
+A complete modeling of the connection between the three relevant particles (cosmic ray primary, the electron neutrino, and muons) is cumbersome, as it would involve modeling the shower branch producing the electron neutrino in its entirety and then separately modeling the uncorrelated branch.
+However, a simple approximation can be made that at least accounts for the energy necessary to produce the electron neutrino.
+The electron neutrino must be produced by a parent particle $p$ that has a kinematically allowed energy $E_p$, so the remaining energy is $\ECR-E_p$.
+The muon yield is then modeled using the average behavior of a shower that begins with energy $\ECR-E_p$.
+Because we are now concerned with the parent particle of the electron neutrino, the slant depth through which this parent particle travels must be considered as this will affect the probability that it decays to a neutrino instead of interacting.
+
+
 \subsubsection{$\nu_\mu$ passing fraction}
 \subsubsection{Calculation improvements}
 \subsubsection{Calculation systematics}
