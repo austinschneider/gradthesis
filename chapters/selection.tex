@@ -255,6 +255,25 @@ Below $\SI{100}\TeV$ the absolute difference between the two methods is below $0
 	\label{fig:nue_passing-double-counting}
 \end{figure}
 
+Fig.~\ref{fig:nu-e-neutrino-vs-antineutrino} shows a comparison between this calculation and results from the CORSIKA simulation in addition to the differences between electron neutrino and antineutrino fluxes.
+The agreement between simulation and this calculation modeling is excellent for
+both neutrinos and antineutrinos.
+The conventional electron antineutrino passing fractions are lower than those of conventional electron neutrinos, primarily because positively charged mesons are preferentially produced, leading to a harder spectrum than the negatively charged mesons.
+The passing fractions for the prompt flux are almost identical as they are mainly produced from gluon fusion~\cite{Arguelles:2015wba}.
+
+\begin{figure}
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig5_nue_conv_nu_vs_nubar}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig5_nue_prompt_nu_vs_nubar}
+	}
+	\caption{\textbf{\textit{Passing fractions: neutrinos versus antineutrinos.}} Results are shown for three values of $\cos\theta_z$ (from top to bottom): 0.25 (blue), 0.45 (green), and 0.85 (orange); for neutrinos (solid) and antineutrinos (dashed). Results from the \CORSIKA{} simulation for neutrinos ($+$) and antineutrinos ($\times$) are also shown, with statistical error bars only. In all cases, the H3a primary cosmic-ray spectrum~\cite{Gaisser:2011cc}, the SIBYLL~2.3 hadronic-interaction model~\cite{Engel:2015dxa, Riehn:2015oba} and the MSIS-90-E atmosphere-density model at the South Pole on July 1, 1997~\cite{Labitzke:1985, Hedin:1991} are used, and $d_{\rm det} = 1.95$~km in ice and $\Prob_{\rm light}(\Emf) = \Theta(\Emf - 1\,{\rm TeV})$ are assumed. \textit{Left panel:} Conventional $\nu_e$ passing fraction. \textit{Right panel:} Prompt $\nu_e$ passing fraction. Note that for prompts there are not differences between $\nu_e$ and $\bar\nu_e$.
+	}
+	\label{fig:nu-e-neutrino-vs-antineutrino}
+\end{figure}
+
 \subsubsection{$\nu_\mu$ passing fraction}
 
 Muon neutrinos or antineutrinos produced in hadron decays will always have a sibling muon due to flavor conservation.
@@ -262,7 +281,10 @@ This means the passing fraction for muon neutrinos has a correlated component in
 This correlated suppression depends entirely on the behavior of the sibling muon, which itself can be described as a function of the muon direction and initial energy.
 For two body decays, there is a direct relation between the energy of the parent particle, muon, and neutrino: $\Emi = E_p - E_\nu$.
 This relation gives a delta function for the muon energy spectrum $dN_{p,\mu}^{\rm 2-body}/d\Emi (E_p,E_\mu,\Emi)=\delta(\Emi-E_p+E_\nu)$.
-For general n-body decays the probability of not detecting this sibling muon is a function of the energy spectrum and can be written as
+However, the two-body approximation is not appropriate for the calculation of the passing fractions for the prompt fluxes, as neutrinos are mainly produced by the decays of $D^{\pm}$, $D^0$, $\bar{D}^0$, $\Lambda_c^+$, and $D_s^{\pm}$~\cite{Fedynitch:2015zma}.
+Treatment of $n$-body decays requires evaluating the muon distributions from the decays of these particles and using Eq.~(\ref{eq:pnomusib}).
+In this work, $dN_{p, \mu}/d\Emi$ was generated for $K^0_L$, $D^+$, $D^0$, and $D^+_s$.\footnote{The decay distributions for their antiparticles are identical.}
+For general $n$-body decays the probability of not detecting this sibling muon is a function of the energy spectrum and can be written as
 \begin{equation}
 \label{eq:pnomusib}
 \Pzmsib \left(\theta_z|E_p, E_\nu \right) = 1 - \int d\Emi \, \Prob_{\rm det}\left(\Emi, \theta_z\right) \frac{dN_{p, \mu}}{d\Emi}(E_p, E_\nu, \Emi) ~.
@@ -302,6 +324,72 @@ Again, weighting the integrand by the probability of detecting the muon, in this
 	\label{fig:nu-mu-correlated-preach-effect}
 \end{figure}
 
+In the same way that we compared different muon treatments for the uncorrelated passing fraction, Fig.~\ref{fig:nu-mu-correlated-preach-effect} shows the effect for the correlated passing fraction.
+As the correlated case is only concerned with a single muon where energy is correlated with the neutrino, and energy dependent effect emerges.
+For lower energies the muon detection probability is underestimated with the median treatment, resulting in a passing fraction that is too high while the converse is true for higher energies.
+This effect is less pronounces in the horizontal region, as the energy correlation becomes more washed out with larger overburden.
+
+As an approximation to the passing fraction, the correlated and uncorrelated passing fractions can be multiplied together like in~\cite{Gaisser:2014bja}.
+Using the median muon behavior, the $2$-body approximation, and multiplying the two passing fractions we can obtain the same approximation to the passing fraction as in~\cite{Gaisser:2014bja}
+\begin{equation}
+\label{eq:PGJKvS}
+\Prob_{\rm pass}^{\rm GJKvS} (E_\nu, \theta_z) \equiv \Prob_{\rm pass}^{\rm cor, SGRS}(E_\nu, \theta_z) \, \Prob_{\rm pass}^{\rm uncor, GJKvS}(E_\nu, \theta_z) ~,
+\end{equation}
+which contains the correlated passing fraction derived in~\cite{Schonert:2008is}
+\begin{equation}
+\label{eq:PcorSGRS}
+\Prob_{\rm pass}^{\rm cor, SGRS}(E_\nu, \theta_z) = \frac{1}{\phi_\nu(E_\nu, \theta_z)} \, \sum_A \sum_{p} \int dE_p  \int \frac{dX}{\lambda_p(E_p, X)} \, \frac{dN_{p, \nu}}{dE_\nu}(E_p, E_\nu) \, \phi_{A, p}(E_p, X) \,
+\left[1 - \Prob_{\rm det}^{\rm SGRS}\left(E_p-E_\nu , \theta_z\right)\right]~.
+\end{equation}
+
+Instead of taking the ``factorized'' approach in Eq.~\ref{eq:PGJKvS}, the correlated and uncorrelated equations can be combined at the level of muon detection, as the veto can be thought of as a logical OR between the detection of an uncorrelated muon and the detection of a sibling muon.
+This logical OR can be achieved in the calculation by the multiplication of the non-detection probabilities $\Pzm = \Pzmsib \Pzmproto$.
+Similarly weighting the integrand in the neutrino flux calculation by this quantity and maintaining the energy correction described previously, the complete passing fraction is obtained
+\begin{align}
+\label{eq:GUE}
+\Prob_{\rm pass}(E_\nu, \theta_z) = \frac{1}{\phi_\nu(E_\nu, \theta_z)} \, \sum_A \sum_{p} & \int dE_p  \int \frac{dX}{\lambda_p(E_p, X)} \int d\ECR \, \frac{dN_{p, \nu}}{dE_\nu}(E_p, E_\nu) \, \frac{dN_{A, p}}{dE_p}(\ECR, E_p, X) \, \phi_A(\ECR) \nonumber \\
+& \times \Pzmsib \left(\theta_z|E_p, E_\nu \right) \, \Pzmproto\left(N_\mu=0;  \bar N_{\mu, A}(\ECR - E_p, \theta_z) \right).
+\end{align}
+The numerator in the above equation corresponds to the passing flux $\phi_\nu^{\rm pass}(E_\nu, \theta_z)$.
+This represents the final equation to be used in the passing fraction calculation as all the relevant effects are accounted for, save for the approximations described earlier.
+Eq.~\ref{eq:GUE} naturally applies to muon neutrinos, but also can be directly applied to electron neutrinos for which no sibling muons are present meaning $\Pzmsib \left(\theta_z | E_p, E_\nu \right) = 1$.
+Setting the sibling non-detection probability to 1 recovers the result for electron neutrinos in Eq.~(\ref{eq:PuncorGUE}).
+Expanding the probabilities in the above equation, the explicit result is
+\begin{align}
+\label{eq:GUEexplicit}
+\Prob_{\rm pass} (E_\nu, \theta_z) = & \frac{1}{\phi_\nu(E_\nu, \theta_z)} \, \sum_A \sum_{p} \int dE_p \int \frac{dX}{\lambda_p(E_p, X)} \int d\ECR \, \frac{dN_{p, \nu}}{dE_\nu}(E_p, E_\nu) \, \frac{dN_{A, p}}{dE_p}(\ECR, E_p, X) \, \phi_A(\ECR) \nonumber \\
+& \times \left[ 1 - \int \, d\Emi \, \frac{dN_{p, \mu}}{d\Emi}(E_p, E_\nu, \Emi) \, \int d\Emf \, \Prob_{\rm light}(\Emf)  \, \Prob_{\rm reach}\left(\Emf | \Emi, \theta_z\right) \right] \, e^{-N_{A, \mu}(\ECR - E_p, \theta_z)}  ~,
+\end{align}
+
+\begin{figure}
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig7_b_numu_convetional_unified_versus_factorized_with_corsika_sibyll_23}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig7_a_numu_prompt_unified_versus_factorized_with_corsika_sibyll_23}
+	}
+	\caption{\textbf{\textit{Passing fractions: differences between the unified and the factorized treatments for $\boldsymbol{\nu_\mu}$.}} Same as Fig.~\ref{fig:nue_passing-double-counting} regarding the approximations on the energy of the shower which gives rise to uncorrelated muons. Comparison of the unified treatment (solid), Eq.~(\ref{eq:GUE}), and the approximate treatment (dashed), Eq.~(\ref{eq:PGJKvS}), which factorizes the correlated and uncorrelated passing fractions. The result is driven by the correlated part.}
+	\label{fig:nu-mu-unified-effect}
+\end{figure}
+
+The factorized and unified approaches are compared in Fig.~\ref{fig:nu-mu-unified-effect}, where one can see that the differences are negligible compared to the other effects discussed in this section.
+The effect of the energy correction $\ECR-E_p$ is smaller for muon neutrinos than in the for electron neutrinos, shown in Fig.~\ref{fig:nue_passing-double-counting}, because for muon neutrinos $\Pzmsib$ is a much more dominant factor than $\Pzmproto$.
+Note, for the uncorrelated part of the passing fraction, this subtraction is more important at higher energies, where the correlated contribution is very small.
+Thus, the relative effect on the muon neutrino passing fraction is much smaller.
+Finally, comparisons of the passing fractions calculated for muon neutrinos and muon antineutrinos are shown in Fig.~\ref{fig:nu-mu-neutrino-vs-antineutrino} and exhibit very good agreement with the Monte Carlo results, as in the case of electron neutrinos (Fig.~\ref{fig:nu-e-neutrino-vs-antineutrino}).
+
+\begin{figure}
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig8_b_conventional_numu_versus_numubar_sibyll_23}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig8_a_prompt_numu_versus_numubar_sibyll_23}
+	}
+	\caption{\textbf{\textit{Passing fractions: neutrinos versus antineutrinos.}} Same as Fig.~\ref{fig:nu-e-neutrino-vs-antineutrino} but for $\nu_\mu$ and $\bar\nu_\mu$. Note that for prompt neutrinos there are not differences between $\nu_\mu$ and $\bar\nu_\mu$.}
+	\label{fig:nu-mu-neutrino-vs-antineutrino}
+\end{figure}
 
 \subsubsection{Calculation improvements}
 \subsubsection{Calculation systematics}
