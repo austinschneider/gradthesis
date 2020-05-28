@@ -204,8 +204,6 @@ Thus, in the median muon treatment the passing fraction is overestimated because
 In the vertical region, with less overburden the probability for muon detection rapidly increases to approximately one with initial muon energy, however this turnover is faster with the median treatment than the full treatment.
 This means more muons contribute to the calculation in the median case and the passing fraction is underestimated.
 
-
-
 \begin{figure}
 	\centering
 	\subfloat{
@@ -227,6 +225,7 @@ The muon yield is then modeled using the average behavior of a shower that begin
 Because we are now concerned with the parent particle of the electron neutrino, the slant depth through which this parent particle travels must be considered, as this will affect the probability that it decays to a neutrino instead of interacting.
 Now considering the parent particle energy and slant depth, the yield of neutrinos from the air shower can be expanded as
 \begin{equation}
+\label{eq:Anuyield}
 \frac{dN_{A, \nu}}{dE_\nu}(\ECR, E_\nu, \theta_z) = \int dE_p \, \int \frac{dX}{\lambda_p(E_p, X)} \, \frac{dN_{p, \nu}}{dE_\nu}(E_p, E_\nu) \, \frac{dN_{A, p}}{dE_p}(\ECR, E_p, X) ~,
 \end{equation}
 where $dN_{p, \nu}/dE_\nu(E_p,E_\nu)$ is the spectrum of neutrinos from a parent particle $p$ with energy $E_p$, $dN_{A, p}/dE_p(\ECR,E_p,X)$ is the spectrum of parent particles from the air shower at slant depth $X$, and $dX/{\lambda_p(E_p, X)}$ is the probability of the parent to decay between the slant depth $X$ and $X+dX$.
@@ -257,6 +256,53 @@ Below $\SI{100}\TeV$ the absolute difference between the two methods is below $0
 \end{figure}
 
 \subsubsection{$\nu_\mu$ passing fraction}
+
+Muon neutrinos or antineutrinos produced in hadron decays will always have a sibling muon due to flavor conservation.
+This means the passing fraction for muon neutrinos has a correlated component in addition to the uncorrelated component described for electron neutrinos.
+This correlated suppression depends entirely on the behavior of the sibling muon, which itself can be described as a function of the muon direction and initial energy.
+For two body decays, there is a direct relation between the energy of the parent particle, muon, and neutrino: $\Emi = E_p - E_\nu$.
+This relation gives a delta function for the muon energy spectrum $dN_{p,\mu}^{\rm 2-body}/d\Emi (E_p,E_\mu,\Emi)=\delta(\Emi-E_p+E_\nu)$.
+For general n-body decays the probability of not detecting this sibling muon is a function of the energy spectrum and can be written as
+\begin{equation}
+\label{eq:pnomusib}
+\Pzmsib \left(\theta_z|E_p, E_\nu \right) = 1 - \int d\Emi \, \Prob_{\rm det}\left(\Emi, \theta_z\right) \frac{dN_{p, \mu}}{d\Emi}(E_p, E_\nu, \Emi) ~.
+%\Prob(\Emi|E_p, E_\nu) ~.
+\end{equation}
+Neglecting for a moment the uncorrelated muons, we can think about the correlated passing fraction as a separate calculation.
+To obtain the correlated passing fraction we can start with the calculation of the neutrino flux, expanding to show the integration over the parent energy and slant depth as was done in Eq.~\ref{eq:Anuyield}.
+\begin{equation}
+\label{eq:nufluxcorexpanded}
+\phi_\nu(E_\nu, \theta_z) = \sum_A \sum_{p} \int dE_p  \int \frac{dX}{\lambda_p(E_p, X)} \, \int d\ECR \, \frac{dN_{p, \nu}}{dE_\nu}(E_p, E_\nu) \, \frac{dN_{A, p}}{dE_p}(\ECR, E_p, X) \, \phi_{\rm A} (\ECR).
+\end{equation}
+To simplify notation, the flux of parent particles in the air shower at slant depth $X$ defined as
+\begin{equation}
+\label{eq:phip}
+\phi_{A, p}(E_p, X) = \int d\ECR \, \frac{dN_{A, p}}{dE_p}(\ECR, E_p, X) \, \phi_{\rm A} (\ECR) ~,
+\end{equation}
+can be separated to obtain a more compact form for the neutrino flux
+\begin{equation}
+\label{eq:nufluxcor}
+\phi_\nu(E_\nu, \theta_z) = \sum_A \sum_{p} \int dE_p  \int \frac{dX}{\lambda_p(E_p, X)} \, \frac{dN_{p, \nu}}{dE_\nu}(E_p, E_\nu) \, \phi_{A, p}(E_p, X).
+\end{equation}
+Again, weighting the integrand by the probability of detecting the muon, in this case the sibling muon, the correlated passing fraction can be written as
+\begin{equation}
+\label{eq:Pcor}
+\Ppcor(E_\nu, \theta_z) = \frac{1}{\phi_\nu(E_\nu, \theta_z)} \, \sum_A \sum_{p} \int dE_p \int \frac{dX}{\lambda_p(E_p, X)} \, \frac{dN_{p, \nu}}{dE_\nu}(E_p, E_\nu) \, \phi_{A, p}(E_p, X) \, \Pzmsib \left(\theta_z|E_p, E_\nu \right).
+\end{equation}
+
+\begin{figure}
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig6_numu_conv_corr_only_murange_vs_avg}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig6_numu_prompt_corr_only_murange_vs_avg}
+	}
+	\caption{\textbf{\textit{Correlated passing fractions: effect of the treatment of muon losses in ice.}} Same as Fig.~\ref{fig:nue_passing-preach-effect} but only for the correlated part of the passing fraction for $\nu_\mu$.}
+	\label{fig:nu-mu-correlated-preach-effect}
+\end{figure}
+
+
 \subsubsection{Calculation improvements}
 \subsubsection{Calculation systematics}
 
