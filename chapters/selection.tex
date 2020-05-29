@@ -108,7 +108,7 @@ Later it will be shown that even the modeled systematic uncertainties have a sma
 \subsection{Atmospheric neutrino passing fractions}
 
 As noted in~\cite{Schonert:2008is}, muons produced in the same air-shower may trigger the detector veto in coincidence with the neutrino interaction.
-Dedicated simulations of cosmic ray air showers where neutrino interactions are forced can provide observational predictions for the distribution of these combines muon+neutrino events.
+Dedicated simulations of cosmic ray air showers where neutrino interactions are forced can provide observational predictions for the distribution of these combined muon+neutrino events.
 However, available simulation techniques to create these estimates remain prohibitively expensive for the desired accuracy.
 Instead, we look to model this effect by computing an average efficiency with respect to the case where no muons reach the detector.
 To account for this when weighting the neutrino-only simulation each atmospheric neutrino flux component, $i$, is multiplied by an efficiency.
@@ -413,6 +413,40 @@ The combination of these correlated and uncorrelated contributions led to Eq.~\r
 For these two calculations, the components were factorized and the $\ECR-E_p$ subtraction was not performed.
 This led to an overestimation of the shower energy producing visible muons for the electron neutrino case.
 
+The new approach, explained in the previous sections and developed in [] includes a full description of the cosmic ray primary spectrum and composition as well as the hadronic interactions that give rise to the parent particles and eventually muons and neutrinos.
+This leads to the more accurate Eq.~\ref{eq:GUE} which is fully consistent between electron and muon neutrinos, although it must be calculated numerically.
+Muon energy loss distributions are also fully accounted for in this treatment.
+Critically, this approach uses numerical techniques instead of analytic approximations, opening the door for a wide array of modifications to the calculation.
+These modifications can include: different detector configurations and responses, cosmic ray spectra, hadronic interaction models, atmospheric density models, and muon energy loss cross sections.
+With these modifications the passing fraction calculation can be made consistent with the modern atmospheric neutrino flux calculations of $\MCEq$.
+
+\begin{figure}
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig9_extsv_conv_nue}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig9_extsv_pr_nue}
+	} \\[2ex]
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig9_extsv_conv_numu}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig9_extsv_pr_numu}
+	}
+	\caption{\textbf{\textit{Passing fractions: comparison with previous work}}. Results are shown for two values of $\cos\theta_z =$ (from top to bottom): 0.25 (blue) and 0.85 (orange); with the calculation in this work (solid) and with that in Ref.~\cite{Gaisser:2014bja} (dashed). Our results are obtained with the H3a primary cosmic-ray spectrum~\cite{Gaisser:2011cc}, the SIBYLL~2.3c hadronic-interaction model~\cite{Riehn:2017mfm}, the MSIS-90-E atmosphere-density model at the South Pole on July 1, 1997~\cite{Labitzke:1985, Hedin:1991}, and assuming $d_{\rm det} = 1.95$~km in ice and $\Prob_{\rm light}(\Emf) = \Theta(\Emf - 1\,{\rm TeV})$. They include all of the effects discussed in previous sections, Eq.~(\ref{eq:GUE}). \textit{Top-left panel:} Conventional $\nu_e$ passing fraction. \textit{Top-right panel:} Prompt $\nu_e$ passing fraction. \textit{Bottom-left panel:} Conventional $\nu_\mu$ passing fraction. \textit{Bottom-right panel:} Prompt $\nu_\mu$ passing fraction.}
+	\label{fig:nue-passing-comparison-old}
+\end{figure}
+
+Fig.~\ref{fig:nue-passing-comparison-old} shows a direct comparison between the new calculation and its predecessor~\cite{Gaisser:2014bja} for $\nu_e$ and $\nu_\mu$ from the conventional and prompt fluxes in two different directions.
+In the more vertical direction, $\nu_e$ and $\nu_\mu$ passing fractions for the conventional flux show a large difference, where the newer calculation provides a higher passing fraction.
+Two effects are important here, the muon range treatment and the energy of the uncorrelated shower branch.
+Near the horizon these effects partially cancel, minimizing the difference between the two calculations, but that is not the case in the vertical direction.
+The shoulder present in the older calculation shows the transition between the pion and kaon dominated production of neutrinos, however this is washed out by the more detailed muon range treatment of the new calculation.
+The differences in the prompt $\nu_e$ curves are more difficult to interpret.
+Comparisons of the muon range treatment and the energy subtraction for prompt $\nu_e$ would lead us to expect some small differences, but not quite of this magnitude.
+One additional factor that could explain this, is the use of DPMJET-2.55 in the old calculation for prompt neutrinos; we see that DPMJET-2.55 gives larger passing fractions than SIBYLL 2.3c.
+Differences in the prompt $\nu_\mu$ passing fractions are explained by the fact that~\cite{Gaisser:2014bja} applies the conventional $\nu_\mu$ passing fractions to prompt $\nu_\mu$.
 
 \subsubsection{Calculation systematics}
 
