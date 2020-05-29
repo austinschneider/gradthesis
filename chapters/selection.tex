@@ -391,7 +391,29 @@ Finally, comparisons of the passing fractions calculated for muon neutrinos and 
 	\label{fig:nu-mu-neutrino-vs-antineutrino}
 \end{figure}
 
+A comparison of both the neutrino and antineutrino calculations to results from the CORSIKA simulation is shown in Fig.~\ref{fig:nu-mu-neutrino-vs-antineutrino}.
+As with the calculation for electron neutrinos, the muon neutrino calculation shows excellent agreement with the air-shower simulations.
+
 \subsubsection{Calculation improvements}
+
+The calculation described in previous sections has many improvements with respect to earlier treatments.
+A review of some earlier calculations will help us to examine the differences.
+
+The first proposed calculation of the doing-going atmospheric neutrino suppression due to muons accounted only for sibling muons produced by the same parent meson as the neutrino.
+This meant that the original calculation could only be applied to atmospheric muon neutrinos~\cite{Schonert:2008is}.
+This original calculation used several analytic approximations, applicable to neutrinos produced in pion and kaon decays under the assumption of a power-;aw cosmic ray primary spectrum.
+As described previously, the muon energy loss behavior for this calculation was treated using the median approximation, and the triggering probability modeled asa a Heaviside function.
+These choices allowed analytic passing fractions to be derived.
+
+In~\cite{Gaisser:2014bja} the analytic treatment was generalized to include muons from other branches of the shower, not associated with the production of the neutrino.
+This generalization allowed the suppression to be computed for atmospheric electron neutrinos.
+Analytic approximations were used to describe the average properties of muons from air showers.
+In fact, the calculation in~\cite{Gaisser:2014bja} fit a parameterized $\bar N_{A,\mu}(\ECR, \theta_z)$ to the the results of CORSIKA simulation which sed SIBYLL 2.1 for conventional neutrinos and DMPJET-2.5 for prompt neutrinos.
+The combination of these correlated and uncorrelated contributions led to Eq.~\ref{eq:PGJKvS}.
+For these two calculations, the components were factorized and the $\ECR-E_p$ subtraction was not performed.
+This led to an overestimation of the shower energy producing visible muons for the electron neutrino case.
+
+
 \subsubsection{Calculation systematics}
 
 % Plot of p_light
