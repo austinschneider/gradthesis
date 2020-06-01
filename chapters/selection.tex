@@ -449,6 +449,28 @@ One additional factor that could explain this, is the use of DPMJET-2.55 in the 
 Differences in the prompt $\nu_\mu$ passing fractions are explained by the fact that~\cite{Gaisser:2014bja} applies the conventional $\nu_\mu$ passing fractions to prompt $\nu_\mu$.
 
 \subsubsection{Calculation systematics}
+The calculation outlines in these sections relies on a host of external information such as the cosmic ray flux, the physics governing decays and hadronic interactions, calculations of muon energy loss cross sections, and the detector response.
+In this section, a few of these potential sources of uncertainty are examined.
+
+\paragraph{Muon Energy Losses}
+Muons lose energy in a medium through three processes: ionization losses, $e^+e^-$ pair production, bremsstrahlung, and photo-nuclear interactions.
+Below $\sim\SI{1}\TeV$ losses are dominated by ionization.
+Whereas, at higher energies the radiative processes dominate.
+In order of importance these are pair production, bremsstrahlung, and photo-nuclear interactions.
+Above $\sim\SI{10}\PeV$ photo-nuclear interactions are comparable to bremsstrahlung~\cite{Chirkin:2004hz}.
+These processes are well understood up to $\sim\SI{10}\TeV$ in muon energy, above which the photo-nuclear interactions dominate the uncertainty in the cross section.
+
+The photo-nuclear cross section used in MMC/PROPOSAL by default uses a data-driven parameterization of the proton structure function in a deep-inelastic scattering (DIS) formalism~\cite{Abramowicz:1991xz, Abramowicz:1997ms}.
+This formalism includes contributions from both soft (non-perturbative) and hard (perturbative) physics~\cite{Dutta:2000hh}.
+Another approach describes the cross section with a generalized vector dominance model for the soft component~\cite{Bezrukov:1981ci} and a framework of the color dipole moment for the hard component~\cite{Bugaev:2002gy, Bugaev:2003sw}.
+
+Without appropriate measurements and the corresponding data-derived uncertainties the cross section uncertainty can be examined by comparing the two calculation approaches.
+At the energies relevant for the passing fraction calculation the default cross sections are slightly lower, resulting in smaller passing fractions as more muons can reach the detector with higher energy.
+These differences in the cross section result in a maximum difference of 0.01 for the passing fractions.
+
+\paragraph{Primary Cosmic Ray Spectra}
+
+\subsubsection{HESE passing fractions}
 
 % Plot of p_light
 \begin{figure}
