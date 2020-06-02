@@ -469,6 +469,57 @@ At the energies relevant for the passing fraction calculation the default cross 
 These differences in the cross section result in a maximum difference of 0.01 for the passing fractions.
 
 \paragraph{Primary Cosmic Ray Spectra}
+Previously shown comparisons all assume the Hillas-Gaisser three population model (H3a)~\cite{Gaisser:2011cc}.
+This model considers five different nuclei mass groups with three populations.
+These cut off at a characteristic rigidity.
+Other models for the cosmic ray primary flux have been proposed, and current measurements leave a considerable amount of uncertainty in the energy regime relevant for the passing fractions.
+
+A second model, GST-4gen~\cite{Gaisser:2013bla}, has a lower cutoff for the first two populations which also have correspondingly harder spectra.
+While the third population is iron-only above the spectrum ankle.
+A fourth proton-only component is included to obtain better agreement with shower depth data around $\SI{1}\EeV$.
+However, this proton-iron composition is somewhat in tension with data from Auger~\cite{Abraham:2010yv, Aab:2014aea}.
+
+A third model, ZS~\cite{Zatsepin:2006ci}, has three components derived from specific astrophysical sources.
+The lowest energy population comes from the expanding shells of supernovae remnants.
+The middle energy component comes from isolated supernovae and their interaction with the interstellar medium.
+Finally, the high energy component comes from massive star supernovae explosions and their interaction with their own stellar wind.
+This last process produces a very heavy composition.
+
+\begin{figure}[h!]
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig10_pmodels_conv_nue}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig10_pmodels_pr_nue}
+	}\\[2ex]
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig10_pmodels_conv_numu}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig10_pmodels_pr_numu}
+	}
+	\caption{\textbf{\textit{Passing fractions: effect of primary cosmic-ray spectrum}}. Results are shown for two values of $\cos\theta_z$ (from top to bottom): 0.25 (blue) and 0.85 (orange); for four CR models: Hillas-Gaisser H3a~\cite{Gaisser:2011cc} (solid), Gaisser, Stanev and Tilav (GST 4-gen)~\cite{Gaisser:2013bla} (dashed) and Zatsepin-Solkolskaya (ZS)~\cite{Zatsepin:2006ci} (dotted).
+		\textit{Top-left panel:} Conventional $\nu_e$ passing fraction. \textit{Top-right panel:} Prompt $\nu_e$ passing fraction. \textit{Bottom-left panel:} Conventional $\nu_\mu$ passing fraction. \textit{Bottom-right panel:} Prompt $\nu_\mu$ passing fraction.}
+	\label{fig:nue-cr-model-effect} \vspace{1.5cm}
+\end{figure}
+
+These three models are compared by their effect on the passing fraction calculations in Fig.~\ref{fig:nue-cr-model-effect}.
+The largest differences are for the $\nu_e$ passing fractions, which differ between models by less than 0.05 except when comparing the ZS model above $\SI{e6}\GeV$.
+This can be understood as a consequence of the ZS model being designed only to describe the cosmic ray flux up to $\SI{e8}\GeV$, meaning the ZS neutrinos flux predictions may not be accurate above $\SI{e6}\GeV$.
+The muon neutrinos passing fractions have much smaller variations between models.
+This is likely a result fo the sister muons dominating the passing fraction calculation, meaning that the population of showers from which the neutrino may have originated is a subdominant effect.
+The level of variation seen between these models represents a non-negligible uncertainty in the passing fractions.
+However, this level of uncertainty alone is likely to be smaller than the statistical uncertainties currently present for the HESE sample.
+
+Here a bracketing approach was used to examine the uncertainties, and models chosen to express a range of possibilities currently allowed by experimental measurements.
+But this is not a full accounting of the cosmic ray flux uncertainties.
+The measurement uncertainties can be accounted for in a more satisfactory manner with a non-parametric fit with sufficient degrees of freedom to the available cosmic-ray data.
+For any point in the parameter space of this fit both the neutrino flux and passing fraction can be computed to provide an expectation for the ``apparent'' neutrino flux.
+By directly using estimates from this fit and allowing the cosmic ray model to vary in a fit of neutrino data the uncertainties can be treated appropriately.
+This method has some computational challenges as it is not feasible to run the necessary MCEq calculations each time a different point in the parameter space is tested.
+However, there are some optimizations that can be found by carefully examining the basis functions used for the different cosmic ray populations and pre-computing or caching information where applicable.
+Such a treatment is not used for the HESE 7.5 year analysis, but may prove to be useful for future analyses that combine multiple samples with more than 10 years of data.
 
 \subsubsection{HESE passing fractions}
 
