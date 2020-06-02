@@ -509,7 +509,7 @@ The largest differences are for the $\nu_e$ passing fractions, which differ betw
 This can be understood as a consequence of the ZS model being designed only to describe the cosmic ray flux up to $\SI{e8}\GeV$, meaning the ZS neutrinos flux predictions may not be accurate above $\SI{e6}\GeV$.
 The muon neutrinos passing fractions have much smaller variations between models.
 This is likely a result fo the sister muons dominating the passing fraction calculation, meaning that the population of showers from which the neutrino may have originated is a subdominant effect.
-The level of variation seen between these models represents a non-negligible uncertainty in the passing fractions.
+The level of variation seen between these models represents a non-negligible uncertainty in the passing fractions for electron neutrinos, but is small for muon neutrinos.
 However, this level of uncertainty alone is likely to be smaller than the statistical uncertainties currently present for the HESE sample.
 
 Here a bracketing approach was used to examine the uncertainties, and models chosen to express a range of possibilities currently allowed by experimental measurements.
@@ -520,6 +520,35 @@ By directly using estimates from this fit and allowing the cosmic ray model to v
 This method has some computational challenges as it is not feasible to run the necessary MCEq calculations each time a different point in the parameter space is tested.
 However, there are some optimizations that can be found by carefully examining the basis functions used for the different cosmic ray populations and pre-computing or caching information where applicable.
 Such a treatment is not used for the HESE 7.5 year analysis, but may prove to be useful for future analyses that combine multiple samples with more than 10 years of data.
+
+\paragraph{Hadronic Interaction Models}
+The muons and neutrinos relevant for this calculation are produced in high energy extensive air showers, the development of which is governed by hadronic interaction physics.
+However, these showers and hadronic interactions occur at energies that are orders of magnitude beyond what is accessible to collider experiments where these interactions can be measured.
+Thus, our predictions for how these showers develop depends heavily on hadronic models that may are tuned to collider data but are extrapolations at the energies we are concerned with.
+
+\begin{figure}[h!]
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig11_hadrs_conv_nue}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig11_hadrs_pr_nue}
+	}\\[2ex]
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig11_hadrs_conv_numu}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig11_hadrs_pr_numu}
+	}
+	\caption{\textbf{\textit{Passing fractions: effect of hadronic-interaction model}}. Results are shown for two values of $\cos\theta_z$ (from top to bottom): 0.25 (blue) and 0.85 (orange); for different hadronic-interaction models: SIBYLL~2.3c~\cite{Riehn:2017mfm} (solid), SIBYLL~2.3~\cite{Engel:2015dxa, Riehn:2015oba} (dashed), QGSJET-II-04~\cite{Ostapchenko:2010vb} (dotted in left panel), EPOS-LHC~\cite{Pierog:2013ria} (dash-dotted in left panel) and DPMJET-III\cite{Roesler:2000he} (dotted in right panel).
+		\textit{Top-left panel:} Conventional $\nu_e$ passing fraction. \textit{Top-right panel:} Prompt $\nu_e$ passing fraction. \textit{Bottom-left panel:} Conventional $\nu_\mu$ passing fraction. \textit{Bottom-right panel:} Prompt $\nu_\mu$ passing fraction.} \vspace{1cm}
+	\label{fig:nue-hadronic-model-effect}
+\end{figure}
+
+Figure~\ref{fig:nue-hadronic-model-effect} shows a comparison of the passing fractions computed assuming four different hadronic interaction models.
+A detailed discussion of the differences between these models can be found in Section IV.C of~\cite{Arguelles:2018awr}.
+For electron neutrinos there are non-negligible differences in the passing fractions, but the variation is again small for muon neutrinos.
+
 
 \subsubsection{HESE passing fractions}
 
