@@ -106,6 +106,7 @@ Later it will be shown that even the modeled systematic uncertainties have a sma
 
 
 \subsection{Atmospheric neutrino passing fractions}
+\label{sec:passingfractions}
 
 As noted in~\cite{Schonert:2008is}, muons produced in the same air-shower may trigger the detector veto in coincidence with the neutrino interaction.
 Dedicated simulations of cosmic ray air showers where neutrino interactions are forced can provide observational predictions for the distribution of these combined muon+neutrino events.
@@ -167,6 +168,9 @@ The atmospheric neutrino passing fraction is defined as the probability for an a
 \Prob_{\rm pass} (E_\nu, \theta_z) = \frac{\phi_\nu^{\rm pass}(E_\nu, \theta_z)}{\phi_\nu(E_\nu, \theta_z)} ~,
 \end{equation}
 where $E_\nu$ is the neutrino energy, $\theta_z$ is the zenith angle, $\phi_\nu^{\rm pass}$ is the differential flux of atmospheric neutrinos accompanied by muons that are detected, and $\phi_\nu$ is the total differential atmospheric neutrino flux.
+In the next sections, passing fractions for electron neutrinos and muon neutrinos are derived.
+As tau neutrinos by comparison make up a very small portion of the atmospheric flux, there is no dedicated discussion for this case.
+However, the concerns for tau neutrinos are very similar to those of electron neutrinos minus the differences in their production.
 
 \subsubsection{$\nu_e$ passing fraction}
 Electron neutrinos (or antineutrinos) are produced alongside a positron (or electron) in the decay of their parent particle, for example $K^+ \rightarrow \pi^0 + e^+ + \nu_e$.
@@ -580,6 +584,43 @@ The increased depth results in a significantly larger passing fraction, greatly 
 It is therefore important to model the depth of events to accurately determine their passing probability.
 Depth is also an important consideration when evaluating the sensitivity of different neutrino detectors to the astrophysical flux.
 
+\paragraph{Detector Response}
+The probability for a muon to trigger the veto, $\Prob_{\rm light}$, encapsulates the detector response that is relevant for the passing fraction calculation.
+So far in this discussion all the passing fractions have been computed with a $\SI{1}\TeV$ threshold Heaviside $\Prob_{\rm light}$.
+While the Heaviside parameterization is simple, the real detector response is certainly more complex.
+The particular form of $\Prob_{\rm light}$ will depend on the particulars of the implemented veto.
+To get a feel for these differences and the uncertainty that detector response modeling could introduce we look at a few different $\Prob_{\rm light}$ functions.
+
+\begin{figure}[h!]
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig14_pls_conv_nue}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig14_pls_pr_nue}
+	}\\[2ex]
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig14_pls_conv_numu}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig14_pls_pr_numu}
+	}
+	\caption{\textbf{\textit{Passing fractions: effect of $\boldsymbol{\Prob_{\rm light}}$}}. Results are shown for two values of $\cos\theta_z$ (from top to bottom): 0.25 (blue) and 0.85 (orange); for three different $\Prob_{\rm light}(\Emf)$: a Heaviside with a muon threshold at 1~TeV, $\Theta\left(\Emf - 1 \, {\rm TeV}\right)$ (solid), a Heaviside with a muon threshold at 0.75~TeV, $\Theta\left(\Emf - 0.75 \, {\rm TeV}\right)$ (dashed) and a sigmoid $\Phi\left(\left(\Emf - 0.75 \, {\rm TeV}\right)/0.25 \, {\rm TeV}\right)$ (dotted). \textit{Top-left panel:} Conventional $\nu_e$ passing fraction. \textit{Top-right panel:} Prompt $\nu_e$ passing fraction. \textit{Bottom-left panel:} Conventional $\nu_\mu$ passing fraction. \textit{Bottom-right panel:} Prompt $\nu_\mu$ passing fraction.} \vspace{1.5cm}
+	\label{fig:nue-plight-effect}
+\end{figure}
+
+With straightforward veto implementations a smooth, monotonic, threshold-like behavior is expected.
+This can be understood as a consequence of three factors: cuts on observable parameters, fluctuations in observed light, and the positive correlation between muon energy and light emission.
+The cuts on observable parameters introduce the threshold behavior, choosing to accept and reject events that fall into different regions of the observable parameter space.
+However, this hard threshold is smoothed out by fluctuations in the observable parameters.
+Stochastic energy losses of the muons mean that the emitted light near the veto can vary wildly for identical muons; further variation is caused by photon scattering and the quantum efficiency of the detector PMTs.
+The Heaviside function models this threshold behavior but transitions too sharply represent a realistic detector response.
+An alternative is to use a sigmoid to model the smooth transition, in this case a logistic function is a reasonable choice.
+Figure~\ref{fig:nue-plight-effect} shows the passing fractions for three variations of the $\Prob_{\rm light}$ function, a Heaviside with $\SI{1}\TeV$ threshold, a Heaviside with $\SI{0.25}\TeV$ threshold, and finally a logistic function with a $\SI{0.25}\TeV$ threshold and $1/\SI{0.25}\TeV$ growth parameter.
+A reduction in the Heaviside function threshold produces a reduction of the passing fraction as expected.
+The change from Heaviside to sigmoid produces a smaller reduction, although this comparison of the effect's magnitude is arbitrary.
+Although the change to muon neutrino passing fractions is smaller than that for electron neutrinos, this is the largest change in the muon neutrino passing fraction for a fixed detector geometry.
+We should stress the importance of correctly modeling the detector response to muons as it will significantly affect the passing fractions for both flavors.
 
 \subsubsection{HESE passing fractions}
 
