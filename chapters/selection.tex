@@ -549,6 +549,37 @@ Figure~\ref{fig:nue-hadronic-model-effect} shows a comparison of the passing fra
 A detailed discussion of the differences between these models can be found in Section IV.C of~\cite{Arguelles:2018awr}.
 For electron neutrinos there are non-negligible differences in the passing fractions, but the variation is again small for muon neutrinos.
 
+\paragraph{Depth and Surrounding Medium}
+In these sections a depth of $\SI{1.95}\km$ has been assumed to model the veto effects at the center of the IceCube detector.
+However, IceCube and other neutrino detectors are large enough that the change in depth from top to bottomo significantly changes the overburden for a neutrino of a given zenith angle.
+Increases in the overburden significantly reduce the power of the veto, as muons that reach the detector are fewer and less energetic.
+As a benchmark, we can examine the passing fractions assuming a depth of $\SI{3.5}\km$, corresponding to the depth of KM3NeT-Italy, and also compare differences between ice and water.
+
+\begin{figure}[h!]
+	\centering
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig13_medium_conv_nue}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig13_medium_pr_nue}
+	}\\[2ex]
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig13_medium_conv_numu}
+	}
+	\subfloat{
+		\includegraphics[width=0.45\linewidth]{results/passing_fractions_paper/fig/fig13_medium_pr_numu}
+	}
+	\caption{\textbf{\textit{Passing fractions: effect of depth/medium}}. Results are shown for two values of $\cos\theta_z$ (from top to bottom): 0.25 (blue) and 0.85 (orange); for two depths: $d_{\rm det} = 1.95$~km (solid and dashed) and $d_{\rm det} = 3.5$~km (dotted and dash-dotted); and for two different media: ice (solid and dotted) and water (dashed and dot-dashed). \textit{Top-left panel:} Conventional $\nu_e$ passing fraction. \textit{Top-right panel:} Prompt $\nu_e$ passing fraction. \textit{Bottom-left panel:} Conventional $\nu_\mu$ passing fraction. \textit{Bottom-right panel:} Prompt $\nu_\mu$ passing fraction.} \vspace{1.5cm}
+	\label{fig:medium-effect}
+\end{figure}
+
+Figure~\ref{fig:medium-effect} shows these comparisons.
+It is notable that the differences between water and ice are non-negligible but much less dramatic than the effect of depth.
+As expected, the effect of the surrounding medium is also more pronounced near the horizon where the change in effective overburden is larger.
+The increased depth results in a significantly larger passing fraction, greatly reducing the power of veto techniques.
+It is therefore important to model the depth of events to accurately determine their passing probability.
+Depth is also an important consideration when evaluating the sensitivity of different neutrino detectors to the astrophysical flux.
+
 
 \subsubsection{HESE passing fractions}
 
