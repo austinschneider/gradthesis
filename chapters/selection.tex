@@ -126,21 +126,6 @@ This allows for simple variation of the detector response modeling in a generic 
 To perform this calculation a framework was developed that leverages the Matrix Cascade Equation (MCEq) package in key portions of the calculation.
 Validation of the computed passing fractions is performed against detailed air shower simulations with COsmic Ray SImulations for KAscade (CORSIKA), and excellent agreement is found as a result.
 
-% TODO move this text to the section where we discuss analysis specifics
-%In this approach the neutrino properties are known from simulation, and it is sought to average over all the potential properties of the cosmic ray air showers from which the neutrino could have been produced in.
-%Ideally this average over air shower properties should be computed for each neutrino position, direction, and energy because the detector response can vary with all six of these parameters.
-%However, not all of these properties are used directly in the analysis nor does the detector response depend equally strongly on all of these parameters.
-%For this reason when performing the calculation of the efficiency, only the neutrino energy, zenith angle, and depth upon intersection with the detector are considered.
-%Other properties of the neutrino are averaged over.
-%Additionally, in the characterization of the detector response to muons, only dependence on the muon energy and depth are considered.
-%Thus, the computed passing fraction depends on the neutrino energy, the zenith angle, and the incident depth in the detector.
-%However, the detector response and neutrino properties can be factorized so that the problem can be discussed more generally.
-%In previous analyses, the passing fractions were calculated using an extension of the method described in~\cite{Schonert:2008is} and bounded at $\SI{10}\percent$; details of the method are provided in~\cite{Aartsen:2013jdh}.
-%Cosmic ray simulations remain a computationally prohibitive way of accounting for the effects of accompanying muons, so we still rely on calculations of the average passing rate.
-%In this analysis, we use a new calculation given in~\cite{Arguelles:2018awr} that allows for different cosmic-ray and hadronic models to be used; more importantly for this analysis any parameterization of the detector veto response to muons can be used in the calculation, as opposed to just an energy threshold.
-%This capability allows us to more accurately model the detector response to atmospheric neutrinos.
-%In \reffig{fig:P_light} we show the probability that a muon will pass the veto as a function of the true muon incident energy for different detector depths.
-
 Departure from the lone-neutrino case is based on the coincidence of a muon and neutrino from the same air-shower that occurs in both time and direction.
 Thus, $\Prob_{\rm reach}\left(\Emf \, | \, \Emi , \, X_\mu, \right)$ is naturally a key component of the calculation, which describes the probability of a muon with initial energy $\Emi$ and slant depth $X_\mu$ to reach the detector with energy $\Emf$.
 As the IceCube detector is deep underground, the contribution to slant depth from the atmosphere is very small compared to that of the Earth, and so can be neglected.
@@ -625,6 +610,19 @@ Although the change to muon neutrino passing fractions is smaller than that for 
 We should stress the importance of correctly modeling the detector response to muons as it will significantly affect the passing fractions for both flavors.
 
 \subsubsection{HESE passing fractions}
+In this approach the neutrino properties are known from simulation, and it is sought to average over all the potential properties of the cosmic ray air showers from which the neutrino could have been produced in.
+Ideally this average over air shower properties should be computed for each neutrino position, direction, and energy because the detector response can vary with all six of these parameters.
+However, not all of these properties are used directly in the analysis nor does the detector response depend equally on all of these parameters.
+For this reason when performing the calculation of the efficiency, only the neutrino energy, zenith angle, and depth upon intersection with the detector are considered.
+Other properties of the neutrino are averaged over.
+Additionally, in the characterization of the detector response to muons, only dependence on the muon energy and depth are considered.
+Thus, the computed passing fraction depends on the neutrino energy, the zenith angle, and the incident depth in the detector.
+However, the detector response and neutrino properties can be factorized so that the problem may be discussed more generally.
+In previous analyses, the passing fractions were calculated using an extension of the method described in~\cite{Schonert:2008is} and bounded at $\SI{10}\percent$; details of the method are provided in~\cite{Aartsen:2013jdh}.
+Cosmic ray simulations remain a computationally prohibitive way of accounting for the effects of accompanying muons, so we still rely on calculations of the average passing rate.
+In this analysis, we use the new calculation described above and in~\cite{Arguelles:2018awr} that allows for different cosmic-ray and hadronic models to be used; more importantly for this analysis any parameterization of the detector veto response to muons can be used in the calculation, as opposed to just an energy threshold.
+This capability allows us to more accurately model the detector response to atmospheric neutrinos.
+In \reffig{fig:P_light} we show the probability that a muon will pass the veto as a function of the true muon incident energy for different detector depths.
 
 % Plot of p_light
 \begin{figure}
@@ -639,9 +637,9 @@ We should stress the importance of correctly modeling the detector response to m
 		Above $\sim\SI{100}\TeV$ the passing fraction is extrapolated.}\label{fig:P_light}
 \end{figure}
 
-Using the passing fractions in \reffig{fig:P_light} as input and the \nuveto{} code provided in~\cite{Arguelles:2018awr} we calculate the atmospheric passing fraction for each component and flavor using the Hillas-Gaisser H3a~\cite{Gaisser:2013bla,Gaisser:2011cc,Hillas:2006ms} model for the incident cosmic-ray spectra and SIBYLL2.3c~\cite{Riehn:2017mfm} for the hadronic interactions in the air shower.
-Using passing fractions derived from alternative cosmic-ray and hadronic interaction models has sub-leading effects in the determination of the astrophysical flux~\cite{Arguelles:2018awr}.
-In this work, this was studied by repeating the analysis for different passing fractions that arise from a given combination of cosmic-ray spectrum and hadronic model for a variety of spectra and models that are available in the literature.
+Using the passing fractions in \reffig{fig:P_light} as input and the \nuveto{} code provided in~\cite{Arguelles:2018awr} the atmospheric passing fraction is calculated for each component and flavor using the Hillas-Gaisser H3a~\cite{Gaisser:2013bla,Gaisser:2011cc,Hillas:2006ms} model for the incident cosmic-ray spectra and SIBYLL2.3c~\cite{Riehn:2017mfm} for the hadronic interactions in the air shower.
+Switching to passing fractions derived from alternative cosmic-ray and hadronic interaction models has sub-leading effects in determination of the astrophysical flux~\cite{Arguelles:2018awr}.
+Effects of these systematics were studied by repeating the analysis for different passing fractions that arise from a given combination of cosmic-ray spectrum and hadronic model for a variety of spectra and models that are available in the literature.
 We found that the inclusion of these effects in addition to other discrete ice choices mentioned later in \refsec{sec:detector_systematics} increases the reported uncertainty of the astrophysical parameters by at most $\SI{20}\percent$ with respect to errors computed without these effects.
 For this reason, these effects are not included in the analysis and are not reflected in the reported errors of any model parameters.
 In \reffig{fig:passingfraction} we show the passing fractions for the conventional and prompt neutrino components.
@@ -670,6 +668,9 @@ This is best seen when comparing the atmospheric fluxes before and after the vet
 		The different colors, from darkest to lightest, are for three different detector depths: 1350, 1950, and 2550 meters below the surface.
 		The left, center, and right panel correspond to cosine of the zenith angles 0.1, 0.3, and 0.9 respectively (or zenith angles of $\SI{84.3}\degree$, $\SI{72.5}\degree$, and $\SI{25.8}\degree$).}\label{fig:passingfraction}
 \end{figure*}
+
+\textbf{TODO: Move the neutrino rate and muon rate figures to the analysis section?}
+\textbf{TODO: Make some plots of the real neutrino flux before/after the veto.}
 
 \begin{figure}
 	\centering
