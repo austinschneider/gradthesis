@@ -147,6 +147,25 @@ Note that losses also depend on the medium and not only on the slant depth, whos
 From here on to simplify the notation, the dependence on $X_\mu$ will be replaced by a dependence on $\theta_z$ and the dependence on $d$ will be neglected.
 These dependencies can be added back in at the end of the calculation without any change to the result.
 
+\begin{figure}
+	\centering
+    \begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{figures/preach_median}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{figures/preach_skew}
+	\end{subfigure}
+	\caption{\textbf{\textit{Muon Final Energy Statistics.}} Muons propagating in ice were simulated for a wide range of initial energies, and at a set of predefined distances their energy was recorded.
+	This results in a distribution of final muon energies for each combination of initial muon energy and overburden.
+	These two plots show statistics of these distributions, with the upper plot displaying the median and the lower plot displaying the skew.
+	Previous calculations only used the median of these distributions.
+	However, the large skew of these distributions shows us that the tails become important for large overburdens.
+	}
+	\label{fig:preach_stats}
+\end{figure}
+
 % TODO
 \textbf{TODO: Add a plot of $\Prob_{\rm reach}$, $\Prob_{\rm light}$, and $\Prob_{\rm det}$}
 
