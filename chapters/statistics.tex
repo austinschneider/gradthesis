@@ -109,3 +109,128 @@
 \graphicspath{{results/mcllh_paper/}}
 \input{results/mcllh_paper/appendices/formulas}
 \endgroup
+
+\section{Frequentist confidence intervals with nuisance parameters and limited simulation}
+
+Frequentist and Bayesian techniques deal with different two different kinds of probability.
+In frequentist statistics, the relevant probability is the frequency of the outcome of a repeatable experiment.
+Under this framework the important concepts are parameter estimation, confidence intervals, and statistical tests.
+In Bayesian statistics, the relevant probabilities come from the application of Bayes theorem which means we can define the probability density of parameters.
+This definition of the parameter p.d.f. is applicable to the same problems parameter estimation, interval construction, and statistical tests but comes at the cost of defining ``prior belief'' about parameters.
+
+In this section we will ignore the problem of statistical tests, instead focusing on the common features that underpin parameter estimation and interval construction.
+Generally in parameter estimation and interval construction there are two sets of parameters, parameters of interest $\vec\theta$ and nuisance parameters $\vec\eta$.
+Fundamentally there is no distinction between these two kinds of parameters.
+The difference is only in which parameters we want to infer information about.
+
+For both parameter estimation and interval construction the likelihood function is central.
+The likelihood function reflects the plausibility of model parameters given observed data and is defined as $\like(\vec\theta, \vec\eta|\textrm{data}) = p(\textrm{data}|\vec\theta, \vec\eta)$.
+Where $p(\textrm{data}|\vec\theta, \vec\eta)$ is the probability of the data given the model parameters.
+A useful technique to eliminate nuisance parameters is the profile likelihood technique.
+Dropping the explicit notational dependence on data, the profile likelihood function is defined as
+\begin{linenomath*}
+	\begin{equation}
+	\tilde{\like}^\texttt{profile}(\vec\theta) = \max_{\vec\eta} \like(\vec\theta,\vec\eta),
+	\label{eq:likelihood_profile}
+	\end{equation}
+\end{linenomath*}
+where often the negative log of the function is maximized in place of the function for computational reasons.
+The profile likelihood is then only a function of the parameters of interest.
+Parameter estimation can be performed by maximizing the profile likelihood to obtain the ``best-fit'' parameters
+\begin{linenomath*}
+	\begin{equation}
+	\hat{\vec\theta} = \argmax_{\vec\theta} \tilde{\like}^\texttt{profile}(\vec\theta).
+	\label{eq:best_fit}
+	\end{equation}
+\end{linenomath*}
+This best-fit point in the parameter space is a derived property of the likelihood function.
+However, the same procedure can be performed with other functions to the same effect.
+In general a minimization procedure is used, and we refer to these functions as ``test-statistics'' (TS).
+A particularly useful TS is derived directly from the profile likelihood technique,
+\begin{linenomath*}
+	\begin{equation}
+	\TS(\vec\theta) = -2\log{\left(\frac{\tilde{\like}^\texttt{profile}(\vec\theta)}{\tilde{\like}^\texttt{profile}(\hat{\vec\theta})}\right)}.
+	\end{equation}
+\end{linenomath*}
+Using this TS to perform parameter estimation through minimization is mathematically equivalent to maximizing the likelihood, however, this form will prove to be uniquely useful for interval construction.
+
+Since frequentist statistics deals with the frequency of outcomes from repeated experiments we can use the TS that results from repeated experiments to construct probabilities.
+Consider for a moment a single point in the parameter space $\vec\theta_0$.
+At this point in the parameter space there is a distribution of data that can be observed, and therefore a distribution of TS functions.
+Instead of considering the distribution of TS functions originating from this point, we can simplify the picture by looking at the TS function only evaluated at this point $\TS(\vec\theta_0)$.
+This gives us a distribution of TS values for this point in the parameter space that may look like~\reffig{fig:TS_dist}.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{figures/TS_dist}
+	\caption{\textbf{\textit{Test statistic distribution.}} An example of a test statistic distribution.
+	Such distributions tend to have the bulk of their mass close to the lower boundary with a long tail.
+	Lower values indicate better statistical compatibility with the data.
+	}
+	\label{fig:TS_dist}
+\end{figure}
+It is important to note that smaller TS values indicate better compatibility with the data.
+For this reason many statistical tests are constructed by comparing the TS from a single experiment to a background TS distribution and reporting a p-value that is the fraction of the TS distribution greater than the observed TS.
+
+This procedure can be extended to construct intervals by considering the TS distributions of every point in parameter space and comparing to the observed TS function.
+Consider the one-dimensional case where there is a TS distribution for each value of the parameter, illustrated in~\reffig{fig:TS_dists_1d}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{figures/TS_dists_1d}
+	\caption{\textbf{\textit{One-dimensional test-statistic distribution comparison.}} An example of the test statistic distributions as a function of a single parameter.
+	}
+	\label{fig:TS_dists_1d}
+\end{figure}
+We can construct an interval that will contain the true value of the parameter a fraction of the time $\alpha$ for repeated experiments.
+This interval is the collection of points in the one-dimensional parameter space where the TS at that point is greater than the $\alpha$ quantile of the corresponding TS distribution.
+If the TS distribution is the same for all points in parameter space, the interval construction can procedurally be thought of as drawing a horizontal line at the appropriate threshold and only including points that lie below the line.
+Varying TS distributions modify this procedure to the comparison of two curves.
+This procedure is not limited to one-dimension but can be extended to an arbitrary number of parameters of interest to construct n-dimensional regions with the same properties.
+
+There is however an important caveat to this construction that appears when we consider nuisance parameters.
+In order for the intervals to have the desired properties, the observed TS must be greater than the threshold for all possible values of the nuisance parameters.
+This ultimatum presents several challenges.
+Nuisance parameters can often have a broad or even unbounded range of allowed values, meaning if the effect of nuisance parameters does not taper off at the extrema then almost all intervals are guaranteed to be empty.
+From a practical standpoint, computing the TS distributions for many points in parameter space is often done via Monte-Carlo and is computationally expensive.
+Adding additional dimensions to the parameter space for which we must compute TS distributions exponentially increases the computation time.
+
+To combat these issues we can limit our interval construction to be valid for values of the nuisance parameters that are ``reasonable''.
+There are several methods for doing this, but we can split them into two categories: pure frequentist, and frequentist-Bayesian hybrid.
+In the pure frequentist approaches we can either choose a single value of the nuisance parameters, or work with a limited range of the nuisance parameter values.
+For the single value approach either nominal values are chosen before looking at the data, or estimators of the nuisance parameters are used to choose their values.
+This approach benefits from simplicity, but fails if the test-statistic distributions vary rapidly with changes to the nuisance parameters for values that we might consider ``reasonable''.
+A more expensive but robust approach is to explore the behavior of TS distributions for a limited range of the nuisance parameter values, which can be chosen {\it a priori} or from data-based bounds on the nuisance parameters.
+If we are willing to consider a hybrid approach, then some more pragmatic options are available.
+
+######
+
+
+Two important and closely related concepts in frequentist statistics are the test-statistic and profile likelihood.
+
+Frequentist techniques by virtue of their name deal with the frequency of events when considering a larger ensemble.
+Making statements about the frequency with which an event can occur may not seem useful at first, but by carefully defining our ``event'' we can learn something about physical parameters.
+To think about this more carefully, it is important to make a distinction between things we can observe and physical parameters that we can never really observe.
+A simple example is useful in this case.
+Consider a weighted coin toss experiment.
+The physical parameter in this scenario is the true probability $p$ for any toss that we observe heads, or equivalently the probability $q=p-1$ that we observe tails.
+The parameter $p$ is never directly observable, and statements about the probability that $p$ may have a certain value can only be made in Bayesian statistics.
+Our simplest observable is the outcome of any toss, head or tails.
+However, for many coin tosses we can construct an estimator of the parameter $p$, $\hat p=\frac{k}{n}$ which is itself an observable.
+To obtain this estimator another observable is used, the likelihood function or test statistic.
+The likelihood function or test statistic serves to compare the fundamental observation and possible values of the true parameter through statistical modeling or with a distance metric.
+
+Beyond just point estimation, we'd also like to infer something about the range of values a parameter may have.
+To do this we can construct intervals in the parameter space according to a procedure that has specific properties.
+In frequentist statistics this procedure is defined such that for repeated experiments the constructed intervals will contain the true parameter at least a predefined fraction of the time $\alpha$.
+It is important to note that this is a property of the procedure, and not a property of a single interval for one experiment.
+
+Suppose we want to construct an interval according to a procedure such that the constructed interval will contain the true parameter value at least $\SI{90}\percent$ of the time.
+We can decide if a point parameter space should be included in this interval based on this criteria.
+For a point in parameter space we can construct the distribution of test statistics based on the underlying statistical processes.
+We only include that point in the interval if the data test statistic is less than $\SI{90}\percent$ of the test statistics for that point.
+The interval is then the union of all points in parameter space that meet this criterion.
+By construction this procedure will produce an interval that contains the true parameter $\SI{90}\percent$ of the time.
+
+This procedure is simple in the one dimensional case as in the construction of the interval the test statistic distribution must only be computed after varying a single parameter.
+However, this picture is complicated by additional model parameters or ``nuisance parameters''.
+If we want to construct a one dimensional interval in the case that there are two model parameters, we must extend the procedure to ensure that interval has the desired properties for all possible values of the second parameter.
+This naturally presents a problem
