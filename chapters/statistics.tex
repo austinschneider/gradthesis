@@ -1,6 +1,6 @@
 \chapter{Statistics}
 
-\section{Dealing with limited simulation samples}
+\section{Dealing with limited simulation samples\label{sec:limited_simulation}}
 
 \subsection{Introduction\label{sec:intro}}
 \begingroup
@@ -109,7 +109,7 @@
 \graphicspath{{results/mcllh_paper/}}
 \input{results/mcllh_paper/appendices/formulas}
 \endgroup
-
+\FloatBarrier
 \section{Frequentist confidence intervals with nuisance parameters and limited simulation}
 
 Frequentist and Bayesian techniques deal with different two different kinds of probability.
@@ -201,36 +201,26 @@ This approach benefits from simplicity, but fails if the test-statistic distribu
 A more expensive but robust approach is to explore the behavior of TS distributions for a limited range of the nuisance parameter values, which can be chosen {\it a priori} or from data-based bounds on the nuisance parameters.
 If we are willing to consider a hybrid approach, then some more pragmatic options are available.
 
-######
+Although Bayesian methods could be used to choose a single point in parameter space from which to generate the TS distributions, the more interesting application is one that uses a distribution in parameter space.
+In Bayesian statistics we can directly assign a probability density to the points in parameter space, either based on our prior information, or directly informed by the posterior distribution, from this extended perspective the probability of certain nuisance parameter values is of interest when considering the frequency of TS values for different parameters of interest.
+The prior case is simple in that we sample the from the nuisance parameter priors when generating the TS distribution which allows us to account for variability introduced by the nuisance parameters without relying on hard cutoffs or biasing our inferences with parameter values that are unrealistic.
+This prior based technique is well motivated if the priors are derived from external observations, however in the case where nuisance parameters have broad or ``uninformative'' priors this motivation and benefit may break down.
+In some cases we expect nuisance parameters to be heavily constrained by the same data sample used to investigate the parameters of interest, so a different approach is merited.
+The alternative is to use the posterior distribution to construct our nuisance parameter p.d.f.
+Ideally a posterior distribution would be computed for each point in the parameters of interest space by fixing those parameters of interest.
+In this way the nuisance parameter posterior used for sampling depends on the point in parameter space we are examining.
 
-
-Two important and closely related concepts in frequentist statistics are the test-statistic and profile likelihood.
-
-Frequentist techniques by virtue of their name deal with the frequency of events when considering a larger ensemble.
-Making statements about the frequency with which an event can occur may not seem useful at first, but by carefully defining our ``event'' we can learn something about physical parameters.
-To think about this more carefully, it is important to make a distinction between things we can observe and physical parameters that we can never really observe.
-A simple example is useful in this case.
-Consider a weighted coin toss experiment.
-The physical parameter in this scenario is the true probability $p$ for any toss that we observe heads, or equivalently the probability $q=p-1$ that we observe tails.
-The parameter $p$ is never directly observable, and statements about the probability that $p$ may have a certain value can only be made in Bayesian statistics.
-Our simplest observable is the outcome of any toss, head or tails.
-However, for many coin tosses we can construct an estimator of the parameter $p$, $\hat p=\frac{k}{n}$ which is itself an observable.
-To obtain this estimator another observable is used, the likelihood function or test statistic.
-The likelihood function or test statistic serves to compare the fundamental observation and possible values of the true parameter through statistical modeling or with a distance metric.
-
-Beyond just point estimation, we'd also like to infer something about the range of values a parameter may have.
-To do this we can construct intervals in the parameter space according to a procedure that has specific properties.
-In frequentist statistics this procedure is defined such that for repeated experiments the constructed intervals will contain the true parameter at least a predefined fraction of the time $\alpha$.
-It is important to note that this is a property of the procedure, and not a property of a single interval for one experiment.
-
-Suppose we want to construct an interval according to a procedure such that the constructed interval will contain the true parameter value at least $\SI{90}\percent$ of the time.
-We can decide if a point parameter space should be included in this interval based on this criteria.
-For a point in parameter space we can construct the distribution of test statistics based on the underlying statistical processes.
-We only include that point in the interval if the data test statistic is less than $\SI{90}\percent$ of the test statistics for that point.
-The interval is then the union of all points in parameter space that meet this criterion.
-By construction this procedure will produce an interval that contains the true parameter $\SI{90}\percent$ of the time.
-
-This procedure is simple in the one dimensional case as in the construction of the interval the test statistic distribution must only be computed after varying a single parameter.
-However, this picture is complicated by additional model parameters or ``nuisance parameters''.
-If we want to construct a one dimensional interval in the case that there are two model parameters, we must extend the procedure to ensure that interval has the desired properties for all possible values of the second parameter.
-This naturally presents a problem
+With the possible solutions available, we can now look at the problem of limited simulation size when generating test statistic distributions.
+As explored in~\refsec{sec:limited_simulation} for binned Poisson likelihood problems, the real expectation in data or simulation for the number of events in a bin is not a known quantity.
+Because the real expectations are not known, it is impossible to exactly model the distribution of TS that are expected for a particular point in the parameter space.
+However, as~\refsec{sec:limited_simulation} also explored, limited simulation can be modeled with nuisance parameters so the techniques discussed above can be applied directly to the problem.
+The ``single point in parameter space'' approach fails to address the additional uncertainty present in this case.
+Allowing for unbounded variation of the bin expectations fails as it is guaranteed to produce empty intervals.
+Bounding of the bin expectations within a reasonable range provides manageable intervals, but the dimensionality of the problem makes this computationally unfeasible beyond a handful of bins.
+Unfortunately this excludes all the ``classic'' frequentist solutions to this problem.
+The hybrid Bayesian-frequentist methods in this case provide a tractable solution that accounts for the additional uncertainty.
+We can make use of the treatment described in~\refsec{sec:effective}, where the bin expectation is derived to be gamma distributed, and the expected number of data events modeled to be Poisson distributed once this expectation is known.
+Practically this can be achieved by sampling data events from $\mcl$, or through a two step process where the expectation is sampled from a gamma distribution $\gprob(\lambda;\agpar, \bgpar)$ where $\agpar = \frac{\mu^2}{\sigma^2}+1~\textmd{and}~\bgpar=\frac{\mu}{\sigma^2}$, and the data events are sampled from a Poisson distribution $\frac{\lambda^{k}e^{-\lambda}}{k!}$.
+It is important to note that this procedure only applies to variations in the data and should not be used to vary simulation expectations.
+This is because the TS distribution is intended to model variations in the data, whereas the simulation used for analysis is fixed.
+Combined with a similar hybrid treatment for other nuisance parameters, this provides a more complete accounting of the uncertainties given the available modeling.
