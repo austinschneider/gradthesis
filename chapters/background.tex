@@ -62,7 +62,7 @@ These two interactions are shown in \reffig{fig:DIS}.
 \end{figure}
 
 The third interaction relevant above $\si\TeV$ neutrino energies is the resonant production of a $W$ boson, otherwise known as the Glashow resonance (GR)~\cite{Glashow:1960zz}.
-In matter on Earth this process occurs when an anti-electron neutrino combines with an atomic electron to produce an on-shell $W^+$ as shown in~\reffig{fig:glashow}
+In matter on Earth this process occurs when an anti-electron neutrino combines with an atomic electron to produce an on-shell $W^+$ as shown in~\reffig{fig:glashow}.
 If we consider the rest frame of the electron, then this resonance occurs at a neutrino energy of $\SI{6.3}\PeV$.
 For atomic electrons we should consider the rest frame of the atom, and in this case there is a Doppler broadening of the resonance of $\sim\SI{20}\percent$ due to the orbital motion of the electrons~\cite{Loewy:2014zva}.
 In practice this broadening is small in comparison to the energy resolution of modern neutrino detectors that have access to this energy scale, and any further broadening from thermal motion will be even smaller.
@@ -105,8 +105,37 @@ These ``energy loss'' interactions include ionization, electron-positron pair pr
 Although these processes are highly stochastic, the average energy loss of muons approximately follows $-dE/dx=a+bE$ where $a$ is determined by the ionization energy losses and $b$ is defined by the other processes.
 In general $a$ and $b$ and both functions of the muon energy $E$, but this linear approximation where $a$ and $b$ are constant holds locally as both are slowly varying as a function of $E$.
 For muon energies above $\SI{1}\TeV$, the so called ``radiative'' term $bE$ dominates the average energy losses.
-Thus, the energy loss rate in a detection medium can be used to infer the muon energy.
-In practice the muon energy can be determined to within a factor of $2$, however improved techniques may achieve a resolution as small as $\SI{10}\percent$ in the future.
+Figure~\ref{fig:energy_losses} shows the energy loss rate for the different processes.
+Once the radiative losses have taken over above $\sim\SI{1}\TeV$, the losses grow exponentially with energy.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{figures/energy_losses}
+	\internallinenumbers
+	\caption{\textbf{\textit{Muon Energy Losses}}
+		The muon energy loss rate computed for water is plotted as a function of the muon energy for the five different loss processes.
+		This figure is reproduced here from~\cite{Koehne:2013gpa}.
+		Radiative energy losses dominate above $\sim\SI{1}\TeV$.
+		Although it is a smaller contribution to the energy losses, photo-nuclear interactions are the main source of uncertainty above $\sim\SI{1}\TeV$.
+	}\label{fig:energy_losses}
+\end{figure}
+
+The strong dependence of the energy loss rate on muon energy means that the energy lost while traversing the detector can be used to estimate a muon's energy.
+For simple observables like the total energy lost over $\SI{1}\km$ the stochastic energy losses introduce large variations between muons of the same energy, reducing their power as a proxy for the muon energy.
+Figure~\ref{fig:muon_energy} shows the energy of muons lost within $\SI{1}\km$ of ice; a distribution with very long tails.
+In practice the muon energy can be determined to within a factor of $2$, however improved techniques that take advantage of more detailed information may achieve a resolution as small as $\SI{10}\percent$ in the future.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{figures/muon_energy}
+	\internallinenumbers
+	\caption{\textbf{\textit{Muon Loss in $\SI{1}\km$ of Ice}}
+	Muons are propagated through $\SI{1}\km$ of ice, and their lost energy recorded.
+	For each initial muon energy, the mode and $\SI{90}\percent$ HPD are plotted here.
+	There is a strong correlation between the initial energy and energy lost.
+	However, the distribution has very long tails, making a precise determination of the muon energy based on this observable impossible.
+	}\label{fig:muon_energy}
+\end{figure}
 
 Taus produced similarly are also detectable.
 The short decay length of a tau, $\SI{50}\meter / \si\PeV$, means it is likely to decay very close to the neutrino interaction vertex.
@@ -123,7 +152,7 @@ This light yield allows these detectors to be sparsely instrumented while mainta
 
 Water Cherenkov detectors often make use of photo-multiplier-tubes (PMTs) to detect Cherenkov photons.
 PMTs have a thin photo-cathode that is held at a high-voltage differential with respect to an anode; this allows the production and acceleration of a photo-electron when photons pass through the photo-cathode.
-Accelerated photo-electrons hurtle towards a an amplification stage composed of many dynodes, each held at a large voltage difference to the adjacent dynodes.
+Accelerated photo-electrons hurtle towards an amplification stage composed of many dynodes, each held at a large voltage difference to the adjacent dynodes.
 This setup allows a single photo-electron to produce many secondary electrons upon interaction with a dynode, starting an exponential cascade of electrons across the dynode stages.
 The resulting cascade of electrons is amplified enough with respect to the original signal that they can be detected electronically as a voltage change.
 In this way, PMTs can be sensitive to single photons, provided one is able to reach the photo-cathode.
@@ -156,6 +185,7 @@ Neutrinos have an interaction cross section that is approximately a factor of $1
 	\includegraphics[width=\linewidth]{figures/cosmic_ray_spectrum}
 	\internallinenumbers
 	\caption{\textbf{\textit{Cosmic Ray Spectrum}}
+	This figure is reproduced here from~\cite{PhysRevD.98.030001}.
 	}\label{fig:cosmic_ray_spectrum}
 \end{figure}
 
