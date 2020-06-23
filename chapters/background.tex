@@ -146,10 +146,27 @@ For taus produced via the decay of a $W$ boson, the event is indistinguishable f
 Although a tau may traverse tens of meters, which is detectable by IceCube, the energy losses are still negligible over these distances.
 
 From the wide variety of methods for detecting charged particles, water Cherenkov detectors are most common for detecting neutrinos in this high-energy regime above $\SI{1}\TeV$.
-Water Cherenekov detectors have the advantage that their detection medium is both abundant and inexpensive, a major motivator in the design of IceCube.
-Although these detectors use Cherenkov radiation to detect particles, the high-energy secondary charged leptons themselves do not produce many Cherenkov photons.
-However, as these leptons lose energy in the detection medium, the tertiary particle showers they produce give rise to many Cherenkov photons.
-This high light-yield allows these detectors to be sparsely instrumented while maintaining detection efficiency and reconstruction quality.
+Water Cherenkov detectors have the advantage that their detection medium is both abundant and inexpensive, a major motivator in the design of IceCube.
+Cherenkov radiation is the result of charged particles propagating through a dielectric medium faster than the phase velocity of light.
+As charged particles pass through dielectric material, the ionization of the medium induces the emission of light.
+For particles faster than the phase velocity, the emission forms a conical coherent wave front at a well defined angle to the particle's path.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.45\linewidth]{figures/no_cherenkov}
+	\includegraphics[width=0.45\linewidth]{figures/cherenkov}
+	\internallinenumbers
+	\caption{\textbf{\textit{Cherenkov radiation.}}
+		This diagram shows the photon wave fronts as a charged particle moves through a dielectric medium.
+		On the left for $\beta < 1/n$ and on the right for $\beta \geq 1/n$.
+		The Cherenkov angle $\theta_c$ is shown on the right, and describes a ray perpendicular to the coherent wave front.
+	}\label{fig:cherenkov}
+\end{figure}
+
+
+These detectors use Cherenkov radiation to detect particles, but the high-energy secondary charged leptons themselves do not produce many Cherenkov photons.
+Most of the Cherenkov photons are produced by the tertiary particle showers that these leptons give rise to when they lose energy in the detection medium.
+This increased light-yield allows detectors to be sparsely instrumented while maintaining detection efficiency and reconstruction quality.
 
 Water Cherenkov detectors often make use of photo-multiplier-tubes (PMTs) to detect Cherenkov photons.
 PMTs have a thin photo-cathode that is held at a high-voltage differential with respect to an anode; this allows the production and acceleration of a photo-electron when photons pass through the photo-cathode.
