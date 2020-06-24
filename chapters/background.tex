@@ -2,22 +2,47 @@
 
 \section{Cosmic rays and air showers}
 
-\textbf{What are cosmic rays?}
-
-\textbf{How do cosmic rays relate to water Cherenkov detectors?}
-
-\textbf{How do cosmic rays produce muons and neutrinos?}
-
-\textbf{What are the properties of the muon and neutrino fluxes we need to be concerned with?}
-
 Cosmic rays are high-energy protons and atomic nuclei that propagate through space.
-Some of these particles originate from our own sun, and within the Milky Way.
-However, cosmic rays have been observed in excess of $\SI{1e20}\eV$.
+Around $\SI{90}\percent$ of cosmic rays we observe are protons, with a smaller proportion of alpha particles, and less than $\SI{1}\percent$ which are heavy nuclei~\cite{Gaisser:2016uoy}.
+Most cosmic rays originate from outside our solar system, but within our galaxy.
+Increased solar activity has been shown to inversely correlate with the majority of cosmic ray observations, which can be understood as an exclusion from our stellar neighborhood by the magnetized solar wind.
+The bulk of cosmic rays have gyro-radii small enough that they are contained in the Milky-Way by galactic magnetic fields.
+Additionally, measurements of gamma rays at the energies relevant for neutral pion decay show a spatial distribution consistent with a galactic population of cosmic rays.
+If the bulk of cosmic rays were of extra-galactic origin we would expect neutral pions to be produced in abundance within intergalactic space, and this is not supported by the gamma-ray measurements~\cite{Abdo:2009mr}.
+
+Observations of the relative proportions of primary and secondary nuclei suggest that cosmic rays on average traverse distances thousands of times greater than the thickness of the galactic disk before reaching Earth.
+This proportion of secondary nuclei decreases with energy, meaning that particles of higher energy traverse less material on average before reaching us.
+We expect this trend if acceleration and propagation are separate processes that occur on different timescales.
+For this reason we believe cosmic rays to be accelerated by dense astrophysical objects and then subsequently diffused by propagation through the interstellar medium.
+Simultaneous propagation and acceleration also fails because the timescale to accelerate cosmic rays to their observed energy is greater than the age of the galaxy in such a scenario.
+While the acceleration mechanisms and particular sources of cosmic rays are unknown, we can narrow the candidates to astrophysical objects that are large or have strong magnetic fields.
+
+A small proportion of cosmic rays have been observed in excess of $\SI{1e20}\eV$.
 At these energies, cosmic rays cannot be sufficiently bound by the galactic magnetic field to produce an isotropic flux.
 Thus, cosmic rays at this energy scale must either point towards nearby accelerators or arrive roughly isotropically from extra-galactic sources.
-The spectrum and spatial distribution of this highest energy population has been shown be distinct from the lower energy population and likely to be of extra-galactic origin.
-The sources and acceleration mechanisms of these extra-galactic cosmic rays are unknown to date, and remain a subject of significant study and interest.
-Similarly, the sources of lower energy cosmic rays remain unknown despite their possible galactic origin.
+The spectrum and spatial distribution of this highest energy population has been shown to be distinct from the lower-energy population and likely to be of extra-galactic origin.
+The sources and acceleration mechanisms of these extra-galactic cosmic rays are unknown to date.
+This remains a subject of significant study and interest, in particular because much more extreme environments are required for acceleration to these energies.
+An simple energetic consideration tells us that the maximum energy achievable through acceleration by an object with size $R$ and magnetic field strength $B$ is $E<ecBR$.
+Tighter constraints on the maximum energy can be derived when considering diffusive shock acceleration specifically.
+This limit is effectively summarized by the Hillas diagram, which compares the size and magnetic field strength of various objects to the upper limit on cosmic ray energy.
+Figure~\ref{fig:hillasp20} shows this limit for $\SI{1e20}\eV$ protons considering various acceleration scenarios and energy losses.
+Clearly there are many candidates for cosmic-ray production, and narrowing the field may take another approach.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{figures/HillasCriterionProton20}
+	\internallinenumbers
+	\caption{\textbf{\textit{Hillas criterion for $\SI{1e20}\eV$ protons.}}
+		This figure is reproduced here from~\cite{Ptitsyna:2008zs}.
+		The black line denotes the region above which objects meet the Hillas criterion.
+		The shaded regions show regions allowed for different acceleration scenarios: light gray for one-shot acceleration, gray for one-shot acceleration with synchrotron losses, and dark gray for one-shot acceleration and diffusive shock acceleration.
+		Boxes denote the parameters of various astrophysical objects: the central
+		parsecs (AD) of active galaxies (low-power Seyfert galaxies (Sy) and powerful radio galaxies (RG) and blazars (BL)), relativistic jets, knots (K), hot spots (HS) and lobes (L) of powerful active galaxies (RG and BL); non-relativistic jets of low-power galaxies (Sy); starburst	galaxies; gamma-ray bursts (GRB); galaxy clusters and intercluster voids; immediate
+		neighborhood of neutron stars (NS), anomalous X-ray pulsars and magnetars (AXP).
+	}\label{fig:hillasp20}
+\end{figure}
+
 Cosmic rays can be observed interacting in the Earth's atmosphere, as they produce extensive particle air-showers whose constituents and products can be observed with a wide range of techniques.
 The charged particle products of these interactions have been observed as early as 1912~\cite{hess1912uber}.
 These air showers are of particular concern to neutrino detectors as they produce high-energy muons and neutrinos in relative abundance, both of which can be observed by neutrino detectors even with significant shielding and overburden.
@@ -32,7 +57,7 @@ Neutrinos have an interaction cross section that is approximately a factor of $1
 	\centering
 	\includegraphics[width=\linewidth]{figures/cosmic_ray_spectrum}
 	\internallinenumbers
-	\caption{\textbf{\textit{Cosmic Ray Spectrum}}
+	\caption{\textbf{\textit{Cosmic Ray Spectrum.}}
 		This figure is reproduced here from~\cite{PhysRevD.98.030001}.
 	}\label{fig:cosmic_ray_spectrum}
 \end{figure}
