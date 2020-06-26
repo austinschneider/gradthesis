@@ -50,11 +50,11 @@ where $\phi^\pi_\nu$, $\phi^K_\nu$, and $\phi^p_\nu$ are the conventional pion, 
 
 The parameters $\convnorm$ and $\promptnorm$ are normalizations for the conventional and prompt normalizations respectively; $\pik$ allows us to modify the relative kaon to pion contributions; and the $\crdeltagamma$ parameter allows for hardening or softening of the atmospheric neutrino component to account for uncertainties in the cosmic-ray flux slope.
 These parameters are incorporated into the analysis as nuisance parameters with priors as summarized in \reftab{tbl:priors}.
-Priors are selected either to be Gaussian or uniform if otherwise unspecified.
-This analysis refrains from directly using prior information from other IceCube neutrino studies in order to provide results independent from other samples.
-The conventional normalization Gaussian prior width is motivated by studies of the total uncertainty due to cosmic-ray and high-energy hadronic processes~\cite{Fedynitch:2012fs}.
-The width of the cosmic-ray slope parameter has been chosen to be $0.05$ in order to accommodate values measured at intermediate~\cite{Karelin:2011zz} and high~\cite{Bartoli:2015fhw,Yoon:2017qjx,Alfaro:2017cwx} energies.
-The corrections to the ratios of neutrinos-to-anti-neutrinos and kaon-pion yields uncertainty was estimated by comparing the expectation of different atmospheric neutrino calculations and picking a width that encompasses their prediction.
+This analysis refrains from directly using prior information from other IceCube neutrino studies in order to provide results independent from other neutrino samples.
+
+The conventional normalization prior is motivated by studies of the total uncertainty due to cosmic-ray and high-energy hadronic processes~\cite{Fedynitch:2012fs}; it is chosen to be Gaussian for simplicity with an expectation centered on the baseline flux model and appropriate variance.
+The standard deviation of the Gaussian prior on the cosmic-ray slope parameter has been chosen to be $0.05$ in order to accommodate values measured at intermediate~\cite{Karelin:2011zz} and high~\cite{Bartoli:2015fhw,Yoon:2017qjx,Alfaro:2017cwx} energies.
+The uncertainty on corrections to the ratios of neutrinos-to-anti-neutrinos ($\atmonunubar$) and kaon-pion yields ($\pik$) were estimated by comparing the expectation of different atmospheric neutrino calculations and a Gaussian prior width was chosen that encompasses their predictions.
 Details regarding these corrections and the different atmospheric neutrino flux calculations can be found in~\cite{CollinFluxes,Jones:2015bya}.
 Finally, the parameters $E_0^c=\SI{2020}\GeV$ and $E_0^p=\SI{7887}\GeV$ are points of fixed differential flux for the conventional and prompt components.
 
@@ -62,6 +62,10 @@ This simple parameterzation of the atmospheric neutrino flux and its uncertainti
 Of course this neglects other physical uncertainties, such as those regarding the hadronic interactions in cosmic ray air showers and the composition of the cosmic ray particles.
 But, these effects do not produce modifications to the observations that can be statistically discerned with the amount of data available.
 Later it will be shown that even the modeled systematic uncertainties have a small effect on astrophysical measurements compared to the statistical uncertainties.
+
+The above description models the flux of atmospheric neutrinos, but does not fully encapsulate the detector response to atmospheric neutrinos.
+We have so far neglected the effect of accompanying muons on the detector response.
+This is discussed at length in the next section.
 
 % Table of all systematics and their priors if applicable
 \begin{table*}[thb]
