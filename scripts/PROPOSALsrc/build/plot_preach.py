@@ -53,9 +53,9 @@ def prep_2d_hist(x, y, x_edges, y_edges, quantity, f=None):
     binned_quantity = np.empty((n_y_bins, n_x_bins, 0)).tolist()
     binned_result = np.empty((n_y_bins, n_x_bins)).tolist()
     for j in range(n_y_bins):
-	for k in range(n_x_bins):
+        for k in range(n_x_bins):
             mask = np.logical_and(x_mapping == k, y_mapping == j)
-	    #bin_masks[j,k,:] = mask
+            #bin_masks[j,k,:] = mask
             binned_quantity[j][k] = quantity[mask]
             if f is not None:
                 binned_result[j, k] = f(binned_quantity[j][k])
