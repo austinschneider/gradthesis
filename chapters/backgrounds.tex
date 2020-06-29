@@ -1,6 +1,4 @@
-\chapter{Backgrounds}\label{chapter:backgrounds}
-
-\section{Estimation of backgrounds}\label{sec:background_estimation}
+\chapter{Estimation of backgrounds}\label{chapter:backgrounds}\label{sec:background_estimation}
 
 In the search for astrophysical neutrinos, the predominant backgrounds are from atmospheric neutrinos and atmospheric muons.
 Single atmospheric neutrinos are able to produce the same event signatures as astrophysical neutrinos because they are not fundamentally different astrophysical neutrinos.
@@ -9,7 +7,8 @@ Muons from cosmic ray air showers differ from neutrinos in their event signature
 Muons can also only be observed up to a certain amount of overburden, beyond which they will lose their energy and decay before reaching the detector.
 This means the up-going observation region is free from atmospheric muons.
 
-\subsection{Neutrino background estimation}
+\section{Neutrino background estimation}
+\subsection{Neutrino fluxes}
 
 Atmospheric neutrinos are predominantly produced by the decay of pions and kaons, which we shall call the ``conventional'' component.
 At energies above $\SI{1}\TeV$ the spectrum of the conventional component is softer than the incident cosmic-ray spectrum by one unit in the spectral index, due to the interactions of these mesons in the atmosphere.
@@ -59,49 +58,7 @@ Later it will be shown that even the modeled systematic uncertainties have a sma
 
 The above description models the flux of atmospheric neutrinos, but does not fully encapsulate the detector response to atmospheric neutrinos.
 We have so far neglected the effect of accompanying muons on the detector response.
-This is discussed at length in the next section.
-
-% Table of all systematics and their priors if applicable
-\begin{table*}[thb]
-	\centering
-	% systematic parameter & prior type & mean & sigma & min & max
-	\begin{tabular}{l rrr}
-		%\toprule
-		%& \multicolumn{5}{c}{Prior information} \\
-		%\cmidrule{2-6}
-		Parameter & Prior (constraint) & Range & Description \\
-		\toprule
-		\multicolumn{1}{l }{\textbf{Astrophysical neutrino flux:}} & & & \\
-		$\astronorm$ & - & $[0,\infty)$ & Normalization scale\\
-		$\astrodeltagamma$ & - &  $(-\infty,\infty)$ & Spectral index\\
-		%$\theta_a$ & Uniform &  &  & 0 & 1 \\ \hline
-		%$\theta_b$ & Uniform &  &  & -1 & 1 \\ \hline
-		%${2\nu/\left(\nu+\bar{\nu}\right)}_\texttt{astro}$ & - & $[0,2]$\\
-		&&\\
-		\midrule
-		\multicolumn{1}{l }{\textbf{Atmospheric neutrino flux:}} & & &\\
-		$\convnorm$ & $1.0\pm0.4$ & $[0, \infty)$ & Conventional normalization scale\\
-		$\promptnorm$ & - & $[0, \infty)$ & Prompt normalization scale\\
-		$\pik$ & $1.0\pm0.1$ & $[0, \infty)$ & Kaon-Pion ratio correction\\
-		$\atmonunubar$ & $1.0\pm0.1$ & $[0,2]$ & Neutrino-anti-neutrino ratio correction\\
-		&&\\
-		\midrule
-		\multicolumn{1}{l }{\textbf{Cosmic ray flux:}} & & &\\
-		$\crdeltagamma$ & $0.0\pm 0.05$ & $(-\infty,\infty)$ & Cosmic-ray spectral index modification\\
-		$\muonnorm$ & $1.0\pm 0.5$ & $[0,\infty)$ & Muon normalization scale\\
-		&&\\
-		\midrule
-		\multicolumn{1}{l }{\textbf{Detector:}} & & &\\
-		$\domeff$ & $0.99 \pm 0.1$ & $[0.80, 1.25]$ & Absolute energy scale\\
-		$\holeice$ & $0.0 \pm 0.5$ & $[-3.82, 2.18]$ & DOM angular response\\
-		$\anisotropy$ & $1.0 \pm 0.2$ & $[0.0, 2.0]$ & Ice anisotropy scale\\
-	\end{tabular}
-	\internallinenumbers
-	\caption{\textbf{\textit{Analysis model parameters for the single power-law astrophysical model.}} Prior probabilities (constraints) for analysis parameters used in Bayesian (frequentist) analyses respectively.
-		Priors (constraints) on the parameter are either uniform or Gaussian.
-		Where applicable, the mean, standard deviation, and bounds are given.}\label{tbl:priors}
-\end{table*}
-
+This is discussed at length in \refsec{sec:muon_background}.
 
 \subsection{Atmospheric neutrino passing fractions}
 \label{sec:passingfractions}
@@ -718,7 +675,7 @@ This is best seen when comparing the atmospheric fluxes before and after the vet
 	\label{fig:neutrino_spectrum}
 \end{figure}
 
-\subsection{Muon background estimation}\label{sec:muon_background}
+\section{Muon background estimation}\label{sec:muon_background}
 Finally, there is also the possibility of single muons that trigger the event selection without a neutrino interaction in the detector and still pass the veto.
 The shape of the atmospheric muon and neutrino fluxes are closely related to each other, and bounded by the cosmic-ray flux so that they must be steeply falling.
 The interaction of muons in the atmosphere and ice further softens the muon spectrum from that of cosmic rays.
