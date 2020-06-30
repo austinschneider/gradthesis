@@ -31,7 +31,7 @@ Clearly there are many candidates for cosmic-ray production, and narrowing the f
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{figures/HillasCriterionProton20}
+	\includegraphics[width=0.5\linewidth]{figures/HillasCriterionProton20}
 	\internallinenumbers
 	\caption{\textbf{\textit{Hillas criterion for $\SI{1e20}\eV$ protons.}}
 		This figure is reproduced here from~\cite{Ptitsyna:2008zs}.
@@ -70,11 +70,11 @@ Underground neutrino detectors can therefore be sensitive to muon backgrounds de
 Neutrinos, on the other hand, have an interaction cross section that is approximately $10^6$ times smaller than the muon interaction cross section.
 Neutrinos are then not only able to reach the ground but are likely to pass through the Earth without interacting.
 This means neutrino detectors are able to observe the atmospheric neutrino flux coming from all directions.
-Section~\ref{sec:background_estimation} explores in detail how these backgrounds are estimated for IceCube.
+Chapter~\ref{chapter:backgrounds} explores in detail how these backgrounds are estimated for IceCube.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{figures/cosmic_ray_spectrum}
+	\includegraphics[width=0.8\linewidth]{figures/cosmic_ray_spectrum}
 	\internallinenumbers
 	\caption{\textbf{\textit{Cosmic Ray Spectrum.}}
 		This figure is reproduced here from~\cite{PhysRevD.98.030001}.
@@ -153,6 +153,21 @@ In practice this broadening is small in comparison to the energy resolution of m
 The production of a $W^+$ and it's subsequent decay can result in either a hadronic shower similar to a NC interaction, or a leptonic final state similar to a CC interaction.
 These two possibilities correspond to the hadronic and leptonic decay modes of the $W$ respectively.
 
+The cross section of these processes is shown as a function of the neutrino energy in \reffig{fig:nuxs}.
+The growth of the cross section with energy counteracts the falling neutrino spectrum to only a small degree.
+Depsite the large crosss section, only a few Glashow resonance events are expected in $\SI{10}\year$ of IceCube detector operation as result of the comparably low neutrino flux at these energies.
+Absorption of neutrinos in the Earth becomes significant above $\sim\SI{1}\TeV$, and is notably peaked near the $\SI{6.3}\PeV$ resonance energy.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{figures/xs}
+	\internallinenumbers
+	\caption{\textbf{\textit{Neutrino interaction cross sections.}}
+	Charged current (CC), neutral current (NC), and Glashow resonance (GR) cross sections are shown as a function of neutrino energy.
+	The CC and NC cross sections come from~\cite{CooperSarkar:2011pa}, while the GR cross sections are computed using the forms in~\cite{Gandhi:1995tf} and corrected for the Doppler shift of electrons in the molecular orbitals of water~\cite{Loewy:2014zva}.
+	}\label{fig:nuxs}
+\end{figure}
+
 \begin{figure}
 	\centering
 	\begin{tikzpicture}
@@ -194,7 +209,7 @@ Once the radiative losses have taken over above $\sim\SI{1}\TeV$, the losses gro
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{figures/energy_losses}
+	\includegraphics[width=0.8\linewidth]{figures/energy_losses}
 	\internallinenumbers
 	\caption{\textbf{\textit{Muon Energy Losses}}
 		The muon energy loss rate computed for water is plotted as a function of the muon energy for the five different loss processes.
@@ -211,11 +226,11 @@ In practice the muon energy can currently be determined to within a factor of $2
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{figures/muon_energy}
+	\includegraphics[width=0.8\linewidth]{figures/muon_energy}
 	\internallinenumbers
 	\caption{\textbf{\textit{Muon energy loss in $\SI{1}\km$ of ice.}}
 	Muons are propagated through $\SI{1}\km$ of ice, and their lost energy recorded.
-	For each initial muon energy, the MAP and $\SI{90}\percent$ HPD are plotted here.
+	For each initial muon energy, the MAP and $\SI{90}\percent$ HPD region are plotted here.
 	There is a strong correlation between the initial energy and energy lost.
 	However, the distribution has very long tails, making a precise determination of the muon energy based on this observable impossible.
 	}\label{fig:muon_energy}
@@ -226,7 +241,7 @@ The short decay length of a tau, $\SI{50}\meter / \si\PeV$, means it is likely t
 Taus decay hadronically with a branching ratio of $\SI{64.79}\percent$, which results in a hadronic shower.
 Leptonic decay modes of the tau are decay to a charged lepton and corresponding neutrino of either electron or muon flavor.
 In the electron case, an electromagnetic shower results; whereas in the muon case a far traveling muon is produced.
-For taus produced via the decay of a $W$ boson, the event is indistinguishable from taus produces via CC and NC interactions other than by resonance energy at which this process occurs.
+For taus produced via the decay of a $W$ boson, the event is indistinguishable from taus produces via CC and NC interactions other than by the resonance energy at which this process occurs.
 Although a tau may traverse tens of meters, which is detectable by IceCube, the energy losses are still negligible over these distances.
 
 From the wide variety of methods for detecting charged particles, water Cherenkov detectors are most common for detecting neutrinos in this high-energy regime above $\SI{1}\TeV$.
@@ -246,7 +261,6 @@ For particles faster than the phase velocity, the emission forms a conical coher
 		The Cherenkov angle $\theta_c$ is shown on the right, and describes a ray perpendicular to the coherent wave front.
 	}\label{fig:cherenkov}
 \end{figure}
-
 
 These detectors use Cherenkov radiation to detect particles, but the high-energy secondary charged leptons themselves do not produce many Cherenkov photons.
 Most of the Cherenkov photons are produced by the tertiary particle showers that these leptons give rise to when they lose energy in the detection medium.
