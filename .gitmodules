@@ -7,3 +7,6 @@
 [submodule "results/mcllh_paper"]
 	path = results/mcllh_paper
 	url = git@github.com:austinschneider/mcllh_paper.git
+[submodule "scripts/gr_xs"]
+	path = scripts/gr_xs
+	url = git@github.com:austinschneider/gr_xs.git
