@@ -1,0 +1,24 @@
+Next steps:
+
+Major goals:
+    Obtain more precise measurements of the astrophysical flux
+    Extend these measurements in both energy and neutrino flavor
+
+Improving the precisions of these measurements means adding additional data, and broadening their scope means adding additional samples.
+
+The general goal is the simultaneous analysis of many data samples (MESE, TGM, Cascades, MEOWS, Inelasticity, ESTES), that follows the broad strokes of the analysis structure outlined in Figure 2, incorporating and building upon the techniques presented here.
+
+On samples:
+The medium-energy starting event (MESE) sample modifies the veto definitions of HESE and extends the selection to lower energies primarily with the use of a charge dependent fiducial volume cut. The MESE selection has similar properties to HESE in that only starting events are selected, the sample consits mostly of cascades, and the there is a separation between veto and fiducial volume. A similar set of calculations can be applied to estimate the backgrounds of the MESE sample, and the selection is susceptible to the same systematics. Primarily the addition of this selection allows us to explore the lower energies of the astrophysical spectrum between 10TeV and 100TeV. The lower energy range comes with its own challenges though, mainly a much larger data sample and larger atmospheric backgrounds. To ensure accurate measurements with this increased sample size and background we must ensure a higher degree of accuracy in the background estimates and potentially allow for additional systematic variations. In the expansion of our systematics consideration a next logical step is the set of uncertainties related cosmic rays and their production of neutrinos. Thankfully, MCEq allows arbitrary cosmic ray model fluxes and compositions as input, and has a range of hadronic models to select from. The effect of these systematics on the atmospheric neutrino flux can then be directly evaluated. At the same time, the improved passing fractions calculation leverages this same flexibility so that these systematics may be taken into account for accompanying muons as well.
+
+The through-going muon neutrino sample adds a wealth of high quality atmospheric neutrino events, and has a wide energy range. This large sample can help to constrain the background systematic parameters which some samples are susceptible to. It also provides information about astrophysical muon neutrinos in the Northern hemisphere, which is scarce in other samples.
+
+The ``cascade'' sample provides similar information as MESE, and has a larger effective area while maintaining a higher signal to background ratio, but it relies on non-veto methods to perform the selection. Absent the ability to compartmentalize the detector response to muons and neutrinos, the estimation of backgrounds must potentially rely on other methods
+
+
+
+HESE --> MESE
+    extend sample to lower energies
+    10TeV to 100TeV is interesting and unstudied
+    higher atmospheric flux means a larger sample is needed and better systematic understanding is necessary
+
