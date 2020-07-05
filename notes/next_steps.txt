@@ -13,7 +13,11 @@ The medium-energy starting event (MESE) sample modifies the veto definitions of 
 
 The through-going muon neutrino sample adds a wealth of high quality atmospheric neutrino events, and has a wide energy range. This large sample can help to constrain the background systematic parameters which some samples are susceptible to. It also provides information about astrophysical muon neutrinos in the Northern hemisphere, which is scarce in other samples.
 
-The ``cascade'' sample provides similar information as MESE, and has a larger effective area while maintaining a higher signal to background ratio, but it relies on non-veto methods to perform the selection. Absent the ability to compartmentalize the detector response to muons and neutrinos, the estimation of backgrounds must potentially rely on other methods
+The ``cascade'' sample provides similar information as MESE, and has a larger effective area while maintaining a higher signal to background ratio, but it relies on non-veto methods to perform the selection. Absent the ability to compartmentalize the detector response to muons and neutrinos, the estimation of backgrounds must potentially rely on other methods. It may prove difficult to add additional systematic uncertainties to the background estimations of this sample.
+
+The MEOWS sample is similar to the TGM sample, but does not rely on a BDT to select events, and has stricter reconstruction quality cuts in an effort to remove atmospheric muon backgrounds and improve the agreement between data and simulation.
+
+The ESTES sample selects for starting tracks using a method that is more efficent and has better background rejection than the 
 
 
 
