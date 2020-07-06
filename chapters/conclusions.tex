@@ -79,7 +79,28 @@ The event selections must also be extremely efficient at rejecting muons to meas
 This is exemplified in \reffig{fig:muons} which shows the expected distribution of muons in the HESE selection.
 Most of the bins in this figure are empty, indicating inadequate simulation, and this a projection that reduces the number of bins by approximately a factor of three.
 Clearly this situation can be improved.
+The two main ways to improve upon this without orders of magnitude more computing power are to improve simulation efficiency, and to make better use of available information.
 
-The two main ways improve upon this without orders of magnitude more computing power are to improve simulation efficiency, and to make better use of available information.
+On simulation efficiency, the trick lies in generating events that are more likely to pass the event selection.
+A technique has been employed in lower energy samples where the distribution of injected event parameters at some intermediate level of the event selection is estimated using a small simulation sample and a kernel density estimator.
+Once the distribution of events in energy, direction, and impact position is determined, a larger sample is generation with this as the new generation distribution.
+This lowers the amount of computational resources dedicated to events that do not pass the event selection, and leads to a larger sample at the final selection level.
+This technique works well if the event selection has multiple levels and a reasonable distribution of muons can be obtained at some point.
+However, some of the veto techniques are too efficient at removing these backgrounds with the first cut for this to work.
+For these cases we can still attempt to bias the simulation generation distributions, but we must think more carefully about the kinds of events that pass the veto.
+For a neutrino event, the relevant portion of the veto is a subspace of a cylindrical region behind the interaction vertex, where the particular subspace depends on the selection.
+Light detected in this region depends on the stochastic energy losses of the accompanying muon, and how close these energy losses are to the optical modules.
+The events can then be biased according to how close these energy losses come to the optical modules.
+At the generation level this can be done by examining the path of the muon with respect to the detector geometry.
+However, we can also bias the event sample immediately after muon propagation (which is computationally cheap), and before photon propagation (which is expensive), when the information about the energy losses is available.
+Knowing the energy losses, we can estimate the number of photons we expect to be observed in the veto region and probabilistically reject events on this basis.
+This probabilistic rejection can then be accounted for in the weighting scheme.
+
+Once we have improved estimates of the muon distributions from biased simulation, the task remains to make better use of the information in the analysis.
+At the moment, empty bins in the muon distribution are poorly modeled from the likelihood perspective as the possibility of a non-zero expectation is not entertained.
+The development of methods to treat these empty bins will improve our statistical description of the muon background information we have available, and remove some of the existing bias from our results.
+Some suggestions on this topic have been made but so far none are simultaneously satisfactory in their modeling of the per bin expectation and the corresponding uncertainty.
+Possible solutions include nested models of the binned parameter space, kernel density estimation of the distribution with corresponding uncertainty estimation, and hierarchical modeling of the physical distributions and selection efficiencies.
+Better treatment of this problem will be important as we attempt to measure features in more background dominated regions.
 
 
