@@ -64,4 +64,22 @@ Such identifiers use different methodologies but all hinge on the properties of 
 By combining these event selections and identifiers an analysis can be constructed that is able to test for structure and discrepancies in the different channels while also obtaining more precise measurements of the astrophysical flux that are less limited by systematic uncertainties.
 
 \subsection{Analysis improvements}
+Following \refig{fig:analysis_overview} we can examine what components of the analysis may be improved.
+In the previous subsection we have already added additional samples, improving the ``event selection''.
+Event reconstruction can be improved, but this topic had not been the focus of this work and so we will ignore it for the moment.
+The other interesting aspects that can be improved lie in the MC generation, likelihood function, and reweighting; in fact the three are related to one another.
+Signal estimation is relatively optimal at this stage of IceCube's operation with the exception of some unmodeled detector and ice systematics.
+Background estimation on the other hand remains challenging and is susceptible to a wider array of systematic effects.
+This can be broken down into two categories, the direct contribution of muons to the event selection and the effect of related muons on the acceptance of atmospheric neutrinos.
+
+For muons that directly contribute to observations the main problem is the huge number of muons in proportion to neutrinos.
+Based purely on interaction cross section we expect the detection of approximately $10^6$ more muons than neutrinos.
+Assuming the simulation of a single muon or neutrino event incurs similar computational cost, the simulation of background muons is vastly more expensive than simulation of neutrinos for equivalent periods of time.
+The event selections must also be extremely efficient at rejecting muons to measure the neutrino flux, so for all the expensive background estimation we can muster there is often very little information regarding the muon background distribution in the sample.
+This is exemplified in \reffig{fig:muons} which shows the expected distribution of muons in the HESE selection.
+Most of the bins in this figure are empty, indicating inadequate simulation, and this a projection that reduces the number of bins by approximately a factor of three.
+Clearly this situation can be improved.
+
+The two main ways improve upon this without orders of magnitude more computing power are to improve simulation efficiency, and to make better use of available information.
+
 
