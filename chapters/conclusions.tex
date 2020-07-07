@@ -108,5 +108,10 @@ Better treatment of this problem will be important as we attempt to measure feat
 As shown in the reweighting definitions the atmospheric neutrino expectations depend on the neutrino flux model and the passing fraction calculations.
 Both the flux model and the passing fractions are susceptible to systematic effects in the cosmic ray flux and hadronic interactions.
 Thankfully it is possible to model these through a combination of MCEq and nuveto for the flux and passing fractions respectively.
-Modeling of the hadronic interaction uncertainties can ba rather complex
+Modeling of the hadronic interaction uncertainties can be rather complex with methods and calculation methods vary wildly.
+So far a rough scheme has been developed to described the hadronic model uncertainties by Barr et. al.~\cite{Barr:2004br}, that breaks the the parameter space into rectangular box regions and assigns uncertainties to each region based on experimental measurements.
+Better uncertainty treatments are possible with available data, but have yet to be constructed by analyzers.
+The Barr scheme for hadronic model modifications has been implemented in MCEq, and so these modifications can be translated to variations in the neutrino flux and passing fractions with our available tools.
+Ideally we would account for hadronic model variations by allowing these box scaling parameters to vary according to known uncertainties, thereby modifying the background neutrino flux.
+This has been implemented in the MEOWS analysis and can be applied to the 
 
