@@ -72,6 +72,7 @@ Signal estimation is relatively optimal at this stage of IceCube's operation wit
 Background estimation on the other hand remains challenging and is susceptible to a wider array of systematic effects.
 This can be broken down into two categories, the direct contribution of muons to the event selection and the effect of related muons on the acceptance of atmospheric neutrinos.
 
+\subsubsection{Atmospheric muons}
 For muons that directly contribute to observations the main problem is the huge number of muons in proportion to neutrinos.
 Based purely on interaction cross section we expect the detection of approximately $10^6$ more muons than neutrinos.
 Assuming the simulation of a single muon or neutrino event incurs similar computational cost, the simulation of background muons is vastly more expensive than simulation of neutrinos for equivalent periods of time.
@@ -103,4 +104,9 @@ Some suggestions on this topic have been made but so far none are simultaneously
 Possible solutions include nested models of the binned parameter space, kernel density estimation of the distribution with corresponding uncertainty estimation, and hierarchical modeling of the physical distributions and selection efficiencies.
 Better treatment of this problem will be important as we attempt to measure features in more background dominated regions.
 
+\subsubsection{Atmospheric neutrinos}
+As shown in the reweighting definitions the atmospheric neutrino expectations depend on the neutrino flux model and the passing fraction calculations.
+Both the flux model and the passing fractions are susceptible to systematic effects in the cosmic ray flux and hadronic interactions.
+Thankfully it is possible to model these through a combination of MCEq and nuveto for the flux and passing fractions respectively.
+Modeling of the hadronic interaction uncertainties can ba rather complex
 
