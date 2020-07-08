@@ -109,9 +109,29 @@ As shown in the reweighting definitions the atmospheric neutrino expectations de
 Both the flux model and the passing fractions are susceptible to systematic effects in the cosmic ray flux and hadronic interactions.
 Thankfully it is possible to model these through a combination of MCEq and nuveto for the flux and passing fractions respectively.
 Modeling of the hadronic interaction uncertainties can be rather complex with methods and calculation methods vary wildly.
+
 So far a rough scheme has been developed to described the hadronic model uncertainties by Barr et. al.~\cite{Barr:2004br}, that breaks the the parameter space into rectangular box regions and assigns uncertainties to each region based on experimental measurements.
 Better uncertainty treatments are possible with available data, but have yet to be constructed by analyzers.
 The Barr scheme for hadronic model modifications has been implemented in MCEq, and so these modifications can be translated to variations in the neutrino flux and passing fractions with our available tools.
 Ideally we would account for hadronic model variations by allowing these box scaling parameters to vary according to known uncertainties, thereby modifying the background neutrino flux.
-This has been implemented in the MEOWS analysis and can be applied to the 
+This has been implemented in the MEOWS analysis as a first order approximation, where the gradient of the neutrino flux is computed with respect to the Barr parameters, and the atmospheric flux is allowed to vary linearly.
+In the next generation of analyses we would hope to apply this same technique to the atmospheric flux and the passing fractions.
+Updating to better treatments of the uncertainty as they become available, and considering higher order variations may be needed as we incorporate more data into the analysis.
+
+A wide variety of cosmic ray flux models currently exist based on a wealth of measurements.
+Most cosmic ray experiments are not able to differentiate between the different nuclei on the level of a single nucleon.
+For this reason, many models of the cosmic ray flux will define between three and five mass groups between which the spectrum may differ.
+Additionally, the cosmic ray spectrum is approximately a power law for any narrow energy range, with changes in the spectral index at the ``knee'', ``second knee'', and ``ankle''.
+This spectral structure motivates a multi-component functional form common to many CR flux models, where each component is power law with a cutoff,
+\begin{linenomath}
+\begin{equation}
+	\frac{d^2\Phi_m}{dEd\Omega}\left(E_m\right) = \sum_i^{n_m} a_{i,m} E_m^{-b_{i,m}} e^{-E/c_{i,m}}.
+\end{equation}
+	\label{eq:cr_spectrum}
+\end{linenomath}
+In this parameterization, the flux for each mass group $m$ depends on the normalizations $a_{i,m}$, spectral indices $b_{i,m}$, and cutoff energies $c_{i,m}$ of the different components.
+Most models are constructed using similar basis functions, the parameters of which are then fit to some subset of the available cosmic ray data.
+The same exercise can be performed where a likelihood connects the cosmic ray model parameters and the available data, but with MCEq we can predict the neutrino flux for any arbitrary cosmic ray model.
+With this connection we can construct a combined analysis of the neutrino and cosmic ray data, thereby accounting for cosmic ray uncertainties in the most direct manner possible.
+This setup has some computational limitations as MCEq is slower than other steps in the likelihood evaluation, but there are some possible workarounds to limit the extra computation needed for each evaluation.
 
