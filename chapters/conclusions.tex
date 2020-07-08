@@ -66,7 +66,7 @@ By combining these event selections and identifiers an analysis can be construct
 \subsection{Analysis improvements}
 Following \reffig{fig:analysis_design} we can examine what components of the analysis may be improved.
 In the previous subsection we have already added additional samples, improving the ``event selection''.
-Event reconstruction can be improved, but this topic had not been the focus of this work and so we will ignore it for the moment.
+Event reconstruction can be improved, but this topic has not been the focus of this work and so we will ignore it for the moment.
 The other interesting aspects that can be improved lie in the MC generation, likelihood function, and reweighting; in fact the three are related to one another.
 Signal estimation is relatively optimal at this stage of IceCube's operation with the exception of some unmodeled detector and ice systematics.
 Background estimation on the other hand remains challenging and is susceptible to a wider array of systematic effects.
@@ -135,3 +135,13 @@ The same exercise can be performed where a likelihood connects the cosmic ray mo
 With this connection we can construct a combined analysis of the neutrino and cosmic ray data, thereby accounting for cosmic ray uncertainties in the most direct manner possible.
 This setup has some computational limitations as MCEq is slower than other steps in the likelihood evaluation, but there are some possible workarounds to limit the extra computation needed for each evaluation.
 
+\subsubsection{Detector systematics}
+One of the largest sources of systematic uncertainty is the ice properties.
+Measurements of the ice properties that use different sources of information tend to be in tension with one another, and so far no clear explanation has surfaced.
+Modeling of the ice as a birefringent material has shown promise in relieving some of these tensions, but this work is still in progress.
+Currently the bulk ice systematics are modeled in analyses as overall modifications to the ice properties, however, shape uncertainties in the depth dependent ice properties have been neglected.
+Uncertainties on individual DOM properties, including the local ice effects, are either neglected or treated with a global modification.
+It is possible to account for all of these uncertainties but the large number of additional parameters makes the current treatment with discrete simulation sets for each parameter variation untenable.
+An alternate approach is given in~\ref{Aartsen:2019jcj}, where a single simulation set is produced in which the detector systematic parameters are randomly chosen according to prior distributions for small bunches of events.
+After the generation of this simulation set, it is possible to estimate the effect of each parameter on the per bin expectation in a linear fashion.
+This treatment has performed well for the MEOWS analysis and should be applied to future analyses of these samples to more completely account for the detector uncertainties.
