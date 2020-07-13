@@ -1,5 +1,10 @@
 \documentclass[oneside, letterpaper, 10pt, oldfontcommands]{memoir}
 \input{thesis-preamble}
+%\bibliographystyle{ieeetr}
+\addbibresource{results/HESE_Final_Paper/hesebiblio.bib}
+\addbibresource{results/mcllh_paper/likelihood.bib}
+\addbibresource{results/passing_fractions_paper/nuveto.bib}
+\addbibresource{thesis-citations.bib}
 \setlrmarginsandblock{1in}{1in}{*}
 \setulmarginsandblock{1in}{1in}{*}
 \checkandfixthelayout
@@ -42,8 +47,10 @@
 \include{chapters/results}
 \include{chapters/conclusions}
 
-\bibliographystyle{ieeetr}
-\bibliography{results/HESE_Final_Paper/hesebiblio,results/mcllh_paper/likelihood,results/passing_fractions_paper/nuveto,thesis-citations}
+
+%\bibliography{results/HESE_Final_Paper/hesebiblio,results/mcllh_paper/likelihood,results/passing_fractions_paper/nuveto,thesis-citations}
+
+\printbibliography
 
 \clearpage
 \newpage
