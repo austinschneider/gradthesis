@@ -16,7 +16,11 @@ c = 1
 def get_x(t, beta=0.999):
     return beta*c*t
 
-def get_r(t, n=1.76):
+old_n = 1.76
+new_n = 1.3195
+n_ratio = old_n / new_n
+
+def get_r(t, n=1.3195):
     return c*t/n
 
 def circles(x, y, s, c='b', ax=None, vmin=None, vmax=None, **kwargs):
@@ -165,7 +169,7 @@ lines = [(0,-get_r(current_t)*0.9), (get_r(current_t), -get_r(current_t)*0.9)]
 ax.arrow(lines[0][0], lines[0][1], lines[1][0]-lines[0][0], lines[1][1]-lines[0][1], color='black', linestyle='solid', lw=1, head_width=0.2, overhang=0.2, length_includes_head=True)
 ax.arrow(lines[1][0], lines[1][1], lines[0][0]-lines[1][0], lines[0][1]-lines[1][1], color='black', linestyle='solid', lw=1, head_width=0.2, overhang=0.2, length_includes_head=True)
 ax.annotate(r'$ct/n$', xy=(get_r(current_t)/2., -get_r(current_t)), ha='center', va='center')
-ax.set_ylim((-7.5,7.5))
+ax.set_ylim((-7.5*n_ratio,7.5*n_ratio))
 ax.axis('off')
 #fig.tight_layout()
 #plt.savefig('cherenkov.pdf', bbox_inches='tight')
@@ -215,7 +219,7 @@ lines = [(0,-get_r(current_t)*0.9), (get_r(current_t), -get_r(current_t)*0.9)]
 ax.arrow(lines[0][0], lines[0][1], lines[1][0]-lines[0][0], lines[1][1]-lines[0][1], color='black', linestyle='solid', lw=1, head_width=0.2, overhang=0.2, length_includes_head=True)
 ax.arrow(lines[1][0], lines[1][1], lines[0][0]-lines[1][0], lines[0][1]-lines[1][1], color='black', linestyle='solid', lw=1, head_width=0.2, overhang=0.2, length_includes_head=True)
 ax.annotate(r'$ct/n$', xy=(get_r(current_t)/2., -get_r(current_t)), ha='center', va='center')
-ax.set_ylim((-7.5,7.5))
+ax.set_ylim((-7.5*n_ratio,7.5*n_ratio))
 ax.axis('off')
 #fig.tight_layout()
 #plt.savefig('no_cherenkov.pdf', bbox_inches='tight')

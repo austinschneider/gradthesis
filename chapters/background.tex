@@ -103,10 +103,10 @@ For neutrinos, this means the exchange of a weak boson with a quark.
 The momentum imparted to the quark will produce a hadronic cascade of secondary particles.
 The details of the lepton side of the interaction depend heavily on the species of incident neutrino and weak boson exchanged.
 We can divide these DIS interactions into two categories based on the weak boson exchanged.
-Interactions involving the exchange of a $Z$ are referred to as ``neutral current'' (NC), and those exchanging a $W$ are referred to as ``charged current'' (CC).
+Interactions involving the exchange of a $Z^0$ are referred to as ``neutral current'' (NC), and those exchanging a $W^+$ or $W^-$ are referred to as ``charged current'' (CC).
 Modern techniques for observing neutrino interactions rely on detecting the charged particle products of the initial interaction.
 As a consequence of this, the observable energy can be very different for NC and CC events.
-Both interactions produce a hadronic cascade, but on the leptonic side of the interaction NC event have an outgoing neutrino (not observable) while CC events have an outgoing charged lepton (observable).
+Both interactions produce a hadronic cascade, but on the leptonic side of the interaction NC events have an outgoing neutrino (not observable) while CC events have an outgoing charged lepton (observable).
 These two interactions are shown in \reffig{fig:DIS}.
 
 \begin{figure}
@@ -201,16 +201,16 @@ In a hadronic shower, both charged hadrons and leptons are produced which can be
 Charged current interactions produce a hadronic shower by imparting momentum to a quark which is then hadronized, although the charged lepton produced in the interaction is also detectable and can significantly alter the detection signature of the event.
 
 Through either a CC interaction or the leptonic decay of a $W$ boson, neutrinos can produce a detectable charged lepton, although the detection signature differs depending on the flavor of charged lepton produced.
-Focusing on dense detection media like ice or water, the detection signatures of the three flavor of charged lepton are as follows.
-High energy electrons and positrons immediately interact with the detection media to initiate an electromagnetic cascade where charge leptons and high energy photons are alternately produced by one another.
-This electromagnetic cascade develops in a roughly spherical fashion within the dense detection medium, but has a directional bias because of the momentum of the first charged lepton.
+Focusing on dense detection media like ice or water, the detection signatures of the three flavors of charged leptons are as follows.
+High energy electrons and positrons immediately interact with the detection media to initiate an electromagnetic cascade where charged leptons and high energy photons are alternately produced by one another.
+This electromagnetic cascade develops over $\sim10$ radiation lengths (about $\sim\SI{5}\m$ in total) at $\SI{10}\TeV$ with a lateral extension of $\sim\SI{20}\cm$ (twice the Molière radius), expanding within the dense detection medium, and has a extreme directional bias because of the momentum of the first charged lepton.
 
 Muons from high energy neutrino interactions do not interact as readily as electrons and positrons due to their larger mass.
 Instead, muons are able to travel several kilometers in dense media before eventually losing enough energy that they quickly decay.
 Along their entire path length, muons lose energy by interacting with the detection medium.
 These ``energy loss'' interactions include ionization, electron-positron pair production, bremsstrahlung, and photo-nuclear interactions.
 Although these processes are highly stochastic, the average energy loss of muons approximately follows $-dE/dx=a+bE$ where $a$ is determined by the ionization energy losses and $b$ is defined by the other processes.
-In general $a$ and $b$ and both functions of the muon energy $E$, but this linear approximation where $a$ and $b$ are constant holds locally as both are slowly varying as a function of $E$.
+In general $a$ and $b$ are both functions of the muon energy $E$, but this linear approximation where $a$ and $b$ are constant holds locally as both are slowly varying as a function of $E$.
 For muon energies above $\SI{1}\TeV$, the so called ``radiative'' term $bE$ dominates the average energy losses.
 Figure~\ref{fig:energy_losses} shows the energy loss rate for the different processes.
 Once the radiative losses have taken over above $\sim\SI{1}\TeV$, the losses grow exponentially with energy.
@@ -257,7 +257,7 @@ From the wide variety of methods for detecting charged particles, water Cherenko
 Water Cherenkov detectors have the advantage that their detection medium is both abundant and inexpensive, a major motivator in the design of IceCube.
 Cherenkov radiation is the result of charged particles propagating through a dielectric medium faster than the phase velocity of light.
 As charged particles pass through dielectric material, the ionization of the medium induces the emission of light.
-For particles faster than the phase velocity, the emission forms a conical coherent wave front at a well defined angle to the particle's path.
+For particles faster than the phase velocity of emitted light, the emission forms a conical coherent wave front at a well defined angle to the particle's path.
 
 \begin{figure}
 	\centering
@@ -268,10 +268,11 @@ For particles faster than the phase velocity, the emission forms a conical coher
 		This diagram shows the photon wave fronts as a charged particle moves through a dielectric medium.
 		On the left for $\beta < 1/n$ and on the right for $\beta \geq 1/n$.
 		The Cherenkov angle $\theta_c$ is shown on the right, and describes a ray perpendicular to the coherent wave front.
+		In the Antarctic ice the Cherenkov angle $\theta_c=40.72$.
 	}\label{fig:cherenkov}
 \end{figure}
 
-These detectors use Cherenkov radiation to detect particles, but the high-energy secondary charged leptons themselves do not produce many Cherenkov photons.
+These detectors use Cherenkov radiation to detect particles, but the high-energy secondary charged leptons themselves contribute only a small fraction of the Cherenkov photons.
 Most of the Cherenkov photons are produced by the tertiary particle showers that these leptons give rise to when they lose energy in the detection medium.
 This increased light-yield allows detectors to be sparsely instrumented while maintaining detection efficiency and reconstruction quality.
 
@@ -280,4 +281,4 @@ PMTs have a thin photo-cathode that is held at a high-voltage differential with 
 Accelerated photo-electrons hurtle towards an amplification stage composed of many dynodes, each held at a large voltage difference to the adjacent dynodes.
 This setup allows a single photo-electron to produce many secondary electrons upon interaction with a dynode, starting an exponential cascade of electrons across the dynode stages.
 The resulting cascade of electrons is amplified with respect to the original signal enough that they can be detected electronically as a voltage change.
-In this way, PMTs can be sensitive to single photons, provided one is able to reach the photo-cathode.
+In this way, PMTs can be sensitive to single photons, provided one is able to reach the photo-cathode and produce a photo-electron.
