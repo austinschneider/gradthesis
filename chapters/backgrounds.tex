@@ -1,14 +1,20 @@
 \chapter{Estimation of backgrounds}\label{chapter:backgrounds}\label{sec:background_estimation}
 
 In the search for astrophysical neutrinos, the predominant backgrounds are from atmospheric neutrinos and atmospheric muons.
-Single atmospheric neutrinos are able to produce the same event signatures as astrophysical neutrinos because they are not fundamentally different astrophysical neutrinos.
+Single atmospheric neutrinos are able to produce the same event signatures as astrophysical neutrinos because they are not fundamentally different than astrophysical neutrinos.
 Atmospheric neutrinos can only be distinguished from their astrophysical counterparts by examining the population properties, or by the fact that muons produced in the same air shower can also reach the detector simultaneously.
 Muons from cosmic ray air showers differ from neutrinos in their event signature as they always produce light while entering the detector, while neutrinos can interact within the detector volume before any light is produced near the edge of the detector.
 Muons can also only be observed up to a certain amount of overburden, beyond which they will lose their energy and decay before reaching the detector.
 This means the up-going observation region is free from atmospheric muons.
+The task in this section is to model these backgrounds and estimate the contribution of them in the final event selection.
+For atmospheric neutrinos the initial flux is modeled with existing calculations.
+However the estimation of this background in the sample must also account for the fraction of atmospheric neutrinos rejected because of muons present in the air shower.
+Section~\ref{sec:nu_fluxes} details how the atmospheric neutrino flux is modeled, while \refsec{sec:passingfractions} explores a new calculation of the atmospheric neutrino passing fractions and explores the many factors that may affect this calculation, and \refsec{sec:hese_passingfractions} applies this calculation to the HESE selection.
+The passing fraction calculation described in this chapter was developed in collaboration with Carlos A. Argüelles, Sergio Palomares-Ruiz, Logan Wille, and Tianlu Yuan~\cite{Arguelles:2018awr}.
+Finally, \refsec{sec:muon_background} explores the contribution of lone muons to the sample.
 
 \section{Neutrino background estimation}
-\subsection{Neutrino fluxes}
+\subsection{Neutrino fluxes\label{sec:nu_fluxes}}
 
 Atmospheric neutrinos are predominantly produced by the decay of pions and kaons, which we shall call the ``conventional'' component.
 At energies above $\SI{1}\TeV$ the spectrum of the conventional component is softer than the incident cosmic-ray spectrum by one unit in the spectral index, due to the interactions of these mesons in the atmosphere.
@@ -115,13 +121,14 @@ These dependencies can be added back in at the end of the calculation without an
 	\caption{\textbf{\textit{Muon Final Energy Statistics.}} Muons propagating in ice were simulated for a wide range of initial energies, and at a set of predefined distances their energy was recorded.
 	This results in a distribution of final muon energies for each combination of initial muon energy and overburden.
 	These two plots show statistics of these distributions, with the upper plot displaying the median and the lower plot displaying the skew.
-	Previous calculations only used the median of these distributions.
-	However, the large skew of these distributions shows us that the tails become important for large overburdens.
+	Previous calculations only used the median of these distributions, creating a one-to-one mapping from initial to final muon energy for each overburden or angle as shown in the upper panel.
+	However, the large skew of these distributions shows us that the tails become important for large overburdens as the lower panel shows.
 	}
 	\label{fig:preach_stats}
 \end{figure}
 
-The atmospheric neutrino passing fraction is defined as the probability for an atmospheric neutrino to not be accompanied by a muon which is detected from the same air shower. This probability is denoted $\Prob_{\rm pass}$~\cite{Schonert:2008is, Gaisser:2014bja} and can be written as the ratio
+For an atmospheric neutrino of known energy and direction the passing fraction is defined as the probability that muons from the same air shower do not trigger the detector veto.
+This probability is denoted $\Prob_{\rm pass}$~\cite{Schonert:2008is, Gaisser:2014bja} and can be written as the ratio
 \begin{equation}
 \Prob_{\rm pass} (E_\nu, \theta_z) = \frac{\phi_\nu^{\rm pass}(E_\nu, \theta_z)}{\phi_\nu(E_\nu, \theta_z)} ~,
 \end{equation}
@@ -135,6 +142,7 @@ Electron neutrinos (or antineutrinos) are produced alongside a positron (or elec
 Rarely does an electron neutrino have a sibling muon, as this would involve a lepton flavor violating process.
 Instead, muons that accompany electron neutrinos are produced in other branches of the air shower.
 Because the different branches of the shower are uncorrelated, to first order the average properties of muons in a prototypical air shower can be used for the passing fraction calculation.
+The task in this section is to track the production and propagation of these muons from uncorrelated branches of the shower and compute the flux of neutrinos not vetoed by these uncorrelated muons.
 Consider a shower from a single cosmic-ray primary particle of type $A$ with energy $\ECR$.
 The average neutrino yield $\frac{dN_{A, \nu}}{dE_\nu}(\ECR, E_\nu, \theta_z)$ from such a shower can be computed with $\MCEq$.
 So the atmospheric neutrino flux can be written as 
@@ -241,6 +249,8 @@ The passing fractions for the prompt flux are almost identical as they are mainl
 Muon neutrinos or antineutrinos produced in hadron decays will always have a sibling muon due to flavor conservation.
 This means the passing fraction for muon neutrinos has a correlated component in addition to the uncorrelated component described for electron neutrinos.
 This correlated suppression depends entirely on the behavior of the sibling muon, which itself can be described as a function of the muon direction and initial energy.
+The task in this section is to now track the sibling muons produced along with the neutrino and compute the flux of neutrinos not vetoed by this muon.
+Additionally, the treatment of correlated and uncorrelated muons can be unified, which we also explore.
 For two body decays, there is a direct relation between the energy of the parent particle, muon, and neutrino: $\Emi = E_p - E_\nu$.
 This relation gives a delta function for the muon energy spectrum $dN_{p,\mu}^{\rm 2-body}/d\Emi (E_p,E_\mu,\Emi)=\delta(\Emi-E_p+E_\nu)$.
 However, the two-body approximation is not appropriate for the calculation of the passing fractions for the prompt fluxes, as neutrinos are mainly produced by the decays of $D^{\pm}$, $D^0$, $\bar{D}^0$, $\Lambda_c^+$, and $D_s^{\pm}$~\cite{Fedynitch:2015zma}.
@@ -375,7 +385,7 @@ The combination of these correlated and uncorrelated contributions led to Eq.~\r
 For these two calculations, the components were factorized and the $\ECR-E_p$ subtraction was not performed.
 This led to an overestimation of the shower energy producing visible muons for the electron neutrino case.
 
-The new approach, explained in the previous sections and developed in [] includes a full description of the cosmic ray primary spectrum and composition as well as the hadronic interactions that give rise to the parent particles and eventually muons and neutrinos.
+The new approach, explained in the previous sections and developed in~\cite{Arguelles:2018awr} includes a full description of the cosmic ray primary spectrum and composition as well as the hadronic interactions that give rise to the parent particles and eventually muons and neutrinos.
 This leads to the more accurate Eq.~\ref{eq:GUE} which is fully consistent between electron and muon neutrinos, although it must be calculated numerically.
 Muon energy loss distributions are also fully accounted for in this treatment.
 Critically, this approach uses numerical techniques instead of analytic approximations, opening the door for a wide array of modifications to the calculation.
@@ -580,7 +590,7 @@ The change from Heaviside to sigmoid produces a smaller reduction, although this
 Although the change to muon neutrino passing fractions is smaller than that for electron neutrinos, this is the largest change in the muon neutrino passing fraction for a fixed detector geometry.
 We should stress the importance of correctly modeling the detector response to muons as it will significantly affect the passing fractions for both flavors.
 
-\subsubsection{HESE passing fractions}
+\subsubsection{HESE passing fractions\label{sec:hese_passingfractions}}
 In this approach the neutrino properties are known from simulation, and it is sought to average over all the potential properties of the cosmic ray air showers from which the neutrino could have been produced in.
 Ideally this average over air shower properties should be computed for each neutrino position, direction, and energy because the detector response can vary with all six of these parameters.
 However, not all of these properties are used directly in the analysis nor does the detector response depend equally on all of these parameters.
