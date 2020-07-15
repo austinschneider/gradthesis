@@ -13,6 +13,11 @@
 
 \section{Dealing with limited simulation samples\label{sec:limited_simulation}}
 The contents of this section is reproduced here with minor modifications from a collaborative work with Carlos A. Argüelles, and Tianlu Yuan~\cite{Arguelles:2019izp}.
+This work was originally motivated by the desire to account for simulation statistical uncertainties that originate from the muon background component, and our failure to find a treatment in the literature with the desired properties.
+The simulation statistical uncertainties of the muon component are comparable to the statistical uncertainties of data in the same bins, but little to no information is available outside of the bins that contain simulated muons.
+The treatment described in this section is able to account for the inherent uncertainty in these bins, but neglects potential contributions from muon in bins not covered by the simulation template.
+We would hope to improve upon the treatment of these empty bins in future work.
+Ultimately these differences do not change the inferences made in this analysis because of other constraints present in the data, but this treatment is applicable to a wide range of analyses and we plan to use it in the future.
 
 \begingroup
 \graphicspath{{results/mcllh_paper/}}
