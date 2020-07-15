@@ -22,9 +22,9 @@
 \cleardoublepage
 \setcounter{page}{1}
 
-\section{Abstract}
-\uwabstract
-\cleardoublepage
+%\section{Abstract}
+%\uwabstract
+%\cleardoublepage
 
 \section{Acknowledgements}
 
@@ -50,7 +50,11 @@
 
 %\bibliography{results/HESE_Final_Paper/hesebiblio,results/mcllh_paper/likelihood,results/passing_fractions_paper/nuveto,thesis-citations}
 
-\printbibliography
+
+\chapter*[Bibliography]{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography[heading=none]
+\refstepcounter{chapter}
 
 \clearpage
 \newpage
