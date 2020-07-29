@@ -88,14 +88,24 @@ To perform this calculation a framework was developed that leverages the Matrix 
 Validation of the computed passing fractions is performed against detailed air shower simulations with COsmic Ray SImulations for KAscade (CORSIKA), and excellent agreement is found as a result.
 
 Departure from the lone-neutrino case is based on the coincidence of a muon and neutrino from the same air-shower that occurs in both time and direction.
-Thus, $\Prob_{\rm reach}\left(\Emf \, | \, \Emi , \, X_\mu, \right)$ is naturally a key component of the calculation, which describes the probability of a muon with initial energy $\Emi$ and slant depth $X_\mu$ to reach the detector with energy $\Emf$.
+Thus,
+\begin{equation}
+\label{eq:preach}
+\Prob_{\rm reach}\left(\Emf \, | \, \Emi , \, X_\mu, \right)
+\end{equation}
+is naturally a key component of the calculation, which describes the probability of a muon with initial energy $\Emi$ and slant depth $X_\mu$ to reach the detector with energy $\Emf$.
 As the IceCube detector is deep underground, the contribution to slant depth from the atmosphere is very small compared to that of the Earth, and so can be neglected.
 With only the slant depth of the Earth contributing, $X_\mu$ is fully specified by the zenith angle $\theta_z$ in detector coordinates and the depth $d$.
 Stochasticity of the muon energy losses is accounted for by the distribution $\Prob_{\rm reach}$, which is computed by tabulating simulations of muons propagated in ice by the software $\MMC$.
 Using the conditional probability distribution $\Prob_{\rm reach}$ instead of average muon behavior ensures that contributions from the distribution tails are accounted for.
 These contributions from the tails become important for very large slant depths, where muons on average do not reach the detector.
 Departure from the neutrino-only case requires both the muon to reach the detector, but also for the muon to trigger a response, in this case for the muon to {\it light} the veto.
-The quantity $\Prob_{\rm light}(\Emf,d)$ is the probability that a muon of energy $\Emf$ and depth $d$ at the detector boundary {\it lights} the veto, such that the event is rejected.
+The quantity
+\begin{equation}
+\label{eq:plight}
+\Prob_{\rm light}(\Emf,d)
+\end{equation}
+is the probability that a muon of energy $\Emf$ and depth $d$ at the detector boundary {\it lights} the veto, such that the event is rejected.
 In practice, this $\Prob_{\rm light}$ is computed by tabulating detector simulations of atmospheric muons and incorporating the specifics of the event selection.
 With both $\Prob_{\rm light}$ and $\Prob_{\rm reach}$ in hand, the probability of detecting an incident muon $\Prob_{\rm det}$ can be computed as 
 
