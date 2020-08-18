@@ -25,13 +25,16 @@ Two IceCube event selections have achieved this, namely, the ``medium-energy sta
 The cascade selection focuses on achieving a large effective area for cascade-like neutrino events while reducing muon backgrounds.
 This is achieved through a combination of cascade identification, veto-like cuts, quality cuts, containment cuts, and machine learning based classification.
 Unfortunately we do not have the computational capacity or theoretical framework to accurately model muons from atmospheric showers in this type of event selection, so a number of cuts are made to remove sources of data-simulation disagreement that may arise from muons in the sample.
+Similarly to the calculation techniques used for the analysis in this work, the cascade selection analysis computed the effect of accompanying muons with the older passing fraction calculation described in~\cite{Gaisser:2014bja}.
+In this case the calculation of the passing fractions relies only on a single parameter, the median muon energy that triggers the detector.
+The value of this parameter is chosen as a best-guess to be $\SI{100}\GeV$, which is verified by comparison to dedicated cosmic ray air-shower simulations.
+While this treatment is sufficient for the current analysis of the cascade sample, more accurate calculations of the atmospheric suppression are desired for a global analysis.
 
-
-Absent the ability to compartmentalize the detector response to muons and neutrinos, the estimation of backgrounds must rely on other methods than the calculation presented in \refsec{sec:passingfractions} or a more complicated extension of this.
+Absent the ability to compartmentalize the detector response to muons and neutrinos, the estimation of atmospheric backgrounds must rely on other methods than the calculation presented in \refsec{sec:passingfractions} or a more complicated extension of this.
 Other available methods of modeling the interplay between related atmospheric muons and neutrinos and their combined effect on the event selection rely on air-shower simulations.
 Air-shower simulations to this end have several downsides: they tend to be computationally expensive by comparison to signal simulation, must often be specialized for a particular event selection, are only available for a small subset of hadronic interaction models, and must be rerun for any hadronic interaction model changes.
-For this reason it may prove difficult to add additional atmospheric systematic uncertainties to an analysis of the cascade sample.
-An easier first step may be to simply use the less sensitive MESE sample, which has the option to account for these systematics with faster calculations.
+For this reason it may prove difficult to obtain more accurate atmospheric neutrino predictions and add additional atmospheric systematic uncertainties to an analysis of the cascade sample.
+An easier first step may be to use the less sensitive medium energy starting event sample, for which more accurate background estimation are more straightforward to obtain.
 
 \subsubsection{Medium-energy starting events}
 The medium-energy starting event sample modifies the veto definitions of the HESE selection and extends the selection to lower energies primarily by applying a charge dependent fiducial volume cut.
