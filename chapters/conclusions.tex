@@ -24,24 +24,28 @@ Two IceCube event selections have achieved this, namely, the ``medium-energy sta
 \subsubsection{Cascade selection}
 The cascade selection focuses on achieving a large effective area for cascade-like neutrino events while reducing muon backgrounds.
 This is achieved through a combination of cascade identification, veto-like cuts, quality cuts, containment cuts, and machine learning based classification.
+In an analysis of this high purity selection of cascade-like neutrino events the combined astrophysical flux of electron neutrinos and tau neutrinos can be precisely measured to lower energies.
+The only confounding factors in this measurement are the proportion of neutral-current muon neutrino events, which can be constrained with other samples, and systematic variation to the contribution of atmospheric neutrinos to the sample.
 Unfortunately we do not have the computational capacity or theoretical framework to accurately model muons from atmospheric showers in this type of event selection, so a number of cuts are made to remove sources of data-simulation disagreement that may arise from muons in the sample.
-Similarly to the calculation techniques used for the analysis in this work, the cascade selection analysis computed the effect of accompanying muons with the older passing fraction calculation described in~\cite{Gaisser:2014bja}.
+Similarly to the calculation techniques used for the analysis in this work, the cascade selection analysis computes the effect of accompanying muons with the older passing fraction calculation described in~\cite{Gaisser:2014bja}.
 In this case the calculation of the passing fractions relies only on a single parameter, the median muon energy that triggers the detector.
 The value of this parameter is chosen as a best-guess to be $\SI{100}\GeV$, which is verified by comparison to dedicated cosmic ray air-shower simulations.
-While this treatment is sufficient for the current analysis of the cascade sample, more accurate calculations of the atmospheric suppression are desired for a global analysis.
+While this treatment is sufficient for the current analysis of the cascade sample, more accurate calculations of the atmospheric suppression are desired for a global analysis so that possible differences between the different observation channels can be examined.
 
 Absent the ability to compartmentalize the detector response to muons and neutrinos, the estimation of atmospheric backgrounds must rely on other methods than the calculation presented in \refsec{sec:passingfractions} or a more complicated extension of this.
 Other available methods of modeling the interplay between related atmospheric muons and neutrinos and their combined effect on the event selection rely on air-shower simulations.
 Air-shower simulations to this end have several downsides: they tend to be computationally expensive by comparison to signal simulation, must often be specialized for a particular event selection, are only available for a small subset of hadronic interaction models, and must be rerun for any hadronic interaction model changes.
 For this reason it may prove difficult to obtain more accurate atmospheric neutrino predictions and add additional atmospheric systematic uncertainties to an analysis of the cascade sample.
-An easier first step may be to use the less sensitive medium energy starting event sample, for which more accurate background estimation are more straightforward to obtain.
+An easier first step may be to use the less sensitive medium-energy starting event sample, for which accurate background estimations are more straightforward to obtain.
 
 \subsubsection{Medium-energy starting events}
-The medium-energy starting event sample modifies the veto definitions of the HESE selection and extends the selection to lower energies primarily by applying a charge dependent fiducial volume cut.
-The size of the fiducial volume is reduced for lower charge events to compensate for the smaller amount of light that lower energy muons produce per unit length.
+Much like the cascade selection, the medium-energy starting event selection also produces a cascade dominated sample that extends down to $\SI{1}\TeV$.
+However, MESE achieves this by modifying the veto definitions of the HESE selection and adding additional cuts so that the charge threshold may be lowered.
+The foremost of these is a charge dependent fiducial volume cut, where the fiducial volume is reduced for lower charge events.
+This smaller fiducial volume removes most of the lower energy muons which are more likely to have a reconstructed vertex near to the edge of the detector than in the center.
 
-The medium-energy starting event selection has similar properties to high-energy starting event selection in that only events with a contained interaction vertex are selected.
-The sample consists mostly of cascades, and the there is a separation between veto and fiducial volume.
+With this similar selection technique, the MESE sample has similar properties to high-energy starting event selection in that only events with a contained interaction vertex are selected.
+It also retains the physical separation between veto and fiducial volume.
 A similar set of calculations can be applied to estimate the backgrounds of the MESE sample, and the selection is susceptible to the same systematics.
 Primarily the addition of this selection allows us to explore the lower energies of the astrophysical spectrum between $\SI{10}\TeV$ and $\SI{100}\TeV$.
 The lower energy range comes with its own challenges though, mainly a much larger data sample and larger atmospheric backgrounds.
