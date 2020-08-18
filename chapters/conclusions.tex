@@ -6,18 +6,39 @@
 \endgroup
 \FloatBarrier
 
-\section{Next steps}
-The analysis presented here updated previous studies of the HESE sample, and is only a small part of the picture for astophysical neutrinos and the mystery of cosmic ray origin.
+\section{The next generation}
+The analysis presented here updated previous studies of the HESE sample, and is only a small part of the picture for astrophysical neutrinos and the mystery of cosmic ray origin.
 However, the techniques and solutions developed here remain broadly applicable to future analyses, and will enable more precise measurements as more data is accumulated and additional samples are developed.
 
 From the perspective of analyzing the astrophysical neutrino flux the next objectives are to expand the energy range and flavor information of the analysis, and to simultaneously examine these different channels for additional structure or differences between them.
-Some analyses have already examined these channels, for instance the through-going muon neutrino sample which looks at muon neutrinos from the Northern hemisphere between $\SI{100}\GeV$ and $\SI{10}\PeV$ or the medium-energy starting event (MESE) sample which extends the HESE selection down to $\sim\SI{1}\TeV$.
-However, these independent analyses have either lacked extended treatments of systematics, lacked enough data to make significant conclusions, or are too disparate for meaningful comparison to these results.
-The goal then is to perform a simultaneous analysis of all these data samples with the decade or more of data collected so far, but in that analysis to also expand upon the techniques developed for this work.
+Some analyses have already examined these channels, for instance samples that look at muon neutrinos from the Northern hemisphere between $\SI{100}\GeV$ and $\SI{10}\PeV$ or cascade focused samples that extend down to $\sim\SI{1}\TeV$.
+However, the separate analyses of these samples have either lacked extended treatments of systematics, lacked enough data to make significant conclusions, or are too disparate for meaningful comparison between each other.
+Further investigation of the astrophysical neutrino flux will require the simultaneous analysis of all these data samples, and should expand upon the techniques developed for this work.
 
 \subsection{Data samples}
-The medium-energy starting event (MESE) sample modifies the veto definitions of HESE and extends the selection to lower energies primarily with the use of a charge dependent fiducial volume cut.
-The MESE selection has similar properties to HESE in that only starting events are selected, the sample consits mostly of cascades, and the there is a separation between veto and fiducial volume.
+The cascade data channel is able to achieve low background rates in all directions because it is unlikely for muons to produce cascade-like detector signatures, even at lower energies.
+The HESE selection as a cascade dominated sample takes advantage of this in part, but is not able to cover lower energies.
+With additional selection techniques a high purity sample of cascade-like neutrino events that extends down to $\SI{1}\TeV$ can be obtained.
+Two IceCube event selections have achieved this, namely, the ``medium-energy starting event selection'' (MESE) and the ``cascade selection''.
+
+\subsubsection{Cascade selection}
+The cascade selection focuses on achieving a large effective area for cascade-like neutrino events while reducing muon backgrounds.
+This is achieved through a combination of cascade identification, veto-like cuts, quality cuts, containment cuts, and machine learning based classification.
+Unfortunately we do not have the computational capacity or theoretical framework to accurately model muons from atmospheric showers in this type of event selection, so a number of cuts are made to remove sources of data-simulation disagreement that may arise from muons in the sample.
+
+
+Absent the ability to compartmentalize the detector response to muons and neutrinos, the estimation of backgrounds must rely on other methods than the calculation presented in \refsec{sec:passingfractions} or a more complicated extension of this.
+Other available methods of modeling the interplay between related atmospheric muons and neutrinos and their combined effect on the event selection rely on air-shower simulations.
+Air-shower simulations to this end have several downsides: they tend to be computationally expensive by comparison to signal simulation, must often be specialized for a particular event selection, are only available for a small subset of hadronic interaction models, and must be rerun for any hadronic interaction model changes.
+For this reason it may prove difficult to add additional atmospheric systematic uncertainties to an analysis of the cascade sample.
+An easier first step may be to simply use the less sensitive MESE sample, which has the option to account for these systematics with faster calculations.
+
+\subsubsection{Medium-energy starting events}
+The medium-energy starting event sample modifies the veto definitions of the HESE selection and extends the selection to lower energies primarily by applying a charge dependent fiducial volume cut.
+The size of the fiducial volume is reduced for lower charge events to compensate for the smaller amount of light that lower energy muons produce per unit length.
+
+The medium-energy starting event selection has similar properties to high-energy starting event selection in that only events with a contained interaction vertex are selected.
+The sample consists mostly of cascades, and the there is a separation between veto and fiducial volume.
 A similar set of calculations can be applied to estimate the backgrounds of the MESE sample, and the selection is susceptible to the same systematics.
 Primarily the addition of this selection allows us to explore the lower energies of the astrophysical spectrum between $\SI{10}\TeV$ and $\SI{100}\TeV$.
 The lower energy range comes with its own challenges though, mainly a much larger data sample and larger atmospheric backgrounds.
