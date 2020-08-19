@@ -16,7 +16,7 @@ However, the separate analyses of these samples have either lacked extended trea
 Further investigation of the astrophysical neutrino flux will require the simultaneous analysis of all these data samples, and should expand upon the techniques developed for this work.
 Many of these samples were developed with the initial measurement of the astrophysical neutrino flux in mind.
 However, as more data becomes available the precision of these analyses will no longer rely on maximizing the acceptance of the selection.
-Instead we will be able to focus on the analysis accuracy in an attempt to understand the differences we have observed between the various astrophysical neutrino measurement channels, even if this comes at the cost of some precision.
+Instead, we will be able to focus on the analysis accuracy in an attempt to understand the differences we have observed between the various astrophysical neutrino measurement channels, even if this comes at the cost of some precision.
 
 \subsection{Data samples}
 The cascade data channel is able to achieve low background rates in all directions because it is unlikely for muons to produce cascade-like detector signatures, even at lower energies.
@@ -28,7 +28,7 @@ In the case of the MESE selection, some $\nu_\mu$ CC events are also present in 
 These samples cover the entire sky, enabling the combined $\nu_e$ and $\nu_tau$ flux to be accurately measured in both hemispheres, although finer grained angular studies are limited by poor directional resolution.
 A major advantage of these samples is the higher energy resolution of cascade events, which enables more detailed studies of the neutrino energy spectrum.
 
-Beyond cascades we hope to incorporate similar information from $\nu_\mu$ CC interactions.
+Beyond cascades, we hope to incorporate similar information from $\nu_\mu$ CC interactions.
 This is available through the different track dominated event selections.
 Two IceCube selections use a similar approach to obtain a sample of high quality through-going muon neutrino tracks, namely by restricting selected events to tracks known to be up-going.
 These selections are those used for the Northern hemisphere astrophysical neutrino flux measurement and the search for $\si\eV$ scale sterile neutrinos.
@@ -67,22 +67,21 @@ However, MESE achieves this by modifying the veto definitions of the HESE select
 The foremost of these is a charge dependent fiducial volume cut, where the fiducial volume size is reduced for lower charge events.
 This smaller fiducial volume removes most of the lower energy muons, which are more likely to have a reconstructed vertex near the detector edge than in the center.
 
-The MESE sample has similar properties to high-energy starting event selection in that only events with a contained interaction vertex are selected.
-It also retains the physical separation between veto and fiducial volume.
+The MESE sample has similar properties to high-energy starting event selection in that only events with a contained interaction vertex are selected, it also retains the physical separation between veto and fiducial volume.
 A similar set of calculations can be applied to estimate the backgrounds of the MESE sample, and the selection is susceptible to the same systematics.
 Primarily the addition of this selection allows us to explore the lower energies of the astrophysical spectrum between $\SI{10}\TeV$ and $\SI{100}\TeV$.
 The lower energy range comes with its own challenges though, mainly a much larger data sample and larger atmospheric backgrounds.
 To ensure accurate measurements with this increased sample size and background we must ensure a higher degree of accuracy in the background estimates and potentially allow for additional systematic variations.
 In the expansion of our systematics consideration a next logical step is the set of uncertainties related cosmic rays and their production of neutrinos.
 Thankfully, MCEq allows arbitrary cosmic ray model fluxes and compositions as input, and has a range of hadronic models to select from. The effect of these systematics on the atmospheric neutrino flux can then be directly evaluated.
-At the same time, the improved passing fractions calculation leverages this same flexibility so that these systematics may be taken into account for accompanying muons as well.
+At the same time, the improved passing fraction calculation leverages this same flexibility so that these systematics may be taken into account for accompanying muons as well.
 
 \subsubsection{Northern sky through-going tracks}
-The Northern sky through-going track selection used to measure the astrophysical neutrino flux chooses up-going track-like events that are well reconstructed; a boosted decision tree is also used to differentiate between neutrinos and mis-reconstructed muons near the horizon.
+The Northern sky through-going track selection is used to measure the astrophysical neutrino flux chooses up-going track-like events that are well reconstructed; a boosted decision tree is also used to differentiate between neutrinos and mis-reconstructed muons near the horizon.
 The boosted decision tree identification allows other quality cuts to be loosened, increasing the effective area of the selection.
 This is optimal for an initial measurement of the astrophysical neutrino flux as much of the sensitivity comes from the high-energy tail where there are few events overall.
 One difficulty with analyzing this type of sample is that the astrophysical contribution is buried beneath the atmospheric flux at lower energies.
-Combined with the limited energy resolution of tracks, this make it difficult to discern features in the energy spectrum.
+Combined with the limited energy resolution of tracks, this makes it difficult to discern features in the energy spectrum.
 To make an accurate measurement of the astrophysical spectrum with this sample at lower energies, good data-simulation agreement and a detailed systematic treatment of the atmospheric background are necessary.
 A reasonable way to achieve this is through more stringent quality cuts, which will reduce the effective area but potentially remove events that are more poorly modeled by simulation.
 Similar steps have been taken in the sample used for $\si\eV$ scale sterile neutrino searches, but at lower energies.
@@ -99,10 +98,10 @@ A sufficiently detailed $P_{\rm light}$ that depends on both muon and neutrino p
 Although the effective area of ESTES is smaller than other selections when all directions are considers, it is uniquely able to obtain a relatively pure sample of astrophysical neutrinos in the Southern hemisphere that extends down to a few $\si\TeV$.
 
 Selections mentioned above cover the categories of cascades and tracks across a wider range of neutrino energies and encompass the entire sky.
-Finally the task remains to include information about tau neutrinos.
+Finally, the task remains to include information about tau neutrinos.
 There are not any known properties of $\nu_\tau$ CC events that allow them to be readily separated from muon backgrounds and other types of neutrino interactions.
 However, identifiers have been constructed to differentiate $\nu_\tau$ CC events from others assuming the events do not originate from the muon background.
-Thus the most effective approach is to apply these identifiers to existing selections and statistically infer the properties of the tau neutrino flux rather than trying to separate the events outright.
+Thus, the most effective approach is to apply these identifiers to existing selections and statistically infer the properties of the tau neutrino flux rather than trying to separate the events outright.
 Such identifiers use different methodologies but all hinge on the properties of a particular class of $\nu_\tau$ CC events where there are two physically distinct particle showers in the event, one from the initial neutrino DIS and the other from the tau decay.
 
 By combining these event selections and identifiers an analysis can be constructed that is able to test for structure and discrepancies in the different channels while also obtaining more precise measurements of the astrophysical flux that are less limited by systematic uncertainties.
@@ -110,15 +109,15 @@ By combining these event selections and identifiers an analysis can be construct
 \subsection{Analysis improvements}
 Following \reffig{fig:analysis_design} we can examine what components of the analysis may be improved.
 In the previous subsection we have already added additional samples, improving the ``event selection''.
-Event reconstruction can be improved, but this topic has not been the focus of this work and so we will ignore it for the moment.
+Event reconstruction can be improved, but this topic has not been the focus of this work, and so we will ignore it for the moment.
 The other interesting aspects that can be improved lie in the MC generation, likelihood function, and reweighting; in fact the three are related to one another.
-Signal estimation is relatively optimal at this stage of IceCube's operation with the exception of some unmodeled detector and ice systematics.
+Signal estimation is relatively optimal at this stage of IceCube's operation apart from some unmodeled detector and ice systematics.
 Background estimation on the other hand remains challenging and is susceptible to a wider array of systematic effects.
 This can be broken down into two categories, the direct contribution of muons to the event selection and the effect of related muons on the acceptance of atmospheric neutrinos.
 
 \subsubsection{Atmospheric muons}
 For muons that directly contribute to observations the main problem is the huge number of muons in proportion to neutrinos.
-Based purely on interaction cross section we expect the detection of approximately $10^6$ more muons than neutrinos.
+Based purely on interaction cross section the detection of approximately $10^6$ more muons than neutrinos is expected.
 Assuming the simulation of a single muon or neutrino event incurs similar computational cost, the simulation of background muons is vastly more expensive than simulation of neutrinos for equivalent periods of time.
 The event selections must also be extremely efficient at rejecting muons to measure the neutrino flux, so for all the expensive background estimation we can muster there is often very little information regarding the muon background distribution in the sample.
 This is exemplified in \reffig{fig:muons} which shows the expected distribution of muons in the HESE selection.
@@ -131,19 +130,19 @@ A technique has been employed in lower energy samples where the distribution of 
 Once the distribution of events in energy, direction, and impact position is determined, a larger sample is generation with this as the new generation distribution.
 This lowers the amount of computational resources dedicated to events that do not pass the event selection, and leads to a larger sample at the final selection level.
 This technique works well if the event selection has multiple levels and a reasonable distribution of muons can be obtained at some point.
-However, some of the veto techniques are too efficient at removing these backgrounds with the first cut for this to work.
+However, veto techniques are too efficient at removing these backgrounds with the first cut for this to work.
 For these cases we can still attempt to bias the simulation generation distributions, but we must think more carefully about the kinds of events that pass the veto.
 For a neutrino event, the relevant portion of the veto is a subspace of a cylindrical region behind the interaction vertex, where the particular subspace depends on the selection.
 Light detected in this region depends on the stochastic energy losses of the accompanying muon, and how close these energy losses are to the optical modules.
 The events can then be biased according to how close these energy losses come to the optical modules.
 At the generation level this can be done by examining the path of the muon with respect to the detector geometry.
 However, we can also bias the event sample immediately after muon propagation (which is computationally cheap), and before photon propagation (which is expensive), when the information about the energy losses is available.
-Knowing the energy losses, we can estimate the number of photons we expect to be observed in the veto region and probabilistically reject events on this basis.
+Knowing the energy losses, we can estimate the expected number of photons to be observed in the veto region and probabilistically reject events on this basis.
 This probabilistic rejection can then be accounted for in the weighting scheme.
 
 Once we have improved estimates of the muon distributions from biased simulation, the task remains to make better use of the information in the analysis.
 At the moment, empty bins in the muon distribution are poorly modeled from the likelihood perspective as the possibility of a non-zero expectation is not entertained.
-The development of methods to treat these empty bins will improve our statistical description of the muon background information we have available, and remove some of the existing bias from our results.
+The development of methods to treat these empty bins will improve our statistical description of the muon background information we have available, and remove existing bias from our results.
 Some suggestions on this topic have been made but so far none are simultaneously satisfactory in their modeling of the per bin expectation and the corresponding uncertainty.
 Possible solutions include nested models of the binned parameter space, kernel density estimation of the distribution with corresponding uncertainty estimation, and hierarchical modeling of the physical distributions and selection efficiencies.
 Better treatment of this problem will be important as we attempt to measure features in more background dominated regions.
@@ -154,7 +153,7 @@ Both the flux model and the passing fractions are susceptible to systematic effe
 Thankfully it is possible to model these through a combination of MCEq and nuveto for the flux and passing fractions respectively.
 Modeling of the hadronic interaction uncertainties can be rather complex with methods and calculation methods vary wildly.
 
-So far a rough scheme has been developed to described the hadronic model uncertainties by Barr et. al.~\cite{Barr:2004br}, that breaks the the parameter space into rectangular box regions and assigns uncertainties to each region based on experimental measurements.
+So far a rough scheme has been developed to describe the hadronic model uncertainties by Barr et. al.~\cite{Barr:2004br}, that breaks the parameter space into rectangular box regions and assigns uncertainties to each region based on experimental measurements.
 Better uncertainty treatments are possible with available data, but have yet to be constructed by analyzers.
 The Barr scheme for hadronic model modifications has been implemented in MCEq, and so these modifications can be translated to variations in the neutrino flux and passing fractions with our available tools.
 Ideally we would account for hadronic model variations by allowing these box scaling parameters to vary according to known uncertainties, thereby modifying the background neutrino flux.
@@ -183,9 +182,9 @@ This setup has some computational limitations as MCEq is slower than other steps
 One of the largest sources of systematic uncertainty is the ice properties.
 Measurements of the ice properties that use different sources of information tend to be in tension with one another, and so far no clear explanation has surfaced.
 Modeling of the ice as a birefringent material has shown promise in relieving some of these tensions, but this work is still in progress.
-Currently the bulk ice systematics are modeled in analyses as overall modifications to the ice properties, however, shape uncertainties in the depth dependent ice properties have been neglected.
+Currently, the bulk ice systematics are modeled in analyses as overall modifications to the ice properties, however, shape uncertainties in the depth dependent ice properties have been neglected.
 Uncertainties on individual DOM properties, including the local ice effects, are either neglected or treated with a global modification.
 It is possible to account for all of these uncertainties but the large number of additional parameters makes the current treatment with discrete simulation sets for each parameter variation untenable.
 An alternate approach is given in~\cite{Aartsen:2019jcj}, where a single simulation set is produced in which the detector systematic parameters are randomly chosen according to prior distributions for small bunches of events.
-After the generation of this simulation set, it is possible to estimate the effect of each parameter on the per bin expectation in a linear fashion.
+After the generation of this simulation set, it is possible to estimate the effect of each parameter on the per bin expectation linearly.
 This treatment has performed well for the MEOWS analysis and should be applied to future analyses of these samples to more completely account for the detector uncertainties.
