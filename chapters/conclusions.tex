@@ -37,6 +37,9 @@ This choice stems from a difference in motivation for the samples.
 The astrophysical sample aims to maximize effective area and angular range, while the sterile search sample aims for the high quality reconstruction and maximum data-simulation agreement.
 These samples only cover the Northern hemisphere, but enable constraints on the energy and angular distribution of muon neutrinos within that range.
 One disadvantage of these samples is their limited energy resolution that stems from the challenges of inferring muon energies.
+Even under the assumption of an isotropic 1:1:1 astrophysical flux, there are benefits to including one of these samples in the analysis.
+These samples extend between $\SI{100}\GeV$ and $\SI{10}\PeV$, and below a reconstructed energy of $\sim\SI{20}\TeV$ the flux is dominated by atmospheric neutrinos.
+This large population of atmospheric neutrinos can help to pin down the unknown values of the atmospheric systematic parameters, thereby reducing uncertainty in the astrophysical measurements even for other samples.
 
 \subsubsection{Cascade selection}
 The cascade selection focuses on achieving a large effective area for cascade-like neutrino events while reducing muon backgrounds.
@@ -72,14 +75,17 @@ Thankfully, MCEq allows arbitrary cosmic ray model fluxes and compositions as in
 At the same time, the improved passing fractions calculation leverages this same flexibility so that these systematics may be taken into account for accompanying muons as well.
 
 \subsubsection{Northern sky through-going tracks}
-The Northern sky through-going track sample attempts to maximize the effective area
+The Northern sky through-going track selection used to measure the astrophysical neutrino flux chooses up-going track-like events that are well reconstructed; a boosted decision tree is also used to differentiate between neutrinos and mis-reconstructed muons near the horizon.
+The boosted decision tree identification allows other quality cuts to be loosened, increasing the effective area of the selection.
+This is optimal for an initial measurement of the astrophysical neutrino flux as much of the sensitivity comes from the high-energy tail where there are few events overall.
+One difficulty with analyzing this type of sample is that the astrophysical contribution is buried beneath the atmospheric flux at lower energies.
+Combined with the limited energy resolution of tracks, this make it difficult to discern features in the energy spectrum.
+To make an accurate measurement of the astrophysical spectrum with this sample at lower energies, good data-simulation agreement and a detailed systematic treatment of the atmospheric background are necessary.
+A reasonable way to achieve this is more stringent quality cuts, which will reduce the effective area but potentially remove events that are more poorly modeled by simulation.
+Similar steps have been taken in the sample used for eV scale sterile neutrino searches, but at lower energies.
 
-Even under the assumption of an isotropic 1:1:1 astrophysical flux, there are benefits to including one of these samples in the analysis.
-These samples extend between $\SI{100}\GeV$ and $\SI{10}\PeV$, and below a reconstructed energy of $\sim\SI{20}\TeV$ the flux is dominated by atmospheric neutrinos.
-This large population of atmospheric neutrinos can help to pin down the unknown values of the atmospheric systematic parameters, thereby reducing uncertainty in the astrophysical measurements even for other samples.
-Many events are shared between these two samples, and the differences between them largely center around a choice of selection techniques, differing reconstruction quality cuts, and slightly different zenith range.
-The TGM sample potentially offers more sensitivity as it has a larger zenith range and higher effective area.
-However, the MEOWS sample may be a good first step as its more stringent quality cuts may help with data/MC agreement and contamination from muon backgrounds near the horizon.
+\subsubsection{Low-energy through-going muon neutrinos}
+
 
 The two muon neutrino samples described above cover only the Northern hemisphere, so we would like to include a track sample with sensitivity in the Southern sky.
 The enhanced starting track event selection (ESTES) works by taking the reconstructed event directions, computing the probability that a muon could sneak through the detector region behind the event vertex, and rejecting events where this probability is high.
