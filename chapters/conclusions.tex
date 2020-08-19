@@ -76,7 +76,7 @@ In the expansion of our systematics consideration a next logical step is the set
 Thankfully, MCEq allows arbitrary cosmic ray model fluxes and compositions as input, and has a range of hadronic models to select from. The effect of these systematics on the atmospheric neutrino flux can then be directly evaluated.
 At the same time, the improved passing fraction calculation leverages this same flexibility so that these systematics may be taken into account for accompanying muons as well.
 
-\subsubsection{Northern sky through-going tracks}
+\subsubsection{Northern sky through-going tracks and $\si\eV$ scale sterile neutrino searches}
 The Northern sky through-going track selection is used to measure the astrophysical neutrino flux chooses up-going track-like events that are well reconstructed; a boosted decision tree is also used to differentiate between neutrinos and mis-reconstructed muons near the horizon.
 The boosted decision tree identification allows other quality cuts to be loosened, increasing the effective area of the selection.
 This is optimal for an initial measurement of the astrophysical neutrino flux as much of the sensitivity comes from the high-energy tail where there are few events overall.
@@ -86,8 +86,13 @@ To make an accurate measurement of the astrophysical spectrum with this sample a
 A reasonable way to achieve this is through more stringent quality cuts, which will reduce the effective area but potentially remove events that are more poorly modeled by simulation.
 Similar steps have been taken in the sample used for $\si\eV$ scale sterile neutrino searches, but at lower energies.
 
-\subsubsection{Low-energy through-going muon neutrinos}
-
+Another similar sample, which does not have a particular name, is used in the search for $\si\eV$ scale sterile neutrinos.
+This particular search relies on percent-level differences in the data as compared to the standard model expectation.
+Additionally, there are many potential confounding systematics that were necessary to account for.
+As a result, the sample has sub-percent-level agreement between data and simulation, and a detailed treatment of the relevant systematics.
+This is achieved by strict quality cuts for the event reconstructions, and limiting the zenith range to avoid the horizon.
+These same features are desirable in a global analysis of the astrophysical neutrino flux, so it may be easier to use this sample as opposed to the track sample currently used for astrophysical measurements.
+The main caveat is that these optimizations have been made for lower energies than those relevant for the astrophysical flux, and so they may not necessarily hold at higher energies.
 
 \subsubsection{Enhanced starting track event selection}
 The two muon neutrino samples described above cover only the Northern hemisphere, so we would like to include a track sample with sensitivity in the Southern sky.
