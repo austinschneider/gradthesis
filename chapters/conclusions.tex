@@ -31,7 +31,7 @@ A major advantage of these samples is the higher energy resolution of cascade ev
 Beyond cascades we hope to incorporate similar information from $\nu_\mu$ CC interactions.
 This is available through the different track dominated event selections.
 Two IceCube selections use a similar approach to obtain a sample of high quality through-going muon neutrino tracks, namely by restricting selected events to tracks known to be up-going.
-These selections are those used for the Northern hemisphere astrophysical neutrino flux measurement and the search for eV scale sterile neutrinos.
+These selections are those used for the Northern hemisphere astrophysical neutrino flux measurement and the search for $\si\eV$ scale sterile neutrinos.
 Between these two selections the primary difference lies in the specifics of the selection cuts; the astrophysical measurement sample uses a boosted decision tree, while the sterile search sample uses only hand tunes straight cuts.
 This choice stems from a difference in motivation for the samples.
 The astrophysical sample aims to maximize effective area and angular range, while the sterile search sample aims for the high quality reconstruction and maximum data-simulation agreement.
@@ -40,6 +40,9 @@ One disadvantage of these samples is their limited energy resolution that stems 
 Even under the assumption of an isotropic 1:1:1 astrophysical flux, there are benefits to including one of these samples in the analysis.
 These samples extend between $\SI{100}\GeV$ and $\SI{10}\PeV$, and below a reconstructed energy of $\sim\SI{20}\TeV$ the flux is dominated by atmospheric neutrinos.
 This large population of atmospheric neutrinos can help to pin down the unknown values of the atmospheric systematic parameters, thereby reducing uncertainty in the astrophysical measurements even for other samples.
+
+Finally, to examine $\nu_\mu$ CC events in the Southern hemisphere we must include a sample that suppresses muon backgrounds significantly and maintains a large effective area for track-like neutrino events.
+The enhanced starting track event selection (ESTES) fills this role by using a dynamic veto that takes advantage of the reconstructed track direction to compute the probability of a muon producing a similar signature.
 
 \subsubsection{Cascade selection}
 The cascade selection focuses on achieving a large effective area for cascade-like neutrino events while reducing muon backgrounds.
@@ -81,12 +84,13 @@ This is optimal for an initial measurement of the astrophysical neutrino flux as
 One difficulty with analyzing this type of sample is that the astrophysical contribution is buried beneath the atmospheric flux at lower energies.
 Combined with the limited energy resolution of tracks, this make it difficult to discern features in the energy spectrum.
 To make an accurate measurement of the astrophysical spectrum with this sample at lower energies, good data-simulation agreement and a detailed systematic treatment of the atmospheric background are necessary.
-A reasonable way to achieve this is more stringent quality cuts, which will reduce the effective area but potentially remove events that are more poorly modeled by simulation.
-Similar steps have been taken in the sample used for eV scale sterile neutrino searches, but at lower energies.
+A reasonable way to achieve this is through more stringent quality cuts, which will reduce the effective area but potentially remove events that are more poorly modeled by simulation.
+Similar steps have been taken in the sample used for $\si\eV$ scale sterile neutrino searches, but at lower energies.
 
 \subsubsection{Low-energy through-going muon neutrinos}
 
 
+\subsubsection{Enhanced starting track event selection}
 The two muon neutrino samples described above cover only the Northern hemisphere, so we would like to include a track sample with sensitivity in the Southern sky.
 The enhanced starting track event selection (ESTES) works by taking the reconstructed event directions, computing the probability that a muon could sneak through the detector region behind the event vertex, and rejecting events where this probability is high.
 This is similar to veto techniques as a sufficiently detailed veto definition that depends on the properties of the event could produce the same event selection.
