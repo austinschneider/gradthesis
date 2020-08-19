@@ -20,6 +20,15 @@ The cascade data channel is able to achieve low background rates in all directio
 The HESE selection as a cascade dominated sample takes advantage of this in part, but is not able to cover lower energies.
 With additional selection techniques a high purity sample of cascade-like neutrino events that extends down to $\SI{1}\TeV$ can be obtained.
 Two IceCube event selections have achieved this, namely, the ``medium-energy starting event selection'' (MESE) and the ``cascade selection''.
+These cascade dominated selections are largely comprised of $NC$, $\nu_e$ CC, and a sub-population of $\nu_\tau$ CC events.
+In the case of the MESE selection, some $\nu_\mu$ CC events are also present in the sample.
+These samples cover the entire sky, enabling the combined $\nu_e$ and $\nu_tau$ flux to be accurately measured in both hemispheres, although finer grained angular studies are limited by poor directional resolution.
+A major advantage of these samples is the higher energy resolution of cascade events, which enables more detailed studies of the neutrino energy spectrum.
+
+Beyond cascades we hope to incorporate similar information from $\nu_\mu$ CC interactions.
+This is available through the different track dominated event selections.
+Two IceCube selections use similar approaches to obtain a sample of high quality through-going muon neutrino tracks.
+These selections are those used for the Northern hemisphere astrophysical neutrino flux measurement and the search for eV scale sterile neutrinos.
 
 \subsubsection{Cascade selection}
 The cascade selection focuses on achieving a large effective area for cascade-like neutrino events while reducing muon backgrounds.
@@ -41,10 +50,10 @@ An easier first step may be to use the less sensitive medium-energy starting eve
 \subsubsection{Medium-energy starting events}
 Much like the cascade selection, the medium-energy starting event selection also produces a cascade dominated sample that extends down to $\SI{1}\TeV$.
 However, MESE achieves this by modifying the veto definitions of the HESE selection and adding additional cuts so that the charge threshold may be lowered.
-The foremost of these is a charge dependent fiducial volume cut, where the fiducial volume is reduced for lower charge events.
-This smaller fiducial volume removes most of the lower energy muons which are more likely to have a reconstructed vertex near to the edge of the detector than in the center.
+The foremost of these is a charge dependent fiducial volume cut, where the fiducial volume size is reduced for lower charge events.
+This smaller fiducial volume removes most of the lower energy muons, which are more likely to have a reconstructed vertex near the detector edge than in the center.
 
-With this similar selection technique, the MESE sample has similar properties to high-energy starting event selection in that only events with a contained interaction vertex are selected.
+The MESE sample has similar properties to high-energy starting event selection in that only events with a contained interaction vertex are selected.
 It also retains the physical separation between veto and fiducial volume.
 A similar set of calculations can be applied to estimate the backgrounds of the MESE sample, and the selection is susceptible to the same systematics.
 Primarily the addition of this selection allows us to explore the lower energies of the astrophysical spectrum between $\SI{10}\TeV$ and $\SI{100}\TeV$.
@@ -54,16 +63,6 @@ In the expansion of our systematics consideration a next logical step is the set
 Thankfully, MCEq allows arbitrary cosmic ray model fluxes and compositions as input, and has a range of hadronic models to select from. The effect of these systematics on the atmospheric neutrino flux can then be directly evaluated.
 At the same time, the improved passing fractions calculation leverages this same flexibility so that these systematics may be taken into account for accompanying muons as well.
 
-The MESE sample is not the only option for obtaining more information about cascades across a broader energy range.
-The ``cascade'' sample provides similar information as MESE, but with a larger effective area and higher signal to background ratio.
-However, it relies on non-veto methods to perform the selection.
-Absent the ability to compartmentalize the detector response to muons and neutrinos, the estimation of backgrounds must rely on other methods than the calculation presented in \refsec{sec:passingfractions} or a more complicated extension of this.
-Other available methods of modeling the interplay between related atmospheric muons and neutrinos and their combined effect on the event selection rely on air-shower simulations.
-Air-shower simulations to this end have several downsides: they tend to be computationally expensive by comparison to signal simulation, must often be specialized for a particular event selection, are only available for a small subset of hadronic interaction models, and must be rerun for any hadronic interaction model changes.
-For this reason it may prove difficult to add additional atmospheric systematic uncertainties to an analysis of the cascade sample.
-An easier first step may be to simply use the less sensitive MESE sample, which has the option to account for these systematics with faster calculations.
-
-The cascade dominated selections are largely comprised of $NC$, $\nu_e$ CC, and a sub-population of $\nu_\tau$ CC events.
 Beyond this we hope to incorporate similar information from $\nu_\mu$ CC interactions.
 This is available through the different track dominated event selections.
 Two samples, the through-going muon (TGM) neutrino selection and the selection for matter enhanced oscillations with steriles (MEOWS), select for track-like events largely originating from muon neutrino charged current interactions in the Northern hemisphere.
