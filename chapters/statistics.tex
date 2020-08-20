@@ -132,7 +132,7 @@ Frequentist and Bayesian techniques deal with different two different kinds of p
 In frequentist statistics, the relevant probability is the frequency of the outcome of a repeatable experiment.
 Under this framework the important concepts are parameter estimation, confidence intervals, and statistical tests.
 In Bayesian statistics, the relevant probabilities come from the application of Bayes theorem which means we can define the probability density of parameters.
-This definition of the parameter p.d.f. is applicable to the same problems parameter estimation, interval construction, and statistical tests but comes at the cost of defining ``prior belief'' about parameters.
+This definition of the parameter p.d.f. is applicable to the same problems of parameter estimation, interval construction, and statistical tests but comes at the cost of defining ``prior belief'' about parameters.
 
 In this section we will ignore the problem of statistical tests, instead focusing on the common features that underpin parameter estimation and interval construction.
 Generally in parameter estimation and interval construction there are two sets of parameters, parameters of interest $\vec\theta$ and nuisance parameters $\vec\eta$.
@@ -170,7 +170,7 @@ A particularly useful TS is derived directly from the profile likelihood techniq
 \end{linenomath*}
 Using this TS to perform parameter estimation through minimization is mathematically equivalent to maximizing the likelihood, however, this form will prove to be uniquely useful for interval construction.
 
-Since frequentist statistics deals with the frequency of outcomes from repeated experiments we can use the TS that results from repeated experiments to construct probabilities.
+Since frequentist statistics deals with the frequency of outcomes from repeated experiments, we can use the TS that results from repeated experiments to construct probabilities.
 Consider for a moment a single point in the parameter space $\vec\theta_0$.
 At this point in the parameter space there is a distribution of data that can be observed, and therefore a distribution of TS functions.
 Instead of considering the distribution of TS functions originating from this point, we can simplify the picture by looking at the TS function only evaluated at this point $\TS(\vec\theta_0)$.
@@ -219,7 +219,7 @@ If we are willing to consider a hybrid approach, then some more pragmatic option
 
 Although Bayesian methods could be used to choose a single point in parameter space from which to generate the TS distributions, the more interesting application is one that uses a distribution in parameter space.
 In Bayesian statistics we can directly assign a probability density to the points in parameter space, either based on our prior information, or directly informed by the posterior distribution, from this extended perspective the probability of certain nuisance parameter values is of interest when considering the frequency of TS values for different parameters of interest.
-The prior case is simple in that we sample the from the nuisance parameter priors when generating the TS distribution which allows us to account for variability introduced by the nuisance parameters without relying on hard cutoffs or biasing our inferences with parameter values that are unrealistic.
+The prior case is simple in that we sample from the nuisance parameter priors when generating the TS distribution which allows us to account for variability introduced by the nuisance parameters without relying on hard cutoffs or biasing our inferences with parameter values that are unrealistic.
 This prior based technique is well motivated if the priors are derived from external observations, however in the case where nuisance parameters have broad or ``uninformative'' priors this motivation and benefit may break down.
 In some cases we expect nuisance parameters to be heavily constrained by the same data sample used to investigate the parameters of interest, so a different approach is merited.
 The alternative is to use the posterior distribution to construct our nuisance parameter p.d.f.
@@ -236,7 +236,7 @@ Bounding of the bin expectations within a reasonable range provides manageable i
 Unfortunately this excludes all the ``classic'' frequentist solutions to this problem.
 The hybrid Bayesian-frequentist methods in this case provide a tractable solution that accounts for the additional uncertainty.
 We can make use of the treatment described in~\refsec{sec:effective}, where the bin expectation is derived to be gamma distributed, and the expected number of data events modeled to be Poisson distributed once this expectation is known.
-Practically this can be achieved by sampling data events from $\mcl$, or through a two step process where the expectation is sampled from a gamma distribution $\gprob(\lambda;\agpar, \bgpar)$ where $\agpar = \frac{\mu^2}{\sigma^2}+1~\textmd{and}~\bgpar=\frac{\mu}{\sigma^2}$, and the data events are sampled from a Poisson distribution $\frac{\lambda^{k}e^{-\lambda}}{k!}$.
+Practically this can be achieved by sampling data events from $\mcl$, or through a two-step process where the expectation is sampled from a gamma distribution $\gprob(\lambda;\agpar, \bgpar)$ where $\agpar = \frac{\mu^2}{\sigma^2}+1~\textmd{and}~\bgpar=\frac{\mu}{\sigma^2}$, and the data events are sampled from a Poisson distribution $\frac{\lambda^{k}e^{-\lambda}}{k!}$.
 It is important to note that this procedure only applies to variations in the data and should not be used to vary simulation expectations.
 This is because the TS distribution is intended to model variations in the data, whereas the simulation used for analysis is fixed.
 Combined with a similar hybrid treatment for other nuisance parameters, this provides a more complete accounting of the uncertainties given the available modeling.
