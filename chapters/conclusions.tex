@@ -110,59 +110,59 @@ The main caveat is that these optimizations made for lower energies may not nece
 \subsubsection{Enhanced starting track event selection}
 The two muon neutrino samples described above cover only the Northern hemisphere, so we would like to include a track sample with sensitivity in the Southern sky.
 The enhanced starting track event selection (ESTES) works by taking the reconstructed event directions, computing the probability that a muon could sneak through the detector region behind the event vertex, and rejecting events where this probability is high.
-This is similar to veto techniques as a sufficiently detailed veto definition that depends on the properties of the event could produce the same event selection.
-With ESTES the main challenge for background estimation is accounting for the interplay between muon and neutrino event properties and how they may conspire to have the event accepted or rejected.
+This method is similar to veto techniques as a sufficiently detailed veto definition that depends on the event's properties could produce the same event selection.
+With ESTES, the main challenge for background estimation is accounting for the interplay between muon and neutrino event properties and how they may conspire to accept or reject the event.
 A sufficiently detailed $P_{\rm light}$ that depends on both muon and neutrino properties can account for this and allow us to use the calculation in \refsec{sec:passingfractions} for background estimation.
-Although the effective area of ESTES is smaller than other selections when all directions are considered, it is unique in its high astrophysical purity for down-going $\si\TeV$ track events.
+Although ESTES's effective area is smaller than other selections when all directions are considered, it is unique in its high astrophysical purity for down-going $\si\TeV$ track events.
 
 In addition to adding track information in the Northern sky, ESTES also has better energy resolution than other track samples.
 For the starting tracks that ESTES selects the initial hadronic cascade is observed, this additional information constrains the possible neutrino energies more than through-going track observations.
 The improved energy resolution will allow an analysis ESTES to be more sensitive to features in the energy spectrum of astrophysical neutrinos.
 
 \subsection{Analysis improvements}
-Following \reffig{fig:analysis_design} we can examine what components of the analysis may be improved.
-In the previous subsection we have already added additional samples, improving the ``event selection''.
-Event reconstruction can be improved, but this topic has not been the focus of this work, and so we will ignore it for the moment.
-The other interesting aspects that can be improved lie in the MC generation, likelihood function, and reweighting; in fact the three are related to one another.
-Signal estimation is relatively optimal at this stage of IceCube's operation apart from some unmodeled detector and ice systematics.
-Background estimation on the other hand remains challenging and is susceptible to a wider array of systematic effects.
-This can be broken down into two categories, the direct contribution of muons to the event selection and the effect of related muons on the acceptance of atmospheric neutrinos.
+Following \reffig{fig:analysis_design}, we can examine what components of the analysis may be improved.
+In the previous subsection, we have already added additional samples, improving the ``event selection''.
+Event reconstruction can be improved, but this topic has not been the focus of this work, so we will ignore it in this discussion.
+The other interesting aspects that can be improved lie in the MC generation, likelihood function, and reweighting; in fact, the three are intimately related.
+Signal estimation is relatively optimal at this stage of IceCube's operation apart from some unmodelled detector and ice systematics.
+On the other hand, background estimation remains challenging and is susceptible to a wider array of systematic effects.
+Background estimation can be broken down into two categories, the direct contribution of muons to the event selection and the effect of related muons on the acceptance of atmospheric neutrinos.
 
 \subsubsection{Atmospheric muons}
-For muons that directly contribute to observations the main problem is the large number of muons in proportion to neutrinos.
-Based purely on interaction cross section, the detection of approximately $10^6$ more muons than neutrinos is expected.
-Assuming the simulation of a single muon or neutrino event incurs similar computational cost, the simulation of background muons is vastly more expensive than simulation of neutrinos for equivalent periods of time.
-The event selections must also be extremely efficient at rejecting muons to measure the neutrino flux, so for all the expensive background estimation we can muster there is often very little information regarding the distribution of muon backgrounds in the sample.
-This is exemplified in \reffig{fig:muons} which shows the expected distribution of muons in the HESE selection.
-Most of the bins in this figure are empty and bins with simulated events only contain a handful.
-This situation indicates inadequate simulation, and the aforementioned plot is projection that reduces the number of bins by approximately a factor of three.
-Clearly this situation can be improved.
-The two main ways to improve upon this without orders of magnitude more computing power are to improve simulation efficiency, and to make better use of available information.
+For muons that directly contribute to observations, the main problem is the large number of muons in proportion to neutrinos.
+We expect the detection of approximately $10^6$ more muons than neutrinos, based purely on the interaction cross section.
+Assuming the simulation of a single muon or neutrino event incurs a similar computational cost, the simulation of background muons is vastly more expensive than the simulation of neutrinos for equivalent periods of time.
+The event selections must also be extremely efficient at rejecting muons to measure the neutrino flux, so for all the expensive background estimation we can muster, there is often very little information regarding the distribution of muon backgrounds in the sample.
+This shortcoming is exemplified in \reffig{fig:muons}, which shows the expected distribution of muons in the HESE selection.
+Most of the bins in this figure are empty, and bins with simulated events only contain a handful.
+This situation indicates inadequate simulation, and the aforementioned plot is a projection that reduces the number of bins by approximately a factor of three.
+Clearly, this situation can be improved.
+The two main ways to improve upon this without orders of magnitude more computing power are to improve simulation efficiency and to make better use of available information.
 
 On simulation efficiency, the solution lies in generating events that are more likely to pass the event selection.
 A technique to improve simulation efficiency has previously been employed in lower energy IceCube neutrino samples.
-The goal is to preferentially generate events more likely to pass the event selection, or equivalently reject events unlikely to pass the event selection before computational costs are incurred.
-To accomplish this the distribution of event properties at an intermediate level of the event selection is estimated using a small simulation sample and a kernel density estimator.
+The goal is to preferentially generate events more likely to pass the event selection or equivalently reject events unlikely to pass the event selection before computational costs are incurred.
+The distribution of event properties at an intermediate level of the event selection is estimated using a small simulation sample and a kernel density estimator.
 Once the distribution of events in energy, direction, and impact position is determined, a larger sample is generated with this as the new generation distribution.
-This lowers the amount of computational resources dedicated to events that do not pass the event selection, and leads to a larger sample at the final selection level.
+This approach lowers the computational resources dedicated to events that do not pass the event selection and leads to a larger sample at the final selection level.
 This technique works well if the event selection has multiple levels and a reasonable distribution of muons can be obtained at some point.
 
 However, veto techniques are too efficient at removing these backgrounds with the first cut for this to work.
-For these cases we can still attempt to bias the simulation generation distributions, but we must think more carefully about the kinds of events that pass the veto.
+For these cases, we can still attempt to bias the simulation generation distributions, but we must think more carefully about the kinds of events that pass the veto.
 For a neutrino event, the relevant portion of the veto is a subspace of a cylindrical region behind the interaction vertex, effectively the region near where the event enters the detector.
-Light detected in this region depends on the stochastic energy losses of the accompanying muon, and how close these energy losses are to the optical modules.
+Light detected in this region depends on the accompanying muon's stochastic energy losses and how close these energy losses are to the optical modules.
 These energy losses are determined after the muon propagation stage, which happens to be computationally inexpensive.
 Little computational cost has been incurred at this stage, so it is effective to bias the simulation chain here.
 Knowing the energy losses, the expected number of photons to be observed in the veto region can be estimated.
-From this estimation the events can be probabilistically rejected.
-This probabilistic rejection can then be accounted for in the weighting scheme.
+From this estimation, the events are probabilistically rejected.
+This probabilistic rejection is then accounted for in the weighting scheme.
 
-Once we have improved estimates of the muon distributions from biased simulation, the task remains to make better use of the information in the analysis.
+Once we have improved estimates of the muon distributions from biased simulation, the task remains to better use the information in the analysis.
 With the current treatment, empty bins in the muon distribution are poorly modeled from the likelihood perspective as the possibility of a non-zero expectation is not entertained.
 The development of methods to treat these empty bins will improve our statistical description of the muon background information we have available, and remove existing bias from our results.
-Some suggestions on this topic have been made but so far none are simultaneously satisfactory in their modeling of the per bin expectation and the corresponding uncertainty.
+Some suggestions on this topic have been made, but so far, none are simultaneously satisfactory in their modeling of the per bin expectation and the corresponding uncertainty.
 Possible solutions include nested models of the binned parameter space, kernel density estimation of the distribution with corresponding uncertainty estimation, and hierarchical modeling of the physical distributions and selection efficiencies.
-Better treatment of this problem will be important as we attempt to measure features in more background dominated regions.
+Better treatment of this problem will be vital as we attempt to measure features in more background dominated regions.
 However, more work on this topic is needed before we can arrive at a satisfactory solution.
 
 \subsubsection{Atmospheric neutrinos}
