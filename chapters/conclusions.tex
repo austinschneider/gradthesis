@@ -166,38 +166,38 @@ Better treatment of this problem will be vital as we attempt to measure features
 However, more work on this topic is needed before we can arrive at a satisfactory solution.
 
 \subsubsection{Atmospheric neutrinos}
-As shown in the reweighting definitions, the atmospheric neutrino expectations depend on the neutrino flux model and the passing fraction calculations.
+As shown in the reweighting definitions, the atmospheric neutrino expectations depend on the neutrino flux and passing fraction calculations.
 Both the flux model and the passing fractions are susceptible to systematic effects in the cosmic ray flux and hadronic interactions.
-Thankfully it is possible to model these through a combination of the software packages MCEq and nuveto for the flux and passing fractions respectively.
+Thankfully it is possible to model these through a combination of the software packages MCEq and nuveto for the flux and passing fractions, respectively.
 Modeling of the hadronic interaction uncertainties can be rather complex, with modeling and calculation methods varying wildly.
 
-So far a rough scheme has been developed to describe the hadronic model uncertainties by Barr et. al.~\cite{Barr:2004br}, that breaks the parameter space into rectangular box regions and assigns uncertainties to each region based on experimental measurements.
+So far, a rough scheme has been developed to describe the hadronic model uncertainties by Barr et. al.~\cite{Barr:2004br}, which breaks the parameter space into rectangular box regions and assigns uncertainties to each region based on experimental measurements.
 The chosen box region parameters can then be varied independently according to their prescribed uncertainties.
 It is possible to develop better uncertainty treatments with the available data, but these have yet to be constructed by analyzers.
-The Barr scheme for hadronic model modifications has been implemented in MCEq, so these modifications can be translated to variations in the neutrino flux and passing fractions with our available tools.
-Ideally we would account for hadronic model variations by allowing these box scaling parameters to vary according to known uncertainties, thereby modifying the background neutrino flux.
-This has been implemented in IceCube's search for $\si\eV$ scale sterile neutrinos as a first order approximation, where the gradient of the neutrino flux is computed with respect to the Barr parameters, and the atmospheric flux is allowed to vary linearly.
-In the next generation of analyses we would hope to apply this same technique to the atmospheric flux and the passing fractions simultaneously.
-Updating to better treatments of the uncertainty as they become available, and considering higher order variations may be needed as we incorporate more data into the analysis.
+The Barr scheme for hadronic model modifications has been implemented in MCEq so that these modifications can be translated to variations in the neutrino flux and passing fractions with our available tools.
+Ideally, we would account for hadronic model variations by allowing these box scaling parameters to vary according to known uncertainties, thereby modifying the background neutrino flux.
+This method is implemented in IceCube's search for $\si\eV$ scale sterile neutrinos as a first-order approximation, where the gradient of the neutrino flux is computed with respect to the Barr parameters, and the atmospheric flux is allowed to vary linearly.
+We would hope to apply this same technique to the atmospheric flux and the passing fractions simultaneously in the next generation of analyses.
+Updating to better treatments of the uncertainty as they become available, and considering higher-order variations may be needed as we incorporate more data into the analysis.
 
 A wide variety of cosmic ray flux models currently exist based on a wealth of measurements.
-Unfortunately, most cosmic ray experiments are not able to differentiate between different nuclei on the level of a single nucleon.
+Unfortunately, most cosmic ray experiments cannot differentiate between different nuclei on the level of a single nucleon.
 For this reason, many models of the cosmic ray flux will group various nuclei into between three and five mass groups, amongst which the spectrum may differ.
 
 Fortunately, these models mostly follow a similar generic prescription that is so far capable of describing the observed data.
 The cosmic ray spectrum is approximately a power law for any narrow energy range, with changes in the spectral index at the ``knee'', ``second knee'', and ``ankle''.
 This spectral structure motivates a multi-component functional form common to many CR flux models, where each component is power law with a cutoff,
 \begin{linenomath}
-\begin{equation}
+	\begin{equation}
 	\frac{d^2\Phi_m}{dEd\Omega}\left(E_m\right) = \sum_i^{n_m} a_{i,m} E_m^{-b_{i,m}} e^{-E/c_{i,m}}.
-\end{equation}
+	\end{equation}
 	\label{eq:cr_spectrum}
 \end{linenomath}
 In this parameterization, the flux for each mass group $m$ depends on the normalizations $a_{i,m}$, spectral indices $b_{i,m}$, and cutoff energies $c_{i,m}$ of the different components.
 Most models are constructed using similar basis functions, the parameters of which are then fit to some subset of the available cosmic ray data.
 The same exercise can be performed where a likelihood connects the cosmic ray model parameters and the available data, but with MCEq we can predict the neutrino flux for any arbitrary cosmic ray model.
-With this connection we can construct a combined analysis of the neutrino and cosmic ray data, thereby accounting for cosmic ray uncertainties in the most direct manner possible.
-This setup has some computational limitations as MCEq is slower than other steps in the likelihood evaluation for current analyses, but there are some possible workarounds to limit the extra computation needed for each evaluation.
+With this connection, we can construct a combined analysis of the neutrino and cosmic ray data, thereby accounting for cosmic ray uncertainties in the most direct manner possible.
+This setup has some computational limitations as MCEq is slower than other steps in the likelihood evaluation for current analyses, but some possible workarounds limit the extra computation needed for each evaluation.
 
 \subsubsection{Detector systematics}
 One of the largest sources of systematic uncertainty in IceCube directional reconstructions is the ice properties.
