@@ -1,13 +1,13 @@
 \chapter{Estimation of backgrounds}\label{chapter:backgrounds}\label{sec:background_estimation}
 
 In the search for astrophysical neutrinos, the predominant backgrounds are from atmospheric neutrinos and atmospheric muons.
-Single atmospheric neutrinos are able to produce the same event signatures as astrophysical neutrinos because they are not fundamentally different from astrophysical neutrinos.
-Atmospheric neutrinos can only be distinguished from their astrophysical counterparts by examining the population properties, or by the fact that muons produced in the same air shower can also reach the detector simultaneously.
+Single atmospheric neutrinos can produce the same event signatures as astrophysical neutrinos because they are not fundamentally different from astrophysical neutrinos.
+Atmospheric neutrinos can only be distinguished from their astrophysical counterparts by examining the population properties or the fact that muons produced in the same air shower can also simultaneously reach the detector.
 Muons from cosmic ray air showers differ from neutrinos in their event signature as they always produce light while entering the detector, while neutrinos can interact within the detector volume before any light is produced near the edge of the detector.
 Muons can also only be observed up to a certain amount of overburden, beyond which they will lose their energy and decay before reaching the detector.
-This means the up-going observation region is free from atmospheric muons.
+The up-going observation region is then free from atmospheric muons.
 The task in this section is to model these backgrounds and estimate the contribution of them in the final event selection.
-For atmospheric neutrinos the initial flux is modeled with existing calculations.
+For atmospheric neutrinos, the initial flux is modeled with existing calculations.
 However, the estimation of this background in the sample must also account for the fraction of atmospheric neutrinos rejected because of muons present in the air shower.
 Section~\ref{sec:nu_fluxes} details how the atmospheric neutrino flux is modeled, while \refsec{sec:passingfractions} explores a new calculation of the atmospheric neutrino passing fractions and explores the many factors that may affect this calculation, and \refsec{sec:hese_passingfractions} applies this calculation to the HESE selection.
 The passing fraction calculation described in this chapter was developed in collaboration with Carlos A. Argüelles, Sergio Palomares-Ruiz, Logan Wille, and Tianlu Yuan~\cite{Arguelles:2018awr}.
@@ -17,21 +17,21 @@ Finally, \refsec{sec:muon_background} explores the contribution of lone muons to
 \subsection{Neutrino fluxes\label{sec:nu_fluxes}}
 
 Atmospheric neutrinos are predominantly produced by the decay of pions and kaons, which we shall call the ``conventional'' component.
-At energies above $\SI{1}\TeV$ the spectrum of the conventional component is softer than the incident cosmic-ray spectrum by one unit in the spectral index, due to the interactions of these mesons in the atmosphere.
+At energies above $\SI{1}\TeV$, the conventional component spectrum is softer than the incident cosmic-ray spectrum by one unit in the spectral index due to the interactions of these mesons in the atmosphere.
 The conventional neutrino flux is largest at the horizon, $\cos\theta_z=0$~\cite{Gaisser:2002jj,Barr:2004br,Honda:2006qj,Petrova:2012qf} because the larger path length in the thin atmosphere increases the proportion of pions that can decay before interacting.
 To model the conventional neutrino flux, we use a parameterization of the Honda {\it{}et al.} 2006 flux calculation~\cite{Honda:2006qj} given in~\cite{Montaruli:2011as} which at the highest energies uses the analytic parameterization of the neutrino flux in~\cite{Gaisser:2002jj}.
 This calculation is tuned to match observations of atmospheric muons, which remain difficult to predict from first principles.
 
 A sub-leading -- yet unobserved -- contribution due to charmed hadron decays is expected to be important above $\sim\SI{100}\TeV$~\cite{Bhattacharya:2015jpa}.
 Since the charmed hadrons decay promptly and do not interact in the atmosphere at the energies relevant for this analysis, we call this the ``prompt'' component.
-Thus, at these energies, the prompt component has a spectral index close to the incident cosmic-ray spectrum.
+Thus, the prompt component has a spectral index close to the incident cosmic-ray spectrum at these energies.
 The prompt flux is also constant with respect to the cosine of the zenith angle, as the short decay time of the charmed hadrons removes the effect of different path lengths through the atmosphere.
 To model the prompt neutrino flux at Earth's surface, we use the flux computed in~\cite{Bhattacharya:2015jpa}.
 
-The angular and energy distribution of the initial atmospheric neutrino flux is modified with respect to the flux at Earth's surface because of absorption of high-energy neutrinos in the Earth.
-We account for this using a dedicated Monte Carlo, similar to the one described in~\cite{Gazizov:2004va}, that simulates the propagation of neutrinos in the Earth.
-In this Monte Carlo we use the isoscalar neutrino cross sections given in~\cite{CooperSarkar:2011pa} for the neutrino-nucleon interactions, and the Earth density model described in~\cite{Dziewonski:1981xy}.
-Neutrino-electron scattering can be safely neglected except for resonant-W production~\cite{Glashow:1960zz} which we include.
+The angular and energy distribution of the initial atmospheric neutrino flux is modified with respect to the flux at Earth's surface because of the absorption of high-energy neutrinos in the Earth.
+We account for this using a dedicated Monte Carlo, similar to the one described in~\cite{Gazizov:2004va}, which simulates the propagation of neutrinos in the Earth.
+In this Monte Carlo, we use the isoscalar neutrino cross sections given in~\cite{CooperSarkar:2011pa} for the neutrino-nucleon interactions and the Earth density model described in~\cite{Dziewonski:1981xy}.
+Neutrino-electron scattering can be safely neglected except for resonant-W production~\cite{Glashow:1960zz}, which we include.
 We ignore the uncertainties on the Earth opacity as they are known to be sub-leading in this energy range~\cite{Gandhi:1995tf,CooperSarkar:2011pa,Vincent:2017svp}.
 
 Modeling the atmospheric neutrino flux with these two components does not account for the contribution of $K_s$~\cite{Gaisser:2014pda}, which is $\sim \SI{10}\percent$ at $\SI{100}\TeV$ and well-within our uncertainties.
@@ -47,19 +47,19 @@ In order to account for uncertainties in the cosmic-ray flux~\cite{Dembinski:201
 \end{linenomath*}
 where $\phi^\pi_\nu$, $\phi^K_\nu$, and $\phi^p_\nu$ are the conventional pion, kaon, and prompt atmospheric neutrino fluxes at a neutrino energy $E_\nu$ respectively.
 
-The parameters $\convnorm$ and $\promptnorm$ are normalizations for the conventional and prompt normalizations respectively; $\pik$ allows us to modify the relative kaon to pion contributions; and the $\crdeltagamma$ parameter allows for hardening or softening of the atmospheric neutrino component to account for uncertainties in the cosmic-ray flux slope.
+The parameters $\convnorm$ and $\promptnorm$ are normalizations for the conventional and prompt normalizations respectively; $\pik$ allows us to modify the relative kaon to pion contributions; the $\crdeltagamma$ parameter allows for hardening or softening of the atmospheric neutrino component to account for uncertainties in the cosmic-ray flux slope.
 These parameters are incorporated into the analysis as nuisance parameters with priors as summarized in \reftab{tbl:priors}.
-This analysis refrains from directly using prior information from other IceCube neutrino studies in order to provide results independent of other neutrino samples.
+This analysis refrains from directly using prior information from other IceCube neutrino studies to provide results independent of other neutrino samples.
 
 The conventional normalization prior is motivated by studies of the total uncertainty due to cosmic-ray and high-energy hadronic processes~\cite{Fedynitch:2012fs}; it is chosen to be Gaussian for simplicity with an expectation centered on the baseline flux model and appropriate variance.
 The standard deviation of the Gaussian prior on the cosmic-ray slope parameter has been chosen to be $0.05$ in order to accommodate values measured at intermediate~\cite{Karelin:2011zz} and high~\cite{Bartoli:2015fhw,Yoon:2017qjx,Alfaro:2017cwx} energies.
-The uncertainty on corrections to the ratios of neutrinos-to-anti-neutrinos ($\atmonunubar$) and kaon-pion yields ($\pik$) were estimated by comparing the expectation of different atmospheric neutrino calculations and a Gaussian prior width was chosen that encompasses their predictions.
+The uncertainty on corrections to the ratios of neutrinos-to-anti-neutrinos ($\atmonunubar$) and kaon-pion yields ($\pik$) were estimated by comparing the expectation of different atmospheric neutrino calculations, and a Gaussian prior width was chosen that encompasses their predictions.
 Details regarding these corrections and the different atmospheric neutrino flux calculations can be found in~\cite{CollinFluxes,Jones:2015bya}.
 Finally, the parameters $E_0^c=\SI{2020}\GeV$ and $E_0^p=\SI{7887}\GeV$ are points of fixed differential flux for the conventional and prompt components.
 
 This simple parameterization of the atmospheric neutrino flux and its uncertainties is chosen because it models the primary systematic effects of physical uncertainties that are observable with this sample.
 Of course this neglects other physical uncertainties, such as those regarding the hadronic interactions in cosmic ray air showers and the composition of the cosmic ray particles.
-But, these effects do not produce modifications to the observations that can be statistically discerned with the amount of data available.
+These effects do not produce modifications to the observations that can be statistically discerned with the amount of data available.
 Later it will be shown that even the modeled systematic uncertainties have a small effect on astrophysical measurements compared to the statistical uncertainties.
 
 The above description models the flux of atmospheric neutrinos, but does not fully encapsulate the detector response to atmospheric neutrinos.
@@ -68,24 +68,24 @@ This is discussed at length in \refsec{sec:muon_background}.
 
 \subsection{Atmospheric neutrino passing fractions}
 \label{sec:passingfractions}
-This discussion and study of atmospheric passing fractions is directly adapted from a collaborative work with Carlos A. Argüelles, Sergio Palomares-Ruiz, Logan Wille, and Tianlu Yuan~\cite{Arguelles:2018awr}.
+This discussion and study of atmospheric passing fractions are directly adapted from collaborative work with Carlos A. Argüelles, Sergio Palomares-Ruiz, Logan Wille, and Tianlu Yuan~\cite{Arguelles:2018awr}.
 Figures and equations are reproduced from~\cite{Arguelles:2018awr}, and the text follows the same thread of discussion.
 
 As noted in~\cite{Schonert:2008is}, muons produced in the same air-shower may trigger the detector veto in coincidence with the neutrino interaction.
 Dedicated simulations of cosmic ray air showers where neutrino interactions are forced can provide observational predictions for the distribution of these combined muon+neutrino events.
 However, available simulation techniques to create these estimates remain prohibitively expensive for the desired accuracy.
 Instead, we look to model this effect by computing an average efficiency with respect to the case where no muons reach the detector.
-To account for this when weighting the neutrino-only simulation each atmospheric neutrino flux component, $i$, is multiplied by an efficiency.
+To account for this when weighting the neutrino-only simulation, each atmospheric neutrino flux component, $i$, is multiplied by an efficiency.
 This efficiency is referred to as the ``atmospheric neutrino passing fraction'', and denoted by $\mathcal{P}^{i,\alpha}_{passing}$, for each neutrino flavor $\alpha$.
 
-The passing fraction depends on the details of air shower development, which includes modeling of the hadronic interaction, and the energy losses of muons in the material between the shower and the detector. 
+The passing fraction depends on air shower development details, which includes modeling of the hadronic interaction and the energy losses of muons in the material between the shower and the detector. 
 Air-shower properties are averaged over in this calculation, but the passing fraction is still a probability that is conditional on the neutrino properties.
-Of particular interest are the potential systematic dependencies of the passing fraction, which include the cosmic ray spectrum and composition, the hadronic interaction model, muon energy losses, and the atmospheric density model.
-The calculation of the passing fraction is designed so that these systematic dependencies may be changed between different alternatives.
-Additionally, the detector response enters in only one place in the formalism as a probability of muon rejection.
-This allows for simple variation of the detector response modeling in a generic way.
-To perform this calculation a framework was developed that leverages the Matrix Cascade Equation (MCEq) package in key portions of the calculation.
-Validation of the computed passing fractions is performed against detailed air shower simulations with COsmic Ray SImulations for KAscade (CORSIKA), and excellent agreement is found as a result.
+Of particular interest are the passing fraction's potential systematic dependencies, which include the cosmic ray spectrum and composition, the hadronic interaction model, muon energy losses, and the atmospheric density model.
+The passing fraction calculation is designed so that these systematic dependencies may be changed between different alternatives.
+Additionally, the detector response enters only in one place in the formalism as a probability of muon rejection.
+This fact allows for simple variation of the detector response modeling in a generic way.
+A framework was developed to perform this calculation that leverages the Matrix Cascade Equation (MCEq) package in key portions of the calculation.
+Validation of the computed passing fractions is performed against detailed air shower simulations with COsmic Ray SImulations for KAscade (CORSIKA), and excellent agreement is found.
 
 Departure from the lone-neutrino case is based on the coincidence of a muon and neutrino from the same air-shower that occurs in both time and direction.
 Thus,
@@ -98,8 +98,8 @@ As the IceCube detector is deep underground, the contribution to slant depth fro
 With only the slant depth of the Earth contributing, $X_\mu$ is fully specified by the zenith angle $\theta_z$ in detector coordinates and the depth $d$.
 Stochasticity of the muon energy losses is accounted for by the distribution $\Prob_{\rm reach}$, which is computed by tabulating simulations of muons propagated in ice by the software $\MMC$.
 Using the conditional probability distribution $\Prob_{\rm reach}$ instead of average muon behavior ensures that contributions from the distribution tails are accounted for.
-These contributions from the tails become important for very large slant depths, where muons on average do not reach the detector.
-Departure from the neutrino-only case requires both the muon to reach the detector, but also for the muon to trigger a response, in this case for the muon to {\it light} the veto.
+The contributions from the tails become important for very large slant depths, where muons on average do not reach the detector.
+Departure from the neutrino-only case requires both the muon to reach the detector and the muon to trigger a response, in this case for the muon to {\it light} the veto.
 The quantity
 \begin{equation}
 \label{eq:plight}
@@ -115,12 +115,12 @@ With both $\Prob_{\rm light}$ and $\Prob_{\rm reach}$ in hand, the probability o
 \end{equation}
 
 Note that losses also depend on the medium and not only on the slant depth, whose dependence on $\theta_z$ we write explicitly. If the medium surrounding the detector is homogeneous, the dependence on $X_\mu$ can be exchanged for distance without loss of generality.
-From here on to simplify the notation, the dependence on $X_\mu$ will be replaced by a dependence on $\theta_z$ and the dependence on $d$ will be neglected.
+To simplify the notation from here on, the dependence on $X_\mu$ will be replaced by a dependence on $\theta_z$ and the dependence on $d$ will be neglected.
 These dependencies can be added back in at the end of the calculation without any change to the result.
 
 \begin{figure}
 	\centering
-    \begin{subfigure}{\linewidth}
+	\begin{subfigure}{\linewidth}
 		\centering
 		\includegraphics[width=0.8\linewidth]{figures/preach_median}
 	\end{subfigure}
@@ -129,22 +129,22 @@ These dependencies can be added back in at the end of the calculation without an
 		\includegraphics[width=0.8\linewidth]{figures/preach_skew}
 	\end{subfigure}
 	\caption{\textbf{\textit{Muon Final Energy Statistics.}} Muons propagating in ice were simulated for a wide range of initial energies, and at a set of predefined distances their energy was recorded.
-	This results in a distribution of final muon energies for each combination of initial muon energy and overburden.
-	These two plots show statistics of these distributions, with the upper plot displaying the median and the lower plot displaying the skew.
-	Previous calculations only used the median of these distributions, creating a one-to-one mapping from initial to final muon energy for each overburden or angle as shown in the upper panel.
-	However, the large skew of these distributions shows us that the tails become important for large overburdens as the lower panel shows.
+		This results in a distribution of final muon energies for each combination of initial muon energy and overburden.
+		These two plots show statistics of these distributions, with the upper plot displaying the median and the lower plot displaying the skew.
+		Previous calculations only used the median of these distributions, creating a one-to-one mapping from initial to final muon energy for each overburden or angle as shown in the upper panel.
+		However, the large skew of these distributions shows us that the tails become important for large overburdens as the lower panel shows.
 	}
 	\label{fig:preach_stats}
 \end{figure}
 
-For an atmospheric neutrino of known energy and direction the passing fraction is defined as the probability that muons from the same air shower do not trigger the detector veto.
+For an atmospheric neutrino of known energy and direction, the passing fraction is defined as the probability that muons from the same air shower do not trigger the detector veto.
 This probability is denoted $\Prob_{\rm pass}$~\cite{Schonert:2008is, Gaisser:2014bja} and can be written as the ratio
 \begin{equation}
 \Prob_{\rm pass} (E_\nu, \theta_z) = \frac{\phi_\nu^{\rm pass}(E_\nu, \theta_z)}{\phi_\nu(E_\nu, \theta_z)} ~,
 \end{equation}
 where $E_\nu$ is the neutrino energy, $\theta_z$ is the zenith angle, $\phi_\nu^{\rm pass}$ is the differential flux of atmospheric neutrinos accompanied by muons that are detected, and $\phi_\nu$ is the total differential atmospheric neutrino flux.
 In the next sections, passing fractions for electron neutrinos and muon neutrinos are derived.
-As tau neutrinos by comparison make up a very small portion of the atmospheric flux, there is no dedicated discussion for this case.
+As tau neutrinos by comparison, make up a very small portion of the atmospheric flux, there is no dedicated discussion for this case.
 However, the concerns for tau neutrinos are very similar to those of electron neutrinos minus the differences in their production.
 
 \subsubsection{$\nu_e$ passing fraction}
@@ -618,7 +618,6 @@ In \reffig{fig:P_light} we show the probability that a muon will pass the veto a
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{results/HESE_Final_Paper/figures/plight}
-	\internallinenumbers
 	\caption{\textbf{\textit{Muon veto passing fraction.}} Each line shows the fraction of muons of a given energy at the detector edge, $E_\mu$, that pass without triggering the veto when entering the detector at a particular depth.
 		Three depths are shown: 1500, 1950, and 2300 meters from the surface; with lines of darkening color as the depth increases.
 		The veto efficiency increases with the muon energy.
@@ -650,7 +649,6 @@ This is best seen when comparing the atmospheric fluxes before and after the vet
 	\subfloat{\includegraphics[width=0.3\linewidth]{results/HESE_Final_Paper/figures/prompt_0_1_passing_fraction}}
 	\subfloat{\includegraphics[width=0.3\linewidth]{results/HESE_Final_Paper/figures/prompt_0_3_passing_fraction}}
 	\subfloat{\includegraphics[width=0.3\linewidth]{results/HESE_Final_Paper/figures/prompt_0_9_passing_fraction}}
-	\internallinenumbers
 	\caption{\textbf{\textit{Conventional and prompt atmospheric component passing fraction.}}
 		The top row of plots shows the atmospheric neutrino passing fraction as a function of the neutrino energy for a flux of neutrinos originating from pions and kaons, assuming the Hillas-Gaisser H3a~\cite{Gaisser:2013bla,Gaisser:2011cc,Hillas:2006ms} cosmic-ray model and SIBYLL 2.3c~\cite{Riehn:2017mfm} hadronic interaction model.
 		While the bottom row of plots shows the atmospheric neutrino passing fraction for a flux of neutrinos originating from charmed hadrons under the same assumptions.
@@ -662,7 +660,6 @@ This is best seen when comparing the atmospheric fluxes before and after the vet
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{results/HESE_Final_Paper/figures/diffuse_hist_all_conv}
-	\internallinenumbers
 	\caption{\textbf{\textit{Expected distribution of atmospheric neutrinos produced by pions and kaons in the sample.}} Distribution of neutrinos that pass the veto as a function of the deposited energy and the cosine of the zenith angle assuming nominal values for the nuisance parameters.
 		The dashed line at $\SI{60}\TeV$ marks the low energy cut of the analysis.
 		Suppression in the down-going region is due to the veto, while suppression in the up-going region is due to absorption of neutrinos in the Earth.}\label{fig:conventional_distribution}
@@ -671,7 +668,6 @@ This is best seen when comparing the atmospheric fluxes before and after the vet
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{results/HESE_Final_Paper/figures/diffuse_hist_all_prompt}
-	\internallinenumbers
 	\caption{\textbf{\textit{Expected distribution of atmospheric neutrinos produced by charmed hadrons in the sample.}} Distribution of neutrinos that pass the veto as a function of the deposited energy and the cosine of the zenith angle assuming nominal nuisance parameters and the BERSS flux calculation for neutrinos from  charmed hadrons~\cite{Bhattacharya:2015jpa}.
 		The dashed line at $\SI{60}\TeV$ marks the low energy cut of the analysis.
 		Suppression in the down-going region is due to the veto, while suppression in the up-going region is due to absorption of neutrinos in the Earth.}\label{fig:prompt_distribution}
@@ -680,7 +676,6 @@ This is best seen when comparing the atmospheric fluxes before and after the vet
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{figures/diffuse_hist_all_astro_fit}
-	\internallinenumbers
 	\caption{\textbf{\textit{Expected distribution of astrophysical neutrinos from the best-fit spectrum.}} Distribution of neutrinos that pass the veto as a function of the deposited energy and the cosine of the zenith angle assuming the best-fit parameters of an astrophysical power-law spectrum.
 	The dashed line at $\SI{60}\TeV$ marks the low energy cut of the analysis.
 	Suppression in the up-going region is due to absorption of neutrinos in the Earth, while there is no suppression in the down-going region in the absence of accompanying muons.}\label{fig:astro_distribution}
@@ -689,7 +684,6 @@ This is best seen when comparing the atmospheric fluxes before and after the vet
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{results/HESE_Final_Paper/figures/neutrino_spectrum}
-	\internallinenumbers
 	\caption{\textbf{\textit{All-sky astrophysical neutrino flux compared to down-going atmospheric neutrino fluxes before and after the veto.}}
 		The atmospheric neutrino fluxes considered in this analysis are shown as dashed lines.
 		The solid lines show the product of the atmospheric flux with the passing fraction averaged over depth at a zenith angle of $\SI{0}\degree$.
@@ -733,7 +727,6 @@ The prior on the atmospheric muon rate is chosen to be Gaussian with a $\SI{50}\
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{results/HESE_Final_Paper/figures/diffuse_hist_all_muons}
-	\internallinenumbers
 	\caption{\textbf{\textit{Expected distribution of atmospheric muons in the sample.}} Distribution of muons that pass the veto as calculated with \MUONGUN~as a function of the deposited energy and the cosine of the zenith angle.
 		The normalization is set to match the data driven sub-detector study.
 		The dashed line at $\SI{60}\TeV$ marks the low energy cut of the analysis.}\label{fig:muons}
@@ -758,7 +751,6 @@ The prior on the atmospheric muon rate is chosen to be Gaussian with a $\SI{50}\
 		Total & 17 \\
 		\bottomrule
 	\end{tabular}
-	\internallinenumbers
 	\caption{\textbf{\textit{Number of tagged muons per season.}}
 		Table shows the number of tagged muons used to construct the muon normalization prior.
 		The first season, 2010, used a partial IceCube configuration with 79 strings, the rest of the seasons took data with the full configuration of 86 strings.
